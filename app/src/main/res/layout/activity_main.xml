@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.mastercoding.bakalaurinis.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".view.MainActivity">
+
+        <TextView
+            android:id="@+id/textView_login_page"
+            android:layout_width="252dp"
+            android:layout_height="54dp"
+            android:gravity="center"
+            android:text="Prisijunkite"
+            android:textColor="#673AB7"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/editText_login_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.864" />
+
+        <EditText
+            android:id="@+id/editText_login_email"
+            android:layout_width="330dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:hint="el.paštas"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/editText_login_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_login_password"
+            android:layout_width="330dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="136dp"
+            android:ems="10"
+            android:hint="slaptažodis"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/button_login_page_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_login_page_register"
+            android:layout_width="194dp"
+            android:layout_height="65dp"
+            android:layout_marginBottom="144dp"
+            android:text="Registruotis"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_login_page_login"
+            android:layout_width="194dp"
+            android:layout_height="65dp"
+            android:layout_marginBottom="28dp"
+            android:text="Prisijungti"
+            android:textColorHighlight="#673AB7"
+            android:textColorLink="#FFEB3B"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_login_page_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/login_page_monster"
+            android:layout_width="126dp"
+            android:layout_height="295dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.963"
+            app:srcCompat="@drawable/monster" />
+
+        <ImageView
+            android:id="@+id/login_page_owl"
+            android:layout_width="85dp"
+            android:layout_height="137dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView_login_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/owl" />
+
+        <ImageView
+            android:id="@+id/login_page_jelly"
+            android:layout_width="128dp"
+            android:layout_height="144dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_login_page_register"
+            app:layout_constraintVertical_bias="0.848"
+            app:srcCompat="@drawable/jelly" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
