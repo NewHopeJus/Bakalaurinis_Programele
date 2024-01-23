@@ -2,7 +2,11 @@ package com.mastercoding.bakalaurinis.view.main_menu;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
 
 import android.view.LayoutInflater;
@@ -26,14 +30,38 @@ public class MainMenuListFragment extends ListFragment {
                 inflater.getContext(), R.layout.fragment_main_menu_list,
                 mainMenuArray);
         setListAdapter(adapter);
-        return super.onCreateView(inflater, container, savedInstanceState);    }
+
+        return super.onCreateView(inflater, container, savedInstanceState);
+
+    }
 
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ListView listView = getListView();
-        listView.setPadding(100, 0, 100, 0); // Left, Top, Right, Bottom padding in pixels
+        listView.setPadding(100, 0, 100, 20); // kad prideti tarpus prie pagrindinio menu listo is sonu
         listView.setClipToPadding(false);
+    }
+
+    @Override
+    public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        //jei pasirinko spresti
+        if(position == 0){
+            LevelsListFragment levelsListFragment = new LevelsListFragment();
+            FragmentManager manager=getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction= manager.beginTransaction();
+           //replacinam fragmenta is main menu su lygiais
+            //pirmas parametras - konteineris fragmentams
+            // antras parametras naujas fragmentas
+
+            fragmentTransaction.replace(R.id.fragment_container_menu_list,levelsListFragment);
+            fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
+            fragmentTransaction.commit();
+        }
+
+
     }
 }

@@ -146,22 +146,20 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void showInfoPopup(View anchorView, String popupText) {
-        // Inflate the layout of the popup window
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.popup_window, null);
 
         // Create the popup window
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // Allows taps outside the popup to dismiss it
+        boolean focusable = true;
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
 
         TextView popupTextView = popupView.findViewById(R.id.popupTextView);
         popupTextView.setText(popupText);
-        // Show the popup window, anchored to the clicked ImageView
         popupWindow.showAsDropDown(anchorView);
 
-        // Dismiss the popup window when touched
+        // Dismisinam popup kai parodo
         popupView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
