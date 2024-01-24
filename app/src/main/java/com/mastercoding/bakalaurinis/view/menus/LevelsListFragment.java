@@ -50,42 +50,35 @@ public class LevelsListFragment extends ListFragment {
         //duomenu struktura kuri leidzia passinnti duomenis tarp skirtingu activities ir fragmentu
         Bundle args = new Bundle();
 
-        if(position == 0){
-            args.putString("levelName", "1 lygis"); // idedam kad zinot poto koki lygi
+        switch (position){
+            //ziurim koks pasirinktas lygis menu
+            case 0:
+                args.putString("levelName", "1 lygis"); // idedam kad zinot poto kokio lygio temas rodyti topics list fragment
+                break;
+            case 1:
+                args.putString("levelName", "2 lygis");
+                break;
+            case 2:
+                args.putString("levelName", "3 lygis");
+                break;
+            case 3:
+                args.putString("levelName", "4 lygis");
+                break;
+            default:
+                args.putString("levelName", "5 lygis");
+                break;
+
+        }
             topicsListFragment.setArguments(args);
 
             FragmentManager manager=getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction= manager.beginTransaction();
-            //replacinam fragmenta 1 lygio i jo topicu
-            //pirmas parametras - konteineris fragmentams
-            // antras parametras naujas fragmentas
 
+            //replacinam fragmenta lygio i jo topicu
             fragmentTransaction.replace(R.id.fragment_container_menu_list,topicsListFragment);
             fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
             fragmentTransaction.commit();
         }
-
-        if(position == 1){
-            args.putString("levelName", "2 lygis"); // idedam kad zinot poto koki lygi
-            topicsListFragment.setArguments(args);
-
-            FragmentManager manager=getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction= manager.beginTransaction();
-            //replacinam fragmenta 1 lygio i jo topicu
-            //pirmas parametras - konteineris fragmentams
-            // antras parametras naujas fragmentas
-
-            fragmentTransaction.replace(R.id.fragment_container_menu_list,topicsListFragment);
-            fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
-            fragmentTransaction.commit();
-        }
-
-
-
-
-    }
-
-
 
 
 }

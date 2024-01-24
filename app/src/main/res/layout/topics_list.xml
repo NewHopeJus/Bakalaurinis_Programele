@@ -8,4 +8,5 @@
     android:textSize="28sp"
     android:textColor="#673AB7"
     android:padding="16dp"
+    android:background="@drawable/listview_border"
     />
