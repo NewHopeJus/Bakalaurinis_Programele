@@ -1,4 +1,4 @@
-package com.mastercoding.bakalaurinis.view.main_menu;
+package com.mastercoding.bakalaurinis.view.menus;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;

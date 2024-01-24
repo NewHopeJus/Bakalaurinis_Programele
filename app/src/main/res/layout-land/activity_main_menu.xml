@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".view.main_menu.MainMenuActivity">
+    tools:context=".view.menus.MainMenuActivity">
 
     <fragment
         android:id="@+id/fragment_menu_list"
-        android:name="com.mastercoding.bakalaurinis.view.main_menu.MainMenuListFragment"
+        android:name="com.mastercoding.bakalaurinis.view.menus.MainMenuListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginTop="44dp"

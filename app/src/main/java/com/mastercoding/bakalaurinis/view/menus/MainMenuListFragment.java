@@ -1,10 +1,8 @@
-package com.mastercoding.bakalaurinis.view.main_menu;
+package com.mastercoding.bakalaurinis.view.menus;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;

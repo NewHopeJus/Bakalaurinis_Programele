@@ -19,7 +19,7 @@ import com.mastercoding.bakalaurinis.databinding.ActivityRegisterBinding;
 import com.mastercoding.bakalaurinis.model.User;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
 import com.mastercoding.bakalaurinis.retrofit.UserService;
-import com.mastercoding.bakalaurinis.view.main_menu.MainMenuActivity;
+import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;

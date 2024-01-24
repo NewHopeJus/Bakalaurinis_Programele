@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view.main_menu.MainMenuActivity"
+            android:name=".view.menus.MainMenuActivity"
             android:exported="false" />
         <activity
             android:name=".view.Temp2"

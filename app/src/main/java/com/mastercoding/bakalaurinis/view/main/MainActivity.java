@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainBinding;
-import com.mastercoding.bakalaurinis.view.main_menu.MainMenuActivity;
+import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
 
 public class MainActivity extends AppCompatActivity {
 
