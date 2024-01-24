@@ -20,6 +20,7 @@ public class MainMenuActivity extends AppCompatActivity {
             MainMenuListFragment mainMenuListFragment = new MainMenuListFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container_menu_list, mainMenuListFragment)
+                    .addToBackStack("home") //nes reikes grizti
                     .commit();
         }
 
@@ -41,14 +42,19 @@ public class MainMenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // atgal mygtukas ant toolbaro
         if (item.getItemId() == R.id.action_back) {
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            //nes jei maziau uz viena tai removina visus fragmentus
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
                 getSupportFragmentManager().popBackStack();
                 return true;
             }
             return true;
-        } else if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
+        } else if (item.getItemId() == R.id.action_home) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+              //0: This flag means that the operation will only pop the back stack up to the
+                // given fragment (in this case, "home" fragment).
+                getSupportFragmentManager().popBackStack("home", 0);
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }

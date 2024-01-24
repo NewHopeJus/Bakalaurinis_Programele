@@ -54,9 +54,8 @@ public class MainMenuListFragment extends ListFragment {
            //replacinam fragmenta is main menu su lygiais
             //pirmas parametras - konteineris fragmentams
             // antras parametras naujas fragmentas
-
             fragmentTransaction.replace(R.id.fragment_container_menu_list,levelsListFragment);
-            fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
+            fragmentTransaction.addToBackStack("levels"); //nes reikes veliau atgal
             fragmentTransaction.commit();
         }
 

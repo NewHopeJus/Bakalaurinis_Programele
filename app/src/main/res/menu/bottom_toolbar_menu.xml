@@ -11,6 +11,5 @@
         android:id="@+id/action_home"
         android:icon="@drawable/icons8_home"
         android:title="Atgal"
-        android:orderInCategory="1"
         app:showAsAction="ifRoom" />
 </menu>
