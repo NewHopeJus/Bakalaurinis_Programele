@@ -12,81 +12,89 @@
         android:id="@+id/textView11"
         android:layout_width="199dp"
         android:layout_height="29dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:text="Klausimo vertė: "
         android:textColor="@color/white"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView12"
+    <Button
+        android:id="@+id/button8"
         android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginStart="8dp"
-        android:text="10"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintStart_toStartOf="@+id/textView11" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="108dp"
+        android:text="Praleisti"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.968"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="122dp"
+        android:layout_height="141dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/girl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:src="@drawable/moneta"
+        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="28dp"
+        android:text="Pateikti"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="30dp"
         android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
         android:text="55"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
-        app:layout_constraintVertical_bias="0.827" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="40dp"
-        android:layout_height="42dp"
-        android:src="@drawable/moneta"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintHorizontal_bias="0.257"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.571" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="41dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="156dp"
-        android:src="@drawable/diamond"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView13"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.828" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="352dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="381dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="108dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="216dp"
-        android:layout_height="205dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14">
 
@@ -95,16 +103,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ninjas"
+            app:buttonTint="@color/white"
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/radio_ninjas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ninjas"
-            android:textColor="@color/white" />
-
-        <RadioButton
+            app:buttonTint="@color/white"
             android:id="@+id/radio_pirates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,49 +115,44 @@
             android:textColor="@color/white" />
 
         <RadioButton
+            android:buttonTint="@color/white"
+            android:id="@+id/radio_ninjas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ninjas"
+            app:buttonTint="@color/white"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:buttonTint="@color/white"
             android:id="@+id/radio_ninjas1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ninjas"
+            app:buttonTint="@color/white"
             android:textColor="@color/white" />
 
     </RadioGroup>
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="131dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="64dp"
-        android:src="@drawable/girl"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.14" />
+        android:id="@+id/imageView10"
+        android:layout_width="41dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/diamond"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <Button
-        android:id="@+id/button5"
+    <TextView
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="32dp"
-        android:text="Pateikti"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintLeft_toRightOf="@+id/button8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="76dp"
-        android:text="Praleisti"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        android:layout_height="28dp"
+        android:layout_marginTop="28dp"
+        android:text="10"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
