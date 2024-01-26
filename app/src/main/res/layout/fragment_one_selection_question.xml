@@ -82,7 +82,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:text="Helloo"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:text="Klausimo tekstas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -99,36 +101,36 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewOneSelQuestionDescription">
 
         <RadioButton
-            android:id="@+id/radio_ninjas2"
+            android:id="@+id/radio_option1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ninjas"
+            android:text="Pirmas"
             app:buttonTint="@color/white"
             android:textColor="@color/white" />
 
         <RadioButton
+            android:id="@+id/radio_option2"
             app:buttonTint="@color/white"
-            android:id="@+id/radio_pirates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pirates"
+            android:text="Antras"
             android:textColor="@color/white" />
 
         <RadioButton
+            android:id="@+id/radio_option3"
             android:buttonTint="@color/white"
-            android:id="@+id/radio_ninjas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ninjas"
+            android:text="Trecias"
             app:buttonTint="@color/white"
             android:textColor="@color/white" />
 
         <RadioButton
+            android:id="@+id/radio_option4"
             android:buttonTint="@color/white"
-            android:id="@+id/radio_ninjas1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ninjas"
+            android:text="Ketvirtas"
             app:buttonTint="@color/white"
             android:textColor="@color/white" />
 

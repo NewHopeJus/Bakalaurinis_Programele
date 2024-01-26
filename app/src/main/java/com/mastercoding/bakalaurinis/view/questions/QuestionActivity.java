@@ -37,7 +37,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         //Patikrinti koki fragmenta deti su case
 
-        Call<Question> call = questionService.getQuestionById(1);
+        Call<Question> call = questionService.getQuestionById(4);
         call.enqueue(new Callback<Question>() {
 
             @Override
@@ -49,24 +49,31 @@ public class QuestionActivity extends AppCompatActivity {
                     //perduodam i fragmenta visus duomenis apie klausima
                     Bundle args = new Bundle();
                     args.putString("description", question.getDescription());
-                    Toast.makeText(QuestionActivity.this, question.getDescription(), Toast.LENGTH_SHORT).show();
-
-//                    args.putString("option1", options.get(0).getText());
-//                    args.putString("option2",options.get(1).getText() );
-//                    args.putString("option3",options.get(2).getText() );
-//                    args.putString("option4",options.get(3).getText() );
+                    args.putString("option1", options.get(0).getText());
+                    args.putString("option2",options.get(1).getText());
+                    args.putString("option3",options.get(2).getText());
+                    args.putString("option4",options.get(3).getText());
 
 
 
                     //Pridedam fragmenta su klausimu
-                    if (savedInstanceState == null) {
-                        OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
-                        oneSelectionQuestionFragment.setArguments(args);
-                        getSupportFragmentManager().beginTransaction()
-                                .add(R.id.fragment_container_question_fragment, oneSelectionQuestionFragment)
-                        .commit();
-                    }
+                    if (savedInstanceState == null) { //This check is used to determine whether the activity is
+                        // being started for the first time or being recreated after a configuration change.
 
+                        if(question.getQuestionType().equals("ONE_ANSWER")) {
+                            OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
+                            oneSelectionQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
+                            getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.fragment_container_question_fragment, oneSelectionQuestionFragment)
+                                    .commit();
+                        } else if (question.getQuestionType().equals("MULTIPLE_ANSWER")) {
+                            MultipleChoiceQuestionFragment multipleChoiceQuestionFragment = new MultipleChoiceQuestionFragment();
+                            multipleChoiceQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
+                            getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.fragment_container_question_fragment, multipleChoiceQuestionFragment)
+                                    .commit();
+                        }
+                    }
 
                 } else {
 
