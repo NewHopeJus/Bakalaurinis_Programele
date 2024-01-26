@@ -37,7 +37,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         //Patikrinti koki fragmenta deti su case
 
-        Call<Question> call = questionService.getQuestionById(4);
+        Call<Question> call = questionService.getQuestionById(5);
         call.enqueue(new Callback<Question>() {
 
             @Override
@@ -49,10 +49,7 @@ public class QuestionActivity extends AppCompatActivity {
                     //perduodam i fragmenta visus duomenis apie klausima
                     Bundle args = new Bundle();
                     args.putString("description", question.getDescription());
-                    args.putString("option1", options.get(0).getText());
-                    args.putString("option2",options.get(1).getText());
-                    args.putString("option3",options.get(2).getText());
-                    args.putString("option4",options.get(3).getText());
+
 
 
 
@@ -60,17 +57,37 @@ public class QuestionActivity extends AppCompatActivity {
                     if (savedInstanceState == null) { //This check is used to determine whether the activity is
                         // being started for the first time or being recreated after a configuration change.
 
+                        ///!!!! Pakeisti sita dubliikacija kodo
                         if(question.getQuestionType().equals("ONE_ANSWER")) {
+                            args.putString("option1", options.get(0).getText());
+                            args.putString("option2",options.get(1).getText());
+                            args.putString("option3",options.get(2).getText());
+                            args.putString("option4",options.get(3).getText());
+
                             OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
                             oneSelectionQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
                             getSupportFragmentManager().beginTransaction()
                                     .add(R.id.fragment_container_question_fragment, oneSelectionQuestionFragment)
                                     .commit();
                         } else if (question.getQuestionType().equals("MULTIPLE_ANSWER")) {
+                            args.putString("option1", options.get(0).getText());
+                            args.putString("option2",options.get(1).getText());
+                            args.putString("option3",options.get(2).getText());
+                            args.putString("option4",options.get(3).getText());
+
                             MultipleChoiceQuestionFragment multipleChoiceQuestionFragment = new MultipleChoiceQuestionFragment();
                             multipleChoiceQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
                             getSupportFragmentManager().beginTransaction()
                                     .add(R.id.fragment_container_question_fragment, multipleChoiceQuestionFragment)
+                                    .commit();
+                        }
+                        //atviras klausimas
+                        else if(question.getQuestionType().equals("OPEN_ANSWER"))
+                        {
+                            OpenQuestionFragment openQuestionFragment = new OpenQuestionFragment();
+                            openQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
+                            getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.fragment_container_question_fragment, openQuestionFragment)
                                     .commit();
                         }
                     }
