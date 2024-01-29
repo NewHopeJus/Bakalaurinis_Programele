@@ -30,6 +30,18 @@ public class Question {
     @Expose
     private String questionTopic;
 
+    @SerializedName("experience")
+    @Expose
+    private Integer experience;
+
+    @SerializedName("coins")
+    @Expose
+    private Integer coins;
+
+    @SerializedName("hint")
+    @Expose
+    private String hint;
+
     public Long getId() {
         return id;
     }
@@ -76,5 +88,29 @@ public class Question {
 
     public void setQuestionTopic(String questionTopic) {
         this.questionTopic = questionTopic;
+    }
+
+    public Integer getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Integer experience) {
+        this.experience = experience;
+    }
+
+    public Integer getCoins() {
+        return coins;
+    }
+
+    public void setCoins(Integer coins) {
+        this.coins = coins;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 }

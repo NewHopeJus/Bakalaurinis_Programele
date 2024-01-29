@@ -37,7 +37,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         //Patikrinti koki fragmenta deti su case
 
-        Call<Question> call = questionService.getQuestionById(5);
+        Call<Question> call = questionService.getQuestionById(180);
         call.enqueue(new Callback<Question>() {
 
             @Override
@@ -50,7 +50,9 @@ public class QuestionActivity extends AppCompatActivity {
                     Bundle args = new Bundle();
                     args.putString("description", question.getDescription());
 
-
+                    //reikes tikriausiai keisti sita dali nes jei atsako i klausima reikes updatinti
+                    args.putString("coins", String.valueOf(question.getCoins()));
+                    args.putString("experience", String.valueOf(question.getExperience()));
 
 
                     //Pridedam fragmenta su klausimu
@@ -63,6 +65,8 @@ public class QuestionActivity extends AppCompatActivity {
                             args.putString("option2",options.get(1).getText());
                             args.putString("option3",options.get(2).getText());
                             args.putString("option4",options.get(3).getText());
+
+
 
                             OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
                             oneSelectionQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti

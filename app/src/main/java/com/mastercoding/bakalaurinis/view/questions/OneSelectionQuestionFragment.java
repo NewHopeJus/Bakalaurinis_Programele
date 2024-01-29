@@ -23,11 +23,17 @@ public class OneSelectionQuestionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_one_selection_question, container, false);
         Bundle args = getArguments(); //kad gauti is activity klausimo informacija
-        TextView descriptionTextView =  (TextView)view.findViewById(R.id.textViewOneSelQuestionDescription);
-        RadioButton radioButton1 = (RadioButton) view.findViewById(R.id.radio_option1);
-        RadioButton radioButton2 = (RadioButton) view.findViewById(R.id.radio_option2);
-        RadioButton radioButton3 = (RadioButton) view.findViewById(R.id.radio_option3);
-        RadioButton radioButton4 = (RadioButton) view.findViewById(R.id.radio_option4);
+
+        TextView descriptionTextView =  view.findViewById(R.id.textViewOneSelQuestionDescription);
+
+        RadioButton radioButton1 = view.findViewById(R.id.radio_option1);
+        RadioButton radioButton2 = view.findViewById(R.id.radio_option2);
+        RadioButton radioButton3 = view.findViewById(R.id.radio_option3);
+        RadioButton radioButton4 = view.findViewById(R.id.radio_option4);
+
+        TextView coinsTextView = view.findViewById(R.id.textViewCoinsOneSelQuestion);
+        TextView experienceTextView = view.findViewById(R.id.textViewExperienceOneSelQuestion);
+
 
         if(args!=null){
             String description = args.getString("description");
@@ -44,6 +50,13 @@ public class OneSelectionQuestionFragment extends Fragment {
 
             String option4 = args.getString("option4");
             radioButton4.setText(option4);
+
+            String coins = args.getString("coins");
+            coinsTextView.setText(coins);
+
+            String experience = args.getString("experience");
+            experienceTextView.setText(experience);
+
         }
         return view;
     }

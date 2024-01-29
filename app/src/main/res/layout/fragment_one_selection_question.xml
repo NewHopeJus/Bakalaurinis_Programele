@@ -25,12 +25,10 @@
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="92dp"
         android:text="Praleisti"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <ImageView
@@ -51,23 +49,23 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="44dp"
         android:src="@drawable/moneta"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/textViewExperienceOneSelQuestion"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="8dp"
         android:text="Pateikti"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="30dp"
-        android:layout_height="29dp"
+        android:id="@+id/textViewExperienceOneSelQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="55"
         android:textColor="@color/white"
@@ -83,8 +81,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:text="Klausimo tekstas"
+        android:gravity="left"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -146,9 +146,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textViewCoinsOneSelQuestion"
         android:layout_width="wrap_content"
-        android:layout_height="28dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="10"
         android:textColor="@color/white"
