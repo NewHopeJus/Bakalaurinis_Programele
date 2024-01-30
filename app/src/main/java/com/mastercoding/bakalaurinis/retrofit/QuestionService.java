@@ -11,4 +11,8 @@ public interface QuestionService {
     @GET("/api/questions/{id}")
     Call<Question> getQuestionById(@Path("id") long id);
 
+    @GET("/api/questions/{level}/{topic}")
+    Call<Question> getQuestionByLevelAndTopic(@Path("level") String level, @Path("topic") String topic);
+
+
 }

@@ -35,9 +35,12 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        //Patikrinti koki fragmenta deti su case
+        String levelName = getIntent().getStringExtra("levelName");
+        String topicName = getIntent().getStringExtra("topicName");
 
-        Call<Question> call = questionService.getQuestionById(180);
+      //  Call<Question> call = questionService.getQuestionById(180);
+
+        Call<Question> call = questionService.getQuestionByLevelAndTopic(levelName, topicName);
         call.enqueue(new Callback<Question>() {
 
             @Override

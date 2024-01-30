@@ -24,17 +24,21 @@ import java.util.List;
 
 public class TopicsListFragment extends ListFragment {
 
+    private List<String> topics;
+    private String levelName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
-        String levelName = getArguments().getString("levelName", ""); //gaunam argumenta kuri idejom, levelio pavadinima
+        if (getArguments() != null) {
+            levelName = getArguments().getString("levelName", ""); //gaunam argumenta kuri idejom, levelio pavadinima
+        }
 
         // gaunam temas
         LevelsData levelsData = new LevelsData();
-        List<String> topics = levelsData.getTopicsForLevel(levelName);
+        topics = levelsData.getTopicsForLevel(levelName);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 inflater.getContext(), R.layout.topics_list,
@@ -48,6 +52,20 @@ public class TopicsListFragment extends ListFragment {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent intent = new Intent(getActivity(), QuestionActivity.class);
+
+        Bundle args = new Bundle();
+
+        if (getArguments() != null) {
+            levelName = getArguments().getString("levelName", "");
+
+        }
+
+        String topicName = topics.get(position);
+
+        args.putString("levelName", levelName); //perduodam i question activity tema ir lygi pasirinkta
+        args.putString("topicName", topicName);
+
+        intent.putExtras(args);
         startActivity(intent);
     }
 }
