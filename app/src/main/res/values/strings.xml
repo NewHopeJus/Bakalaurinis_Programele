@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">Bakalaurinis</string>
     <string name="register_btn">Registruotis</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="atsijungti_btn">Atsijungti</string>
     <string name="vartotojas">Vartotojas: </string>
     <string name="prisijunkite">Prisijunkite</string>
-    <string name="el_pa_tas">el.paštas</string>
     <string name="slapta_odis">slaptažodis</string>
     <string name="registruotis">Registruotis</string>
     <string name="prisijungti">Prisijungti</string>

@@ -30,13 +30,13 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editText_login_email"
+            android:id="@+id/editText_login_username"
             android:layout_width="363dp"
             android:layout_height="82dp"
             android:layout_marginStart="168dp"
             android:layout_marginTop="12dp"
             android:ems="10"
-            android:hint="@string/el_pa_tas"
+            android:hint="slapyvardis"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -91,7 +91,7 @@
             android:layout_height="295dp"
             android:layout_marginTop="84dp"
             android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/editText_login_email"
+            app:layout_constraintEnd_toStartOf="@+id/editText_login_username"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/monster" />
 
@@ -103,7 +103,7 @@
             app:layout_constraintBottom_toTopOf="@+id/login_page_jelly"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.513"
-            app:layout_constraintStart_toEndOf="@+id/editText_login_email"
+            app:layout_constraintStart_toEndOf="@+id/editText_login_username"
             app:srcCompat="@drawable/owl" />
 
         <ImageView

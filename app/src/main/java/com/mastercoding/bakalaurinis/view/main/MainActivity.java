@@ -1,18 +1,33 @@
 package com.mastercoding.bakalaurinis.view.main;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainBinding;
+import com.mastercoding.bakalaurinis.dtos.LoginResponse;
+import com.mastercoding.bakalaurinis.model.User;
+import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
+import com.mastercoding.bakalaurinis.retrofit.UserService;
 import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
+    Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
+    UserService userService = retrofit.create(UserService.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonLoginPageLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                startActivity(intent);
+                String username = binding.editTextLoginUsername.getText().toString();
+                String password = binding.editTextLoginPassword.getText().toString();
+                User user = new User(username, password);
+                loginUser(user);
             }
         });
 
@@ -37,5 +54,40 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+    }
+
+    //bendravimas su api
+    private void loginUser(User user) {
+        Call<LoginResponse> call = userService.loginUser(user);
+
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<LoginResponse> call, Response<LoginResponse> response) {
+
+                if(response.isSuccessful()){
+                    if (response.body() != null && !response.body().getJwt().isEmpty())
+                        Toast.makeText(MainActivity.this, response.body().getJwt(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Log.d("Login", "Login failed. Bad token. " + response.code());
+                    Toast.makeText(MainActivity.this, "Nesėkmingas prisijungimas, bandykite dar kartą.", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
+                Log.d("Login", "Login failed " + t.getLocalizedMessage());
+                Toast.makeText(MainActivity.this, "Nesekmingas prisijungimas", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 }

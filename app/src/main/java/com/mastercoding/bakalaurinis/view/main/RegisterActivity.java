@@ -42,7 +42,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String username = binding.editTextRegisterUsername.getText().toString();
-                String email = binding.editTextRegisterEmail.getText().toString();
                 String password = binding.editTextRegisterPassword.getText().toString();
                 String passwordRepeated = binding.editTextRegisterRetypePassword.getText().toString();
                 String role = "USER";
@@ -56,44 +55,39 @@ public class RegisterActivity extends AppCompatActivity {
                 //(.+) matches one or more characters for the domain part of the email
 
                 String usernamePattern = "^[a-zA-Z0-9_]{3,20}$";
-                String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
-                //nors viena maza raide, nors viena didedle, nors vienas skaicius, nors vienas simbolis
+                //nors viena maza raide, nors viena didele, nors vienas skaicius, nors vienas simbolis
                 //ne trumpesnis nei 8 character
                 String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!_]).{8,}$";
 
 
                 if (!username.isEmpty() && username.matches(usernamePattern)) {
-                    if (!email.isEmpty() && email.matches(emailPattern)) {
-                        if (!password.isEmpty() && password.matches(passwordPattern)) {
-                            if (!passwordRepeated.isEmpty() && password.equals(passwordRepeated)) {
-                                User user = new User(username, email, password, "USER");
-                                registerUser(user);
-                            } else {
-                                Toast.makeText(RegisterActivity.this, "Pakartotinai įveskite slaptažodį", Toast.LENGTH_SHORT).show();
-
-                            }
+                    if (!password.isEmpty() && password.matches(passwordPattern)) {
+                        if (!passwordRepeated.isEmpty() && password.equals(passwordRepeated)) {
+                            User user = new User(username, password);
+                            registerUser(user);
                         } else {
-                            Toast.makeText(RegisterActivity.this, "Netinkamas slaptažodis", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Pakartotinai įveskite slaptažodį", Toast.LENGTH_SHORT).show();
 
                         }
                     } else {
-                        Toast.makeText(RegisterActivity.this, "Netinkamas vartotojo vardas", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Netinkamas slaptažodis", Toast.LENGTH_SHORT).show();
 
                     }
-                } else {
-                    Toast.makeText(RegisterActivity.this, "Netinkamas el. paštas", Toast.LENGTH_SHORT).show();
-
                 }
 
+                else {
+                    Toast.makeText(RegisterActivity.this, "Netinkamas vartotojo vardas", Toast.LENGTH_SHORT).show();
+
+                }
             }
+
         });
 
 
         binding.buttonRegisterBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                finish(); //returnina i logino activity
             }
         });
 
@@ -108,36 +102,36 @@ public class RegisterActivity extends AppCompatActivity {
         binding.infoPasswordRepeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 showInfoPopup(view, "Pakartotinai įveskite norimą naudoti slaptažodį ir paspauskite registruotis.");
             }
         });
     }
 
 
-
     //bendravimas su api
     private void registerUser(User user) {
-        Call<User> call = userService.addUser(user);
+        Call<User> call = userService.registerUser(user);
 
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
                     Log.d("RegisterActivity", "Registration Successful");
-                    Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                    startActivity(intent);
+                    Toast.makeText(RegisterActivity.this, "Registracija sėkminga. Prisijunkite.", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+//                    startActivity(intent);
+                    finish();
+
                 } else {
                     Log.d("RegisterActivity", "Registration Failed. Response Code: " + response.code());
-                    Toast.makeText(RegisterActivity.this, "Registration Failed. Please try again.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Nesėkminga registracija. Bandykite dar kartą.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e("RegisterActivity", "Registration Failed", t);
-                Toast.makeText(RegisterActivity.this, "Registration Failed. Please try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Nesėkminga registracija. Bandykite dar kartą", Toast.LENGTH_SHORT).show();
             }
         });
 

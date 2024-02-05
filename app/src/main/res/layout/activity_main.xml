@@ -23,20 +23,20 @@
             android:text="@string/prisijunkite"
             android:textColor="#673AB7"
             android:textSize="36sp"
-            app:layout_constraintBottom_toTopOf="@+id/editText_login_email"
+            app:layout_constraintBottom_toTopOf="@+id/editText_login_username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText_login_email"
+            android:id="@+id/editText_login_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:ems="10"
-            android:hint="@string/el_pa_tas"
+            android:hint="slapyvardis"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
