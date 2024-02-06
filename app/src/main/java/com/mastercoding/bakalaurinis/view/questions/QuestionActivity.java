@@ -1,11 +1,12 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
 import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,9 +40,11 @@ public class QuestionActivity extends AppCompatActivity {
         String levelName = getIntent().getStringExtra("levelName");
         String topicName = getIntent().getStringExtra("topicName");
 
-      //  Call<Question> call = questionService.getQuestionById(180);
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
-        Call<Question> call = questionService.getQuestionByLevelAndTopic(levelName, topicName);
+        String token = sharedPreferences.getString("jwt_token", "");
+        Call<Question> call = questionService.getQuestionByLevelAndTopic(levelName, topicName, "Bearer " + token);
+
         call.enqueue(new Callback<Question>() {
 
             @Override
@@ -53,7 +57,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Bundle args = new Bundle();
                     args.putString("description", question.getDescription());
 
-                    //reikes tikriausiai keisti sita dali nes jei atsako i klausima reikes updatinti
+
                     args.putString("coins", String.valueOf(question.getCoins()));
                     args.putString("experience", String.valueOf(question.getExperience()));
 
@@ -63,12 +67,11 @@ public class QuestionActivity extends AppCompatActivity {
                         // being started for the first time or being recreated after a configuration change.
 
                         ///!!!! Pakeisti sita dubliikacija kodo
-                        if(question.getQuestionType().equals("ONE_ANSWER")) {
+                        if (question.getQuestionType().equals("ONE_ANSWER")) {
                             args.putString("option1", options.get(0).getText());
-                            args.putString("option2",options.get(1).getText());
-                            args.putString("option3",options.get(2).getText());
-                            args.putString("option4",options.get(3).getText());
-
+                            args.putString("option2", options.get(1).getText());
+                            args.putString("option3", options.get(2).getText());
+                            args.putString("option4", options.get(3).getText());
 
 
                             OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
@@ -78,9 +81,9 @@ public class QuestionActivity extends AppCompatActivity {
                                     .commit();
                         } else if (question.getQuestionType().equals("MULTIPLE_ANSWER")) {
                             args.putString("option1", options.get(0).getText());
-                            args.putString("option2",options.get(1).getText());
-                            args.putString("option3",options.get(2).getText());
-                            args.putString("option4",options.get(3).getText());
+                            args.putString("option2", options.get(1).getText());
+                            args.putString("option3", options.get(2).getText());
+                            args.putString("option4", options.get(3).getText());
 
                             MultipleChoiceQuestionFragment multipleChoiceQuestionFragment = new MultipleChoiceQuestionFragment();
                             multipleChoiceQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
@@ -89,8 +92,7 @@ public class QuestionActivity extends AppCompatActivity {
                                     .commit();
                         }
                         //atviras klausimas
-                        else if(question.getQuestionType().equals("OPEN_ANSWER"))
-                        {
+                        else if (question.getQuestionType().equals("OPEN_ANSWER")) {
                             OpenQuestionFragment openQuestionFragment = new OpenQuestionFragment();
                             openQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
                             getSupportFragmentManager().beginTransaction()
@@ -99,14 +101,17 @@ public class QuestionActivity extends AppCompatActivity {
                         }
                     }
 
-                } else {
-
+                }
+                else {
+                    Log.e("Question Activity", "Getting question from backend failed");
+                    Toast.makeText(QuestionActivity.this, "Klaida. Nepavyko gauti klausimo.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Question> call, Throwable t) {
-
+                Log.e("Question Activity", "Getting question from backend failed", t);
+                Toast.makeText(QuestionActivity.this, "Klaida. Nepavyko gauti klausimo.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -115,9 +120,8 @@ public class QuestionActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //kad paslepti teksta toolbaro
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
-
 
 
     @Override
@@ -143,33 +147,6 @@ public class QuestionActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-//    //uzklausa i backenda gauti klausima
-//    private Question getQuestion(long id) {
-//        Call<Question> call = questionService.getQuestionById(1);
-//        call.enqueue(new Callback<Question>() {
-//
-//            @Override
-//            public void onResponse(Call<Question> call, Response<Question> response) {
-//                if (response.isSuccessful()) {
-//                    Question questions = response.body();
-//
-//
-//                } else {
-//
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<Question> call, Throwable t) {
-//
-//            }
-//        });
-//
-//
-//    }
-
-
 
 }
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -61,18 +62,22 @@ public class MainActivity extends AppCompatActivity {
     //bendravimas su api
     private void loginUser(User user) {
         Call<LoginResponse> call = userService.loginUser(user);
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call, Response<LoginResponse> response) {
 
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     if (response.body() != null && !response.body().getJwt().isEmpty())
-                        Toast.makeText(MainActivity.this, response.body().getJwt(), Toast.LENGTH_SHORT).show();
+
+                        editor.putString("jwt_token", response.body().getJwt()); //nes reikes tokena deti i kiekviena requesta todel ji issaugom
+                    editor.apply();
+
                     Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
                     startActivity(intent);
-                }
-                else {
+                } else {
                     Log.d("Login", "Login failed. Bad token. " + response.code());
                     Toast.makeText(MainActivity.this, "Nesėkmingas prisijungimas, bandykite dar kartą.", Toast.LENGTH_SHORT).show();
                 }

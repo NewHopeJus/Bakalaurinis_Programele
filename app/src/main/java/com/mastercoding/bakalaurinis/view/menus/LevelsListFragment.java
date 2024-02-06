@@ -16,6 +16,8 @@ import android.widget.ListView;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.data.LevelsData;
 
+import java.util.Objects;
+
 
 public class LevelsListFragment extends ListFragment {
 
@@ -28,8 +30,6 @@ public class LevelsListFragment extends ListFragment {
                 new LevelsData().getLevelNames());
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
-
-
     }
 
 
@@ -50,7 +50,7 @@ public class LevelsListFragment extends ListFragment {
         //duomenu struktura kuri leidzia passinnti duomenis tarp skirtingu activities ir fragmentu
         Bundle args = new Bundle();
 
-        switch (position){
+        switch (position) {
             //ziurim koks pasirinktas lygis menu
             case 0:
                 args.putString("levelName", "1 lygis"); // idedam kad zinot poto kokio lygio temas rodyti topics list fragment
@@ -69,16 +69,22 @@ public class LevelsListFragment extends ListFragment {
                 break;
 
         }
-            topicsListFragment.setArguments(args);
+        topicsListFragment.setArguments(args);
 
-            FragmentManager manager=getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction= manager.beginTransaction();
+        //require activity
+        FragmentManager manager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
 
-            //replacinam fragmenta lygio i jo topicu
-            fragmentTransaction.replace(R.id.fragment_container_menu_list,topicsListFragment);
-            fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
-            fragmentTransaction.commit();
-        }
+        // By using requireActivity(),
+        // you are essentially asserting that the operation should
+        // not continue if the fragment is not attached to an activity,
+        // and you expect the app to crash with an explicit exception if this contract
+        // is violated.
+
+        fragmentTransaction.replace(R.id.fragment_container_menu_list, topicsListFragment);
+        fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
+        fragmentTransaction.commit();
+    }
 
 
 }

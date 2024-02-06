@@ -49,7 +49,7 @@ public class MainMenuListFragment extends ListFragment {
         //jei pasirinko spresti
         if(position == 0){
             LevelsListFragment levelsListFragment = new LevelsListFragment();
-            FragmentManager manager=getActivity().getSupportFragmentManager();
+            FragmentManager manager = requireActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction= manager.beginTransaction();
            //replacinam fragmenta is main menu su lygiais
             //pirmas parametras - konteineris fragmentams

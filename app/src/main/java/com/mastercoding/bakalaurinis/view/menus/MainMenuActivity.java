@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 import com.mastercoding.bakalaurinis.R;
 
+import java.util.Objects;
+
 public class MainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class MainMenuActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //kad paslepti teksta toolbaro
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class LevelsData {
         levels.add(new Level("5 lygis", Arrays.asList("Skaičių aibės", "Lygtys", "Nelygybės", "Rodiklinės funkcijos",
                 "Logaritminės funkcijos", "Trigonometrija", "Vektoriai", "Išvestinės", "Integralai",
                 "Kombinatorika", "Tikimybių teorija ir statistika"
-                )));
+        )));
     }
 
     public List<Level> getLevels() {
@@ -29,9 +29,14 @@ public class LevelsData {
     }
 
     //naudojamas leveliu meniu pavadinimams uzkrauti
-    public List<String> getLevelNames(){
-        return levels.stream().map(Level::getLevelName).collect(Collectors.toList());
+    public List<String> getLevelNames() {
+        List<String> levelNames = new ArrayList<>();
+        for (Level level : levels) {
+            levelNames.add(level.getLevelName());
+        }
+        return levelNames;
     }
+
     public List<String> getTopicsForLevel(String levelName) {
         for (Level level : levels) {
             if (level.getLevelName().equals(levelName)) {
