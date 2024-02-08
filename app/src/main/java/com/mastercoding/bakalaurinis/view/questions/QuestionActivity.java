@@ -1,17 +1,25 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
+import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
 import com.mastercoding.bakalaurinis.model.Option;
 import com.mastercoding.bakalaurinis.model.Question;
 import com.mastercoding.bakalaurinis.retrofit.QuestionService;
@@ -40,6 +48,8 @@ public class QuestionActivity extends AppCompatActivity {
         String levelName = getIntent().getStringExtra("levelName");
         String topicName = getIntent().getStringExtra("topicName");
 
+
+
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
         String token = sharedPreferences.getString("jwt_token", "");
@@ -51,27 +61,29 @@ public class QuestionActivity extends AppCompatActivity {
             public void onResponse(Call<Question> call, Response<Question> response) {
                 if (response.isSuccessful()) {
                     Question question = response.body();
-                    List<Option> options = question.getOptions();
 
                     //perduodam i fragmenta visus duomenis apie klausima
                     Bundle args = new Bundle();
-                    args.putString("description", question.getDescription());
+//                    args.putString("description", question.getDescription());
+//
+//
+//                    args.putString("coins", String.valueOf(question.getCoins()));
+//                    args.putString("experience", String.valueOf(question.getExperience()));
 
 
-                    args.putString("coins", String.valueOf(question.getCoins()));
-                    args.putString("experience", String.valueOf(question.getExperience()));
-
+                    args.putParcelable("questionObject", (Parcelable) question);
 
                     //Pridedam fragmenta su klausimu
                     if (savedInstanceState == null) { //This check is used to determine whether the activity is
                         // being started for the first time or being recreated after a configuration change.
 
+
                         ///!!!! Pakeisti sita dubliikacija kodo
                         if (question.getQuestionType().equals("ONE_ANSWER")) {
-                            args.putString("option1", options.get(0).getText());
-                            args.putString("option2", options.get(1).getText());
-                            args.putString("option3", options.get(2).getText());
-                            args.putString("option4", options.get(3).getText());
+//                            args.putString("option1", options.get(0).getText());
+//                            args.putString("option2", options.get(1).getText());
+//                            args.putString("option3", options.get(2).getText());
+//                            args.putString("option4", options.get(3).getText());
 
 
                             OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
@@ -80,10 +92,10 @@ public class QuestionActivity extends AppCompatActivity {
                                     .add(R.id.fragment_container_question_fragment, oneSelectionQuestionFragment)
                                     .commit();
                         } else if (question.getQuestionType().equals("MULTIPLE_ANSWER")) {
-                            args.putString("option1", options.get(0).getText());
-                            args.putString("option2", options.get(1).getText());
-                            args.putString("option3", options.get(2).getText());
-                            args.putString("option4", options.get(3).getText());
+//                            args.putString("option1", options.get(0).getText());
+//                            args.putString("option2", options.get(1).getText());
+//                            args.putString("option3", options.get(2).getText());
+//                            args.putString("option4", options.get(3).getText());
 
                             MultipleChoiceQuestionFragment multipleChoiceQuestionFragment = new MultipleChoiceQuestionFragment();
                             multipleChoiceQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
@@ -113,6 +125,7 @@ public class QuestionActivity extends AppCompatActivity {
                 Log.e("Question Activity", "Getting question from backend failed", t);
                 Toast.makeText(QuestionActivity.this, "Klaida. Nepavyko gauti klausimo.", Toast.LENGTH_SHORT).show();
             }
+
         });
 
 

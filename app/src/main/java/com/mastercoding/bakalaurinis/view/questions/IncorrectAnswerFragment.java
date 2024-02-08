@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.mastercoding.bakalaurinis.R;
 
 
-public class IncorrectAnswer extends Fragment {
+public class IncorrectAnswerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

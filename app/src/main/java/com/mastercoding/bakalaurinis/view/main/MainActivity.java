@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     if (response.body() != null && !response.body().getJwt().isEmpty())
-
                         editor.putString("jwt_token", response.body().getJwt()); //nes reikes tokena deti i kiekviena requesta todel ji issaugom
                     editor.apply();
 

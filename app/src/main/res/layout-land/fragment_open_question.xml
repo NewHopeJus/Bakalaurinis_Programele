@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:text="Praleisti"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/buttonSubmitOneSelQuestion" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonSubmitOneSelQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="264dp"
@@ -116,7 +116,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toEndOf="@+id/button8"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="@+id/buttonSubmitOneSelQuestion"
         app:layout_constraintTop_toBottomOf="@+id/textViewOpenQuestionDescription" />
 
 

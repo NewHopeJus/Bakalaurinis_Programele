@@ -1,11 +1,17 @@
 package com.mastercoding.bakalaurinis.model;
 
+import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Question {
+public class Question implements Parcelable {
     @SerializedName("id")
     @Expose
     private Long id;
@@ -41,6 +47,30 @@ public class Question {
     @SerializedName("hint")
     @Expose
     private String hint;
+
+    protected Question(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        questionType = in.readString();
+        description = in.readString();
+        questionLevel = in.readString();
+        questionTopic = in.readString();
+        if (in.readByte() == 0) {
+            experience = null;
+        } else {
+            experience = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            coins = null;
+        } else {
+            coins = in.readInt();
+        }
+        hint = in.readString();
+    }
+
 
     public Long getId() {
         return id;
@@ -113,4 +143,27 @@ public class Question {
     public void setHint(String hint) {
         this.hint = hint;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(description);
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
+
 }
