@@ -47,6 +47,13 @@ public class TopicsListFragment extends ListFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ListView listView = getListView();
+        listView.setPadding(100, 0, 100, 20); // kad prideti tarpus is sonu
+        listView.setClipToPadding(false);
+    }
 
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {

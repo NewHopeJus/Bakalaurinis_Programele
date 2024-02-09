@@ -48,6 +48,7 @@ public class Question implements Parcelable {
     @Expose
     private String hint;
 
+
     protected Question(Parcel in) {
         if (in.readByte() == 0) {
             id = null;
@@ -56,6 +57,7 @@ public class Question implements Parcelable {
         }
         questionType = in.readString();
         description = in.readString();
+        options = in.createTypedArrayList(Option.CREATOR);
         questionLevel = in.readString();
         questionTopic = in.readString();
         if (in.readByte() == 0) {
@@ -71,6 +73,17 @@ public class Question implements Parcelable {
         hint = in.readString();
     }
 
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 
     public Long getId() {
         return id;
@@ -150,20 +163,30 @@ public class Question implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(description);
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+        dest.writeString(questionType);
+        dest.writeString(description);
+        dest.writeTypedList(options);
+        dest.writeString(questionLevel);
+        dest.writeString(questionTopic);
+        if (experience == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(experience);
+        }
+        if (coins == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(coins);
+        }
+        dest.writeString(hint);
     }
-
-    public static final Creator<Question> CREATOR = new Creator<Question>() {
-        @Override
-        public Question createFromParcel(Parcel in) {
-            return new Question(in);
-        }
-
-        @Override
-        public Question[] newArray(int size) {
-            return new Question[size];
-        }
-    };
-
 }

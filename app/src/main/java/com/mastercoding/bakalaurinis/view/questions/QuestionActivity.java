@@ -58,32 +58,18 @@ public class QuestionActivity extends AppCompatActivity {
         call.enqueue(new Callback<Question>() {
 
             @Override
-            public void onResponse(Call<Question> call, Response<Question> response) {
+            public void onResponse(@NonNull Call<Question> call, @NonNull Response<Question> response) {
                 if (response.isSuccessful()) {
                     Question question = response.body();
 
-                    //perduodam i fragmenta visus duomenis apie klausima
                     Bundle args = new Bundle();
-//                    args.putString("description", question.getDescription());
-//
-//
-//                    args.putString("coins", String.valueOf(question.getCoins()));
-//                    args.putString("experience", String.valueOf(question.getExperience()));
-
 
                     args.putParcelable("questionObject", (Parcelable) question);
 
                     //Pridedam fragmenta su klausimu
-                    if (savedInstanceState == null) { //This check is used to determine whether the activity is
-                        // being started for the first time or being recreated after a configuration change.
+                    if (savedInstanceState == null) {
 
-
-                        ///!!!! Pakeisti sita dubliikacija kodo
                         if (question.getQuestionType().equals("ONE_ANSWER")) {
-//                            args.putString("option1", options.get(0).getText());
-//                            args.putString("option2", options.get(1).getText());
-//                            args.putString("option3", options.get(2).getText());
-//                            args.putString("option4", options.get(3).getText());
 
 
                             OneSelectionQuestionFragment oneSelectionQuestionFragment = new OneSelectionQuestionFragment();
@@ -92,10 +78,6 @@ public class QuestionActivity extends AppCompatActivity {
                                     .add(R.id.fragment_container_question_fragment, oneSelectionQuestionFragment)
                                     .commit();
                         } else if (question.getQuestionType().equals("MULTIPLE_ANSWER")) {
-//                            args.putString("option1", options.get(0).getText());
-//                            args.putString("option2", options.get(1).getText());
-//                            args.putString("option3", options.get(2).getText());
-//                            args.putString("option4", options.get(3).getText());
 
                             MultipleChoiceQuestionFragment multipleChoiceQuestionFragment = new MultipleChoiceQuestionFragment();
                             multipleChoiceQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
@@ -103,7 +85,7 @@ public class QuestionActivity extends AppCompatActivity {
                                     .add(R.id.fragment_container_question_fragment, multipleChoiceQuestionFragment)
                                     .commit();
                         }
-                        //atviras klausimas
+
                         else if (question.getQuestionType().equals("OPEN_ANSWER")) {
                             OpenQuestionFragment openQuestionFragment = new OpenQuestionFragment();
                             openQuestionFragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti

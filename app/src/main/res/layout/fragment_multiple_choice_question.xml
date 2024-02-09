@@ -46,7 +46,7 @@
 
 
     <TextView
-        android:id="@+id/textViewOneSelQuestionDescription"
+        android:id="@+id/textViewQuestionDescriptionCorrectAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Klausimo tekstas"
@@ -68,8 +68,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/checkBox4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textViewOneSelQuestionDescription"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOneSelQuestionDescription"
+        app:layout_constraintStart_toStartOf="@+id/textViewQuestionDescriptionCorrectAnswer"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDescriptionCorrectAnswer"
         app:layout_constraintVertical_bias="0.609" />
 
     <Button

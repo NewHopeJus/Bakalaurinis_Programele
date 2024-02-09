@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewOneSelQuestionDescription"
+        android:id="@+id/textViewQuestionDescriptionCorrectAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toStartOf="@+id/imageView11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOneSelQuestionDescription">
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDescriptionCorrectAnswer">
 
         <RadioButton
             android:id="@+id/radio_option1"

@@ -71,15 +71,9 @@ public class LevelsListFragment extends ListFragment {
         }
         topicsListFragment.setArguments(args);
 
-        //require activity
+
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
-
-        // By using requireActivity(),
-        // you are essentially asserting that the operation should
-        // not continue if the fragment is not attached to an activity,
-        // and you expect the app to crash with an explicit exception if this contract
-        // is violated.
 
         fragmentTransaction.replace(R.id.fragment_container_menu_list, topicsListFragment);
         fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal

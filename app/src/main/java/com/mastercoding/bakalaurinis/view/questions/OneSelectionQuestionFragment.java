@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,22 +15,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.databinding.FragmentCorrectAnswerBinding;
+import com.mastercoding.bakalaurinis.databinding.FragmentOneSelectionQuestionBinding;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
-import com.mastercoding.bakalaurinis.dtos.LoginResponse;
 import com.mastercoding.bakalaurinis.model.Option;
 import com.mastercoding.bakalaurinis.model.Question;
 import com.mastercoding.bakalaurinis.retrofit.QuestionService;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -41,29 +41,38 @@ import retrofit2.Retrofit;
 public class OneSelectionQuestionFragment extends Fragment {
 
     private Question question;
-    Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
-    QuestionService questionService = retrofit.create(QuestionService.class);
+    private final Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
+    private final QuestionService questionService = retrofit.create(QuestionService.class);
+
+    private FragmentOneSelectionQuestionBinding fragmentOneSelectionQuestionBinding;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        fragmentOneSelectionQuestionBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_one_selection_question, container, false);
+        return fragmentOneSelectionQuestionBinding.getRoot();
 
-        View view = inflater.inflate(R.layout.fragment_one_selection_question, container, false);
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments(); //kad gauti is activity klausimo informacija
 
-        TextView descriptionTextView = view.findViewById(R.id.textViewOneSelQuestionDescription);
 
-        RadioButton radioButton1 = view.findViewById(R.id.radio_option1);
-        RadioButton radioButton2 = view.findViewById(R.id.radio_option2);
-        RadioButton radioButton3 = view.findViewById(R.id.radio_option3);
-        RadioButton radioButton4 = view.findViewById(R.id.radio_option4);
-        RadioGroup radioGroup = view.findViewById(R.id.radioGroupOneSelQuestion);
+        TextView descriptionTextView = view.findViewById(R.id.textViewQuestionDescriptionCorrectAnswer);
 
-        TextView coinsTextView = view.findViewById(R.id.textViewCoinsOneSelQuestion);
-        TextView experienceTextView = view.findViewById(R.id.textViewExperienceOneSelQuestion);
+        RadioButton radioButton1 = fragmentOneSelectionQuestionBinding.radioOption1;
+        RadioButton radioButton2 = fragmentOneSelectionQuestionBinding.radioOption2;
+        RadioButton radioButton3 = fragmentOneSelectionQuestionBinding.radioOption3;
+        RadioButton radioButton4 = fragmentOneSelectionQuestionBinding.radioOption4;
+        RadioGroup radioGroup = fragmentOneSelectionQuestionBinding.radioGroupOneSelQuestion;
 
-        Button buttonSubmit = view.findViewById(R.id.buttonSubmitOneSelQuestion);
+        TextView coinsTextView = fragmentOneSelectionQuestionBinding.textViewCoinsOneSelQuestion;
+        TextView experienceTextView = fragmentOneSelectionQuestionBinding.textViewExperienceOneSelQuestion;
+
+        Button buttonSubmit = fragmentOneSelectionQuestionBinding.buttonSubmitOneSelQuestion;
 
         if (args != null) {
             question = args.getParcelable("questionObject");
@@ -95,7 +104,6 @@ public class OneSelectionQuestionFragment extends Fragment {
 
         }
 
-
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,10 +113,6 @@ public class OneSelectionQuestionFragment extends Fragment {
                     RadioButton selected = radioGroup.findViewById(selectedId);
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
                             (String) selected.getText(), (Long) selected.getTag());
-//                    Toast.makeText(getContext(), selected.getText(), Toast.LENGTH_SHORT).show();
-
-
-                    //ieskom koki pasirinko
 
 
                     SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
@@ -122,23 +126,27 @@ public class OneSelectionQuestionFragment extends Fragment {
                                 //Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
 
                                 if (response.body() != null) {
-                                  //  AnswerSubmitResponse answerSubmitResponse = response.body();
-                                    if (response.body().getAnswerCorrect()) {
+                                    if(args!=null){
+                                        args.putString("correctAnswerText", response.body().getCorrectAnswerText());
+                                    }
+
+                                    if (response.body().isAnswerCorrect()) {
                                         // Toast.makeText(getContext(), "Good", Toast.LENGTH_SHORT).show();
                                         if (getActivity() != null) {
                                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                                             CorrectAnswerFragment correctAnswerFragment = new CorrectAnswerFragment();
+                                            correctAnswerFragment.setArguments(args);
                                             fragmentManager.beginTransaction()
                                                     .replace(R.id.fragment_container_question_fragment, correctAnswerFragment)
                                                     .commit();
                                         }
-                                    }
-                                    else {
+                                    } else {
                                         // Toast.makeText(getContext(), "Not good", Toast.LENGTH_SHORT).show();
                                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
                                         if (getActivity() != null) {
                                             IncorrectAnswerFragment incorrectAnswerFragment = new IncorrectAnswerFragment();
+                                            incorrectAnswerFragment.setArguments(args);
                                             fragmentManager.beginTransaction()
                                                     .replace(R.id.fragment_container_question_fragment, incorrectAnswerFragment)
                                                     .commit();
@@ -166,9 +174,6 @@ public class OneSelectionQuestionFragment extends Fragment {
             }
         });
 
-        return view;
-
 
     }
-
 }

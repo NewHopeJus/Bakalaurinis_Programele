@@ -8,5 +8,7 @@
     <string name="slapta_odis">slaptažodis</string>
     <string name="registruotis">Registruotis</string>
     <string name="prisijungti">Prisijungti</string>
+    <string name="teisingai">Teisingai!</string>
+    <string name="t_sti_sprendim">Tęsti sprendimą</string>
 
 </resources>
