@@ -70,14 +70,16 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<LoginResponse> call, Response<LoginResponse> response) {
 
                 if (response.isSuccessful()) {
-                    if (response.body() != null && !response.body().getJwt().isEmpty())
+                    if (response.body() != null && !response.body().getJwt().isEmpty()) {
 //                        editor.putString("jwt_token", response.body().getJwt()); //nes reikes tokena deti i kiekviena requesta todel ji issaugom
 //                    editor.apply();
-                         securityManager = new SecurityManager(MainActivity.this);
+                        securityManager = new SecurityManager(MainActivity.this);
                         securityManager.saveToken(response.body().getJwt());
-                    Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
-                    startActivity(intent);
-                } else {
+                        Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
+                        startActivity(intent);
+                    }
+                }
+                else {
                     Log.d("Login", "Login failed. Bad token. " + response.code());
                     Toast.makeText(MainActivity.this, "Nesėkmingas prisijungimas, bandykite dar kartą.", Toast.LENGTH_SHORT).show();
                 }
