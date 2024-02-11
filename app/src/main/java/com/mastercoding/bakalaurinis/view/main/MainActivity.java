@@ -5,19 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainBinding;
 import com.mastercoding.bakalaurinis.dtos.LoginResponse;
 import com.mastercoding.bakalaurinis.model.User;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
 import com.mastercoding.bakalaurinis.retrofit.UserService;
+import com.mastercoding.bakalaurinis.security.SecurityManager;
 import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
 
 import retrofit2.Call;
@@ -27,8 +26,9 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
-    UserService userService = retrofit.create(UserService.class);
+    private Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
+    private UserService userService = retrofit.create(UserService.class);
+    private SecurityManager securityManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
     //bendravimas su api
     private void loginUser(User user) {
         Call<LoginResponse> call = userService.loginUser(user);
-        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override
@@ -71,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     if (response.body() != null && !response.body().getJwt().isEmpty())
-                        editor.putString("jwt_token", response.body().getJwt()); //nes reikes tokena deti i kiekviena requesta todel ji issaugom
-                    editor.apply();
-
+//                        editor.putString("jwt_token", response.body().getJwt()); //nes reikes tokena deti i kiekviena requesta todel ji issaugom
+//                    editor.apply();
+                         securityManager = new SecurityManager(MainActivity.this);
+                        securityManager.saveToken(response.body().getJwt());
                     Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
                     startActivity(intent);
                 } else {

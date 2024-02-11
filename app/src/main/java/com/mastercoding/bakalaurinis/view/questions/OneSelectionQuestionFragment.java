@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
-import com.mastercoding.bakalaurinis.databinding.FragmentCorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.databinding.FragmentOneSelectionQuestionBinding;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
@@ -29,8 +28,11 @@ import com.mastercoding.bakalaurinis.model.Option;
 import com.mastercoding.bakalaurinis.model.Question;
 import com.mastercoding.bakalaurinis.retrofit.QuestionService;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
+import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.view.main.MainActivity;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,9 +45,8 @@ public class OneSelectionQuestionFragment extends Fragment {
     private Question question;
     private final Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
     private final QuestionService questionService = retrofit.create(QuestionService.class);
-
     private FragmentOneSelectionQuestionBinding fragmentOneSelectionQuestionBinding;
-
+    private SecurityManager securityManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,17 +109,21 @@ public class OneSelectionQuestionFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if (radioGroup != null) {
-                    int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if (selectedId == -1) {
+                    Toast.makeText(getContext(), "Pasirinkite vieną teisingą atsakymą.", Toast.LENGTH_SHORT).show();
+
+                } else {
+
                     RadioButton selected = radioGroup.findViewById(selectedId);
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
                             (String) selected.getText(), (Long) selected.getTag());
 
 
-                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+                    securityManager = new SecurityManager(requireContext());
 
-                    String token = sharedPreferences.getString("jwt_token", "");
-                    Call<AnswerSubmitResponse> call = questionService.submitAnswer(answerSubmitRequest, "Bearer " + token);
+                    Call<AnswerSubmitResponse> call = questionService.submitAnswer(answerSubmitRequest, securityManager.getToken());
                     call.enqueue(new Callback<AnswerSubmitResponse>() {
                         @Override
                         public void onResponse(@NonNull Call<AnswerSubmitResponse> call, @NonNull Response<AnswerSubmitResponse> response) {
@@ -126,7 +131,7 @@ public class OneSelectionQuestionFragment extends Fragment {
                                 //Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
 
                                 if (response.body() != null) {
-                                    if(args!=null){
+                                    if (args != null) {
                                         args.putString("correctAnswerText", response.body().getCorrectAnswerText());
                                     }
 
@@ -141,7 +146,6 @@ public class OneSelectionQuestionFragment extends Fragment {
                                                     .commit();
                                         }
                                     } else {
-                                        // Toast.makeText(getContext(), "Not good", Toast.LENGTH_SHORT).show();
                                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
                                         if (getActivity() != null) {
@@ -171,8 +175,11 @@ public class OneSelectionQuestionFragment extends Fragment {
 
 
                 }
+
             }
+
         });
+
 
 
     }
