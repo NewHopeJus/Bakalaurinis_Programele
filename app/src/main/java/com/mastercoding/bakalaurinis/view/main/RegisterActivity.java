@@ -3,7 +3,6 @@ package com.mastercoding.bakalaurinis.view.main;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,9 +16,8 @@ import android.widget.Toast;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityRegisterBinding;
 import com.mastercoding.bakalaurinis.model.User;
-import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
-import com.mastercoding.bakalaurinis.retrofit.UserService;
-import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
+import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
+import com.mastercoding.bakalaurinis.retrofit.UserAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,8 +26,8 @@ import retrofit2.Retrofit;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
-    UserService userService = retrofit.create(UserService.class);
+    Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
+    UserAPI userService = retrofit.create(UserAPI.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

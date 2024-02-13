@@ -5,10 +5,9 @@ import com.mastercoding.bakalaurinis.model.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public interface UserService {
+public interface UserAPI {
     @POST("api/users/register")
     Call<User> registerUser(@Body User user);
 

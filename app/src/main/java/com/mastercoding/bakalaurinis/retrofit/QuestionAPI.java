@@ -2,7 +2,6 @@ package com.mastercoding.bakalaurinis.retrofit;
 
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
-import com.mastercoding.bakalaurinis.dtos.LoginResponse;
 import com.mastercoding.bakalaurinis.model.Question;
 
 import retrofit2.Call;
@@ -12,7 +11,7 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-public interface QuestionService {
+public interface QuestionAPI {
 
     @GET("/api/questions/{id}")
     Call<Question> getQuestionById(@Path("id") long id);

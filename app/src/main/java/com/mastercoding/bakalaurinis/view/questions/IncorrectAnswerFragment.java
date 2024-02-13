@@ -17,10 +17,8 @@ import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentIncorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.model.Question;
 
-import java.util.Objects;
 
-
-public class IncorrectAnswerFragment extends Fragment implements QuestionFetchingListener{
+public class IncorrectAnswerFragment extends Fragment{
 
     private FragmentIncorrectAnswerBinding fragmentIncorrectAnswerBinding;
 
@@ -58,22 +56,11 @@ public class IncorrectAnswerFragment extends Fragment implements QuestionFetchin
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String levelName = getActivity().getIntent().getStringExtra("levelName");
-                String topicName = getActivity().getIntent().getStringExtra("topicName");
-
-                QuestionFetchingService questionFetchingService = new QuestionFetchingService();
-                questionFetchingService.setListener(IncorrectAnswerFragment.this);
-                questionFetchingService.getQuestion(levelName, topicName, getContext());
+                requireActivity().getViewModelStore().clear();
+                requireActivity().recreate();
             }
         });
 
     }
 
-    @Override
-    public void onQuestionAvailable(Question question) {
-        Fragment fragment = QuestionFetchingService.loadQuestionFragment(question, getContext());
-        requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container_question_fragment, fragment)
-                .commit();
-    }
 }

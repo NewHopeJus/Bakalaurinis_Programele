@@ -1,7 +1,5 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,13 +24,12 @@ import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
 import com.mastercoding.bakalaurinis.model.Option;
 import com.mastercoding.bakalaurinis.model.Question;
-import com.mastercoding.bakalaurinis.retrofit.QuestionService;
-import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
+import com.mastercoding.bakalaurinis.retrofit.QuestionAPI;
+import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
 import com.mastercoding.bakalaurinis.security.SecurityManager;
-import com.mastercoding.bakalaurinis.view.main.MainActivity;
+import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,8 +40,8 @@ import retrofit2.Retrofit;
 public class OneSelectionQuestionFragment extends Fragment {
 
     private Question question;
-    private final Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
-    private final QuestionService questionService = retrofit.create(QuestionService.class);
+    private final Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
+    private final QuestionAPI questionService = retrofit.create(QuestionAPI.class);
     private FragmentOneSelectionQuestionBinding fragmentOneSelectionQuestionBinding;
     private SecurityManager securityManager;
 

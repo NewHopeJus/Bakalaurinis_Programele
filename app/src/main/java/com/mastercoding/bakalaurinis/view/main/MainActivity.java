@@ -14,8 +14,8 @@ import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainBinding;
 import com.mastercoding.bakalaurinis.dtos.LoginResponse;
 import com.mastercoding.bakalaurinis.model.User;
-import com.mastercoding.bakalaurinis.retrofit.RetrofitClientInstance;
-import com.mastercoding.bakalaurinis.retrofit.UserService;
+import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
+import com.mastercoding.bakalaurinis.retrofit.UserAPI;
 import com.mastercoding.bakalaurinis.security.SecurityManager;
 import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
 
@@ -26,8 +26,8 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
-    private UserService userService = retrofit.create(UserService.class);
+    private Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
+    private UserAPI userService = retrofit.create(UserAPI.class);
     private SecurityManager securityManager;
 
     @Override
