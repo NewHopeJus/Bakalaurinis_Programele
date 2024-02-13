@@ -177,6 +177,14 @@ public class OneSelectionQuestionFragment extends Fragment {
 
         });
 
+        Button buttonSkip = fragmentOneSelectionQuestionBinding.buttonSkipOneSelQuestion;
+        buttonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().getViewModelStore().clear();
+                requireActivity().recreate();
+            }
+        });
 
 
     }
