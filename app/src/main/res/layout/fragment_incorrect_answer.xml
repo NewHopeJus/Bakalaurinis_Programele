@@ -4,126 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".view.questions.CorrectAnswerFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".view.questions.CorrectAnswerFragment">
 
-    <TextView
-        android:id="@+id/textViewCorrectFragmentHeader"
-        android:layout_width="313dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="16dp"
-        android:text="Neteisingai!"
-        android:textAlignment="center"
-        android:textColor="#B50808"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textViewCorrectFragmentHeader"
+            android:layout_width="313dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="16dp"
+            android:text="Neteisingai!"
+            android:textAlignment="center"
+            android:textColor="#B50808"
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="68dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/diamond"
-        app:layout_constraintStart_toEndOf="@+id/textViewExpPointsInCorrectAnswer"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader" />
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/diamond"
+            app:layout_constraintStart_toEndOf="@+id/textViewExpPointsInCorrectAnswer"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader" />
 
-    <Button
-        android:id="@+id/buttonContinueInCorrectAnswerFragment"
-        android:layout_width="195dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginTop="30dp"
-        android:text="Tęsti sprendimą"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/buttonContinueInCorrectAnswerFragment"
+            android:layout_width="195dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="100dp"
+            android:text="Tęsti sprendimą"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.556"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewExpPointsInCorrectAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="32dp"
-        android:text="10"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader" />
+        <TextView
+            android:id="@+id/textViewExpPointsInCorrectAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="32dp"
+            android:text="10"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader" />
 
-    <TextView
-        android:id="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:gravity="left"
-        android:padding="20dp"
-        android:text="Klausimo tekstas"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        <TextView
+            android:id="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="left"
+            android:padding="20dp"
+            android:text="Klausimo tekstas"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
-    <TextView
-        android:id="@+id/textViewAnswerHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:layout_marginTop="25dp"
-        android:text="Teisingas atsakymas:"
-        android:textColor="#48A34B"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewCorrectAnswer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/textViewAnswerHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="Teisingas atsakymas:"
+            android:textColor="#48A34B"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewCorrectAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textViewCorrectAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Teisingo atsakymo tekstas"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonContinueInCorrectAnswerFragment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewCorrectAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Teisingo atsakymo tekstas"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonContinueInCorrectAnswerFragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="169dp"
-        android:layout_height="129dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/gas_sad"
-        app:layout_constraintBottom_toTopOf="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView12" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="159dp"
+            android:layout_height="115dp"
+            android:src="@drawable/gas_sad"
+            app:layout_constraintBottom_toTopOf="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintStart_toEndOf="@+id/imageView12"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="132dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/lumi_sad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toEndOf="@+id/buttonContinueInCorrectAnswerFragment"
-        app:layout_constraintTop_toTopOf="@+id/buttonContinueInCorrectAnswerFragment" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="132dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/lumi_sad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintStart_toEndOf="@+id/buttonContinueInCorrectAnswerFragment"
+            app:layout_constraintTop_toTopOf="@+id/buttonContinueInCorrectAnswerFragment" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

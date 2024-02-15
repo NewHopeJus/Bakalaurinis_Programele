@@ -31,14 +31,14 @@ import java.util.Objects;
 public class CorrectAnswerFragment extends Fragment {
     private FragmentCorrectAnswerBinding binding;
     private QuestionViewModel questionViewModel;
-    private SecurityManager securityManager;
-
     private String levelName;
     private String topicName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_correct_answer, container, false);
 
@@ -49,17 +49,6 @@ public class CorrectAnswerFragment extends Fragment {
         SecurityManager securityManager = new SecurityManager(requireContext());
 
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
-        Button buttonContinue = binding.buttonContinueCorrectAnswerFragment;
-
-
-        buttonContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requireActivity().getViewModelStore().clear();
-                requireActivity().recreate();
-            }
-        });
-
         return binding.getRoot();
     }
 
@@ -84,6 +73,16 @@ public class CorrectAnswerFragment extends Fragment {
             }
         }
 
+
+        Button buttonContinue = binding.buttonContinueCorrectAnswerFragment;
+        buttonContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    questionViewModel.getQuestion();
+
+
+            }
+        });
     }
 
 }

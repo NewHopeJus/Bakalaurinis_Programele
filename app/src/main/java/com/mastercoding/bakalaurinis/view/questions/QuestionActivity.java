@@ -36,17 +36,24 @@ public class QuestionActivity extends AppCompatActivity {
         SecurityManager securityManager = new SecurityManager(QuestionActivity.this);
 
         questionViewModel = new ViewModelProvider(this, new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
-        questionViewModel.getQuestionLiveData().observe(this, new Observer<Question>() {
-            @Override
-            public void onChanged(Question question) {
 
-                Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.fragment_container_question_fragment, fragment)
-                        .commit();
 
-            }
-        });
+        if (questionViewModel.getQuestionLiveData() == null) {
+            questionViewModel.getQuestion();
+        }
+
+        questionViewModel.getQuestionLiveData().observe(this,
+                new Observer<Question>() {
+                    @Override
+                    public void onChanged(Question question) {
+
+                        Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
+                        getSupportFragmentManager().beginTransaction()
+                                .add(R.id.fragment_container_question_fragment, fragment)
+                                .commit();
+
+                    }
+                });
 
 
         Toolbar toolbar = findViewById(R.id.toolbarQuestionActivity);

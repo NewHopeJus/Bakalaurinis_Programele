@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,17 @@ import android.widget.TextView;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentIncorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.model.Question;
+import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
+import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
 
-public class IncorrectAnswerFragment extends Fragment{
+public class IncorrectAnswerFragment extends Fragment {
 
     private FragmentIncorrectAnswerBinding fragmentIncorrectAnswerBinding;
+    private QuestionViewModel questionViewModel;
+    private String levelName;
+    private String topicName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +35,11 @@ public class IncorrectAnswerFragment extends Fragment{
         fragmentIncorrectAnswerBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_incorrect_answer, container, false);
 
+        SecurityManager securityManager = new SecurityManager(requireContext());
+
+        levelName = getActivity().getIntent().getStringExtra("levelName");
+        topicName = getActivity().getIntent().getStringExtra("topicName");
+        questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
         return fragmentIncorrectAnswerBinding.getRoot();
     }
 
@@ -56,8 +68,7 @@ public class IncorrectAnswerFragment extends Fragment{
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requireActivity().getViewModelStore().clear();
-                requireActivity().recreate();
+                questionViewModel.getQuestion();
             }
         });
 

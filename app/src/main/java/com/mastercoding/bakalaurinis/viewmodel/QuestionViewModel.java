@@ -23,14 +23,28 @@ public class QuestionViewModel extends ViewModel{
     private QuestionRepository questionRepository;
     private MutableLiveData<Question> questionLiveData;
 
+    private String level;
+    private String topic;
+
     public QuestionViewModel(String level, String topic, SecurityManager securityManager) {
         questionRepository = new QuestionRepository(securityManager);
-        questionLiveData = questionRepository.getQuestion(level, topic);
+        this.level = level;
+        this.topic = topic;
+        //questionLiveData.setValue(questionRepository.getQuestion(level, topic).getValue());
+       // questionLiveData = new MutableLiveData<>();
+       // questionLiveData = questionRepository.getQuestion(level, topic);
+
     }
 
-    public MutableLiveData<Question> getQuestionLiveData() {
+    public void getQuestion(){
+        questionLiveData = questionRepository.getQuestion(level, topic);
+    }
+    public LiveData<Question> getQuestionLiveData() {
         return questionLiveData;
     }
 
+    public void resetLiveData(){
+        questionLiveData = null;
+    }
 
 }

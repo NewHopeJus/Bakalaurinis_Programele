@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import com.mastercoding.bakalaurinis.retrofit.QuestionAPI;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
 import com.mastercoding.bakalaurinis.security.SecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
+import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
 import java.util.List;
 
@@ -44,11 +46,20 @@ public class OneSelectionQuestionFragment extends Fragment {
     private final QuestionAPI questionService = retrofit.create(QuestionAPI.class);
     private FragmentOneSelectionQuestionBinding fragmentOneSelectionQuestionBinding;
     private SecurityManager securityManager;
+    private QuestionViewModel questionViewModel;
+    private String levelName;
+    private String topicName;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentOneSelectionQuestionBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_one_selection_question, container, false);
+
+        levelName = getActivity().getIntent().getStringExtra("levelName");
+        topicName = getActivity().getIntent().getStringExtra("topicName");
+        SecurityManager securityManager = new SecurityManager(requireContext());
+        questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
         return fragmentOneSelectionQuestionBinding.getRoot();
 
     }
@@ -181,8 +192,7 @@ public class OneSelectionQuestionFragment extends Fragment {
         buttonSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requireActivity().getViewModelStore().clear();
-                requireActivity().recreate();
+                questionViewModel.getQuestion();
             }
         });
 
