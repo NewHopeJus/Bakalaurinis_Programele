@@ -2,12 +2,14 @@ package com.mastercoding.bakalaurinis.view.questions;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -48,7 +50,10 @@ public class CorrectAnswerFragment extends Fragment {
 
         SecurityManager securityManager = new SecurityManager(requireContext());
 
+
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
+
+
         return binding.getRoot();
     }
 
@@ -78,11 +83,11 @@ public class CorrectAnswerFragment extends Fragment {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               questionViewModel.setAnswered(false);
                     questionViewModel.getQuestion();
-
-
             }
         });
     }
+
 
 }

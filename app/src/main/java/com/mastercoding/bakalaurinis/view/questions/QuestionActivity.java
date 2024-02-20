@@ -38,19 +38,23 @@ public class QuestionActivity extends AppCompatActivity {
         questionViewModel = new ViewModelProvider(this, new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
 
 
-        if (questionViewModel.getQuestionLiveData() == null) {
+        if (questionViewModel.getQuestionLiveData() == null ) { //tikrinimas ar perkraunam
             questionViewModel.getQuestion();
         }
+
+
 
         questionViewModel.getQuestionLiveData().observe(this,
                 new Observer<Question>() {
                     @Override
                     public void onChanged(Question question) {
 
-                        Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
-                        getSupportFragmentManager().beginTransaction()
-                                .add(R.id.fragment_container_question_fragment, fragment)
-                                .commit();
+                        if(!questionViewModel.isAnswered()) {
+                            Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
+                            getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.fragment_container_question_fragment, fragment)
+                                    .commit();
+                        }
 
                     }
                 });

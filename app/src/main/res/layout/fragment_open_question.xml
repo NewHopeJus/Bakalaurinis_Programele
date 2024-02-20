@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -22,14 +23,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonSkipOneSelQuestion"
+        android:id="@+id/buttonSkipOpenQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="100dp"
         android:text="Praleisti"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -53,16 +54,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
-        android:id="@+id/buttonSubmitOneSelQuestion"
+        android:id="@+id/buttonSubmitOpenQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="28dp"
         android:text="Pateikti"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSkipOneSelQuestion"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSkipOpenQuestion"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
 
     <TextView
         android:id="@+id/textViewExperienceOneSelQuestion"
@@ -113,12 +114,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextOpenQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Pateikite atsakymą"
+        android:textColor="@color/white"
         android:inputType="text"
         android:padding="20dp"
         android:textColorHint="@color/white"
@@ -129,3 +131,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

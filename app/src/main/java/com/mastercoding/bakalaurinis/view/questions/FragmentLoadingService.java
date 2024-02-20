@@ -5,10 +5,14 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
 import com.mastercoding.bakalaurinis.model.Question;
 
 public class FragmentLoadingService {
+
 
     public static Fragment loadQuestionFragment(Question question) {
         Bundle args = new Bundle();
@@ -36,5 +40,23 @@ public class FragmentLoadingService {
         return fragment;
     }
 
+    public static Fragment loadAnswerFragment(AnswerSubmitResponse answerSubmitResponse, Bundle args) {
+        Fragment fragment;
+        args.putString("correctAnswerText", answerSubmitResponse.getCorrectAnswerText());
 
+        if (answerSubmitResponse.isAnswerCorrect()) {
+            fragment = new CorrectAnswerFragment();
+        } else {
+            fragment = new IncorrectAnswerFragment();
+
+
+        }
+        fragment.setArguments(args);
+        return fragment;
+    }
 }
+
+
+
+
+

@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
@@ -32,6 +33,7 @@ import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,7 +47,6 @@ public class OneSelectionQuestionFragment extends Fragment {
     private final Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
     private final QuestionAPI questionService = retrofit.create(QuestionAPI.class);
     private FragmentOneSelectionQuestionBinding fragmentOneSelectionQuestionBinding;
-    private SecurityManager securityManager;
     private QuestionViewModel questionViewModel;
     private String levelName;
     private String topicName;
@@ -60,6 +61,7 @@ public class OneSelectionQuestionFragment extends Fragment {
         topicName = getActivity().getIntent().getStringExtra("topicName");
         SecurityManager securityManager = new SecurityManager(requireContext());
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
+
         return fragmentOneSelectionQuestionBinding.getRoot();
 
     }
@@ -111,6 +113,7 @@ public class OneSelectionQuestionFragment extends Fragment {
                 experienceTextView.setText(experience);
             }
 
+
         }
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -128,59 +131,19 @@ public class OneSelectionQuestionFragment extends Fragment {
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
                             (String) selected.getText(), (Long) selected.getTag());
 
+                    questionViewModel.submitAnswer(answerSubmitRequest);
+                    questionViewModel.setAnswered(true);
+                    FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
 
-                    securityManager = new SecurityManager(requireContext());
-
-                    Call<AnswerSubmitResponse> call = questionService.submitAnswer(answerSubmitRequest, securityManager.getToken());
-                    call.enqueue(new Callback<AnswerSubmitResponse>() {
+                    questionViewModel.getAnswerSubmitResponseLiveData().observe(requireActivity(), new Observer<AnswerSubmitResponse>() {
                         @Override
-                        public void onResponse(@NonNull Call<AnswerSubmitResponse> call, @NonNull Response<AnswerSubmitResponse> response) {
-                            if (response.isSuccessful()) {
-                                //Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
-
-                                if (response.body() != null) {
-                                    if (args != null) {
-                                        args.putString("correctAnswerText", response.body().getCorrectAnswerText());
-                                    }
-
-                                    if (response.body().isAnswerCorrect()) {
-                                        // Toast.makeText(getContext(), "Good", Toast.LENGTH_SHORT).show();
-                                        if (getActivity() != null) {
-                                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                            CorrectAnswerFragment correctAnswerFragment = new CorrectAnswerFragment();
-                                            correctAnswerFragment.setArguments(args);
-                                            fragmentManager.beginTransaction()
-                                                    .replace(R.id.fragment_container_question_fragment, correctAnswerFragment)
-                                                    .commit();
-                                        }
-                                    } else {
-                                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-                                        if (getActivity() != null) {
-                                            IncorrectAnswerFragment incorrectAnswerFragment = new IncorrectAnswerFragment();
-                                            incorrectAnswerFragment.setArguments(args);
-                                            fragmentManager.beginTransaction()
-                                                    .replace(R.id.fragment_container_question_fragment, incorrectAnswerFragment)
-                                                    .commit();
-                                        }
-
-                                    }
-
-                                }
-
-                            } else {
-                                Log.e("One Selection Fragment", "Sending the submission failed");
-                                Toast.makeText(getContext(), "Klaida. Nepavyko išsiųsti atsakymo.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<AnswerSubmitResponse> call, Throwable t) {
-                            Log.e("One Selection Fragment", "Sending the submission failed", t);
-                            Toast.makeText(getContext(), "Klaida. Nepavyko išsiųsti atsakymo.", Toast.LENGTH_SHORT).show();
+                        public void onChanged(AnswerSubmitResponse answerSubmitResponse) {
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.fragment_container_question_fragment,
+                                            FragmentLoadingService.loadAnswerFragment(answerSubmitResponse, args))
+                                    .commit();
                         }
                     });
-
 
                 }
 

@@ -6,13 +6,19 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
+import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
 import com.mastercoding.bakalaurinis.model.Question;
 import com.mastercoding.bakalaurinis.retrofit.QuestionAPI;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
 import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.view.questions.CorrectAnswerFragment;
+import com.mastercoding.bakalaurinis.view.questions.IncorrectAnswerFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,6 +64,32 @@ public class QuestionRepository {
         });
 
         return questionMutableLiveData;
+    }
+
+    public MutableLiveData<AnswerSubmitResponse> getAnswerSubmitResponse(AnswerSubmitRequest answerSubmitRequest) {
+        MutableLiveData<AnswerSubmitResponse> answerSubmitResponseLiveData = new MutableLiveData<>();
+        Call<AnswerSubmitResponse> call = questionAPI.submitAnswer(answerSubmitRequest, securityManager.getToken());
+        call.enqueue(new Callback<AnswerSubmitResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<AnswerSubmitResponse> call, @NonNull Response<AnswerSubmitResponse> response) {
+                if (response.isSuccessful()) {
+
+                    if (response.body() != null) {
+                        answerSubmitResponseLiveData.setValue(response.body());
+                    }
+
+                } else {
+                    Log.e("Question Fetching Service", "Sending the submission failed");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AnswerSubmitResponse> call, Throwable t) {
+                Log.e("Question Fetching Service", "Sending the submission failed", t);
+            }
+        });
+
+        return answerSubmitResponseLiveData;
     }
 
 }

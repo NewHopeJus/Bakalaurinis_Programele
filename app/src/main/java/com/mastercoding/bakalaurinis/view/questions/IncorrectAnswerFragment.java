@@ -68,6 +68,7 @@ public class IncorrectAnswerFragment extends Fragment {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                questionViewModel.setAnswered(false);
                 questionViewModel.getQuestion();
             }
         });
