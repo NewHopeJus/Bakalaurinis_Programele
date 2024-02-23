@@ -10,4 +10,6 @@ public class LoginResponse {
     public void setJwt(String jwt) {
         this.jwt = jwt;
     }
+
+
 }

@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentIncorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.model.Question;
-import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
@@ -35,7 +35,7 @@ public class IncorrectAnswerFragment extends Fragment {
         fragmentIncorrectAnswerBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_incorrect_answer, container, false);
 
-        SecurityManager securityManager = new SecurityManager(requireContext());
+        MineSecurityManager securityManager = new MineSecurityManager(requireContext());
 
         levelName = getActivity().getIntent().getStringExtra("levelName");
         topicName = getActivity().getIntent().getStringExtra("topicName");

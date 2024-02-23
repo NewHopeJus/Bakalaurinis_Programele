@@ -6,20 +6,19 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
-public class QuestionViewModelFactory implements ViewModelProvider.Factory {
-    private String topicName;
-    private String levelName;
+//singleton class, nes turiu sharinti userio unformacijo tarp keliu activity
+public class UserViewModelFactory implements ViewModelProvider.Factory{
     private MineSecurityManager securityManager;
+    public UserViewModelFactory(MineSecurityManager securityManager) {
 
-    public QuestionViewModelFactory(String levelName, String topicName,  MineSecurityManager securityManager) {
-        this.topicName = topicName;
-        this.levelName = levelName;
         this.securityManager = securityManager;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new QuestionViewModel(levelName, topicName, securityManager);
+        return (T) new UserViewModel(securityManager);
     }
+
+
 }

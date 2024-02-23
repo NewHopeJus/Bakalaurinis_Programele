@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityRegisterBinding;
+import com.mastercoding.bakalaurinis.dtos.LoginRequest;
 import com.mastercoding.bakalaurinis.model.User;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
 import com.mastercoding.bakalaurinis.retrofit.UserAPI;
@@ -60,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!username.isEmpty() && username.matches(usernamePattern)) {
                     if (!password.isEmpty() && password.matches(passwordPattern)) {
                         if (!passwordRepeated.isEmpty() && password.equals(passwordRepeated)) {
-                            User user = new User(username, password);
+                            LoginRequest user = new LoginRequest(username, password);
                             registerUser(user);
                         }
                         else {
@@ -106,11 +107,11 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     //bendravimas su api
-    private void registerUser(User user) {
-        Call<User> call = userService.registerUser(user);
-        call.enqueue(new Callback<User>() {
+    private void registerUser(LoginRequest user) {
+        Call<LoginRequest> call = userService.registerUser(user);
+        call.enqueue(new Callback<LoginRequest>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {
                 if (response.isSuccessful()) {
                     Log.d("RegisterActivity", "Registration Successful");
                     Toast.makeText(RegisterActivity.this, "Registracija sėkminga. Prisijunkite.", Toast.LENGTH_SHORT).show();
@@ -123,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<LoginRequest> call, Throwable t) {
                 Log.e("RegisterActivity", "Registration Failed", t);
                 Toast.makeText(RegisterActivity.this, "Nesėkminga registracija. Bandykite dar kartą", Toast.LENGTH_SHORT).show();
             }

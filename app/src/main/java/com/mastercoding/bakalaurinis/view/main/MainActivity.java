@@ -1,34 +1,27 @@
 package com.mastercoding.bakalaurinis.view.main;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainBinding;
+import com.mastercoding.bakalaurinis.dtos.LoginRequest;
 import com.mastercoding.bakalaurinis.dtos.LoginResponse;
-import com.mastercoding.bakalaurinis.model.User;
-import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
-import com.mastercoding.bakalaurinis.retrofit.UserAPI;
-import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
+import com.mastercoding.bakalaurinis.viewmodel.UserViewModel;
+import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
-    private UserAPI userService = retrofit.create(UserAPI.class);
-    private SecurityManager securityManager;
+    UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +30,42 @@ public class MainActivity extends AppCompatActivity {
         // and returns a binding object that can be used to reference any view with an ID within the layout.
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        MineSecurityManager securityManager = new MineSecurityManager(MainActivity.this);
+
+        userViewModel = new ViewModelProvider(this, new UserViewModelFactory(securityManager)).get(UserViewModel.class);
+
+
+
         binding.buttonLoginPageLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = binding.editTextLoginUsername.getText().toString();
                 String password = binding.editTextLoginPassword.getText().toString();
-                User user = new User(username, password);
-                loginUser(user);
+                if (username.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Įveskite prisijungimo duomenis.", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    LoginRequest loginRequest = new LoginRequest(username, password);
+                    userViewModel.loginUser(loginRequest);
+                    if (!userViewModel.getLoginResponseMutableLiveData().hasObservers()) {
+                        userViewModel.getLoginResponseMutableLiveData().observe(MainActivity.this, new Observer<LoginResponse>() {
+                            @Override
+                            public void onChanged(LoginResponse loginResponse) {
+                                if (loginResponse != null) {
+                                    Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Nesėkmingas prisijungimas, bandykite dar kartą.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+
+                }
             }
+
         });
+
 
 
         binding.buttonLoginPageRegister.setOnClickListener(new View.OnClickListener() {
@@ -55,44 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-    }
-
-    //bendravimas su api
-    private void loginUser(User user) {
-        Call<LoginResponse> call = userService.loginUser(user);
-//        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        call.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<LoginResponse> call, Response<LoginResponse> response) {
-
-                if (response.isSuccessful()) {
-                    if (response.body() != null && !response.body().getJwt().isEmpty()) {
-                        securityManager = new SecurityManager(MainActivity.this);
-                        securityManager.saveToken(response.body().getJwt());
-                        Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
-                        startActivity(intent);
-                    }
-                }
-                else {
-                    Log.d("Login", "Login failed. Bad token. " + response.code());
-                    Toast.makeText(MainActivity.this, "Nesėkmingas prisijungimas, bandykite dar kartą.", Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                Log.d("Login", "Login failed " + t.getLocalizedMessage());
-                Toast.makeText(MainActivity.this, "Nesekmingas prisijungimas", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
 
     }
 }

@@ -4,7 +4,6 @@ public class AnswerSubmitResponse {
     private boolean answerCorrect;
     private Integer updatedExperience;
     private Integer updatedCoins;
-
     private String correctAnswerText;
 
     public AnswerSubmitResponse(boolean answerCorrect, Integer updatedExperience, Integer updatedCoins, String correctAnswerText) {

@@ -15,17 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
-import com.mastercoding.bakalaurinis.databinding.FragmentOneSelectionQuestionBinding;
 import com.mastercoding.bakalaurinis.databinding.FragmentOpenQuestionBinding;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
 import com.mastercoding.bakalaurinis.model.Question;
-import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
@@ -46,7 +44,7 @@ public class OpenQuestionFragment extends Fragment {
         fragmentOpenQuestionBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_open_question, container, false);
         levelName = getActivity().getIntent().getStringExtra("levelName");
         topicName = getActivity().getIntent().getStringExtra("topicName");
-        SecurityManager securityManager = new SecurityManager(requireContext());
+        MineSecurityManager securityManager = new MineSecurityManager(requireContext());
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
         return fragmentOpenQuestionBinding.getRoot();
     }

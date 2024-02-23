@@ -10,13 +10,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.dtos.LoginResponse;
 import com.mastercoding.bakalaurinis.model.Question;
-import com.mastercoding.bakalaurinis.security.SecurityManager;
+import com.mastercoding.bakalaurinis.security.MineSecurityManager;
+import com.mastercoding.bakalaurinis.view.main.MainActivity;
 import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
+import com.mastercoding.bakalaurinis.viewmodel.UserViewModel;
+import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 
 import java.util.Objects;
 
@@ -24,6 +29,8 @@ import java.util.Objects;
 public class QuestionActivity extends AppCompatActivity {
 
     private QuestionViewModel questionViewModel;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +40,14 @@ public class QuestionActivity extends AppCompatActivity {
         String levelName = getIntent().getStringExtra("levelName");
         String topicName = getIntent().getStringExtra("topicName");
 
-        SecurityManager securityManager = new SecurityManager(QuestionActivity.this);
+        MineSecurityManager securityManager = new MineSecurityManager(QuestionActivity.this);
 
         questionViewModel = new ViewModelProvider(this, new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
 
 
-        if (questionViewModel.getQuestionLiveData() == null ) { //tikrinimas ar perkraunam
+        if (questionViewModel.getQuestionLiveData() == null ) { //tikrinimas ar perkraunam nes kitu aveju jei rotatina screena nereikia
             questionViewModel.getQuestion();
         }
-
-
 
         questionViewModel.getQuestionLiveData().observe(this,
                 new Observer<Question>() {

@@ -1,16 +1,11 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -22,12 +17,9 @@ import android.widget.TextView;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentCorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.model.Question;
-import com.mastercoding.bakalaurinis.security.SecurityManager;
-import com.mastercoding.bakalaurinis.view.main.RegisterActivity;
+import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
-
-import java.util.Objects;
 
 
 public class CorrectAnswerFragment extends Fragment {
@@ -48,7 +40,7 @@ public class CorrectAnswerFragment extends Fragment {
         levelName = getActivity().getIntent().getStringExtra("levelName");
         topicName = getActivity().getIntent().getStringExtra("topicName");
 
-        SecurityManager securityManager = new SecurityManager(requireContext());
+        MineSecurityManager securityManager = new MineSecurityManager(requireContext());
 
 
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);

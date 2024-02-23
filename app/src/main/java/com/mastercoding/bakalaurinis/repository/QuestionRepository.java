@@ -1,24 +1,17 @@
 package com.mastercoding.bakalaurinis.repository;
 
 
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
 import com.mastercoding.bakalaurinis.model.Question;
 import com.mastercoding.bakalaurinis.retrofit.QuestionAPI;
 import com.mastercoding.bakalaurinis.retrofit.RetrofitInstance;
-import com.mastercoding.bakalaurinis.security.SecurityManager;
-import com.mastercoding.bakalaurinis.view.questions.CorrectAnswerFragment;
-import com.mastercoding.bakalaurinis.view.questions.IncorrectAnswerFragment;
+import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,10 +20,10 @@ import retrofit2.Retrofit;
 
 public class QuestionRepository {
     private QuestionAPI questionAPI;
-    private SecurityManager securityManager;
+    private MineSecurityManager securityManager;
     private MutableLiveData<Question> questionMutableLiveData;
 
-    public QuestionRepository(SecurityManager securityManager) {
+    public QuestionRepository(MineSecurityManager securityManager) {
         Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
         questionAPI = retrofit.create(QuestionAPI.class);
         this.securityManager = securityManager;
