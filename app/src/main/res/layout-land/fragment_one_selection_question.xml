@@ -35,11 +35,11 @@
             app:layout_constraintStart_toEndOf="@+id/buttonSubmitOneSelQuestion" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/imageViewDisplayImage"
             android:layout_width="122dp"
             android:layout_height="141dp"
             android:layout_marginTop="176dp"
-            android:src="@drawable/girl"
+            android:src="@drawable/placeholder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.804"
             app:layout_constraintStart_toEndOf="@+id/radioGroupOneSelQuestion"

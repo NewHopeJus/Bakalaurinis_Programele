@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,19 +27,10 @@
             android:name=".view.Temp2"
             android:exported="false" />
         <activity
-            android:name=".view.Temp"
-            android:exported="false" />
-        <activity
-            android:name=".view.Profile"
-            android:exported="false" />
-        <activity
             android:name=".view.Garden2"
             android:exported="false" />
         <activity
             android:name=".view.Garden"
-            android:exported="false" />
-        <activity
-            android:name=".view.MenuActivity"
             android:exported="false" />
         <activity
             android:name=".view.main.RegisterActivity"

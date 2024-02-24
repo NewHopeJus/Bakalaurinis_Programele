@@ -1,5 +1,8 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +22,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Firebase;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentOneSelectionQuestionBinding;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
@@ -31,6 +40,8 @@ import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Retrofit;
@@ -46,6 +57,8 @@ public class OneSelectionQuestionFragment extends Fragment {
     private String levelName;
     private String topicName;
 
+    private ProgressDialog progressDialog;
+    private StorageReference storageReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -155,5 +168,32 @@ public class OneSelectionQuestionFragment extends Fragment {
         });
 
 
+        String imageName = question.getImagePath()!=null? question.getImagePath():"1-lygis/atimtis/1L_1T_1K.png";
+        storageReference = FirebaseStorage.getInstance().getReference("images/" + imageName + ".png");
+
+        try {
+            File localFile = File.createTempFile("tempfile", ".png");
+            storageReference.getFile(localFile)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                            fragmentOneSelectionQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), "Nepavyko užkrauti paveiksliuko", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
+
+
+
 }

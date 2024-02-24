@@ -48,6 +48,10 @@ public class Question implements Parcelable {
     @Expose
     private String hint;
 
+    @SerializedName("imagePath")
+    @Expose
+    private String imagePath;
+
 
     protected Question(Parcel in) {
         if (in.readByte() == 0) {
@@ -155,6 +159,14 @@ public class Question implements Parcelable {
 
     public void setHint(String hint) {
         this.hint = hint;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override

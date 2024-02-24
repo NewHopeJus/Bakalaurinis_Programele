@@ -21,7 +21,7 @@
         app:layout_constraintStart_toEndOf="@+id/buttonSubmitOpenQuestion" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageViewDisplayImage"
         android:layout_width="106dp"
         android:layout_height="79dp"
         android:layout_marginEnd="72dp"

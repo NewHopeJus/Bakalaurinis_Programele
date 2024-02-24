@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageViewDisplayImage"
         android:layout_width="106dp"
         android:layout_height="79dp"
         android:layout_marginTop="40dp"
@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDisplayImage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

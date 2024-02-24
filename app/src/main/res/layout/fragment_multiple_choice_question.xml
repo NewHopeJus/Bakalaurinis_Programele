@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="0.563" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageViewDisplayImage"
         android:layout_width="116dp"
         android:layout_height="169dp"
         android:layout_marginEnd="44dp"
@@ -91,7 +91,7 @@
         android:text="CheckBox"
         android:textColor="@color/white"
         app:buttonTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDisplayImage"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
@@ -104,7 +104,7 @@
         android:text="CheckBox"
         android:textColor="@color/white"
         app:buttonTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDisplayImage"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <Button
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toEndOf="@+id/buttonSubmitOneSelQuestion"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDisplayImage" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -128,7 +128,7 @@
         android:text="CheckBox"
         android:textColor="@color/white"
         app:buttonTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDisplayImage"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
@@ -141,7 +141,7 @@
         android:text="CheckBox"
         android:textColor="@color/white"
         app:buttonTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDisplayImage"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
