@@ -16,8 +16,6 @@ import android.widget.ListView;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.data.LevelsData;
 
-import java.util.Objects;
-
 
 public class LevelsListFragment extends ListFragment {
 
@@ -75,7 +73,7 @@ public class LevelsListFragment extends ListFragment {
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
 
-        fragmentTransaction.replace(R.id.fragment_container_menu_list, topicsListFragment);
+        fragmentTransaction.replace(R.id.fragment_container_main_menu_list, topicsListFragment);
         fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
         fragmentTransaction.commit();
     }

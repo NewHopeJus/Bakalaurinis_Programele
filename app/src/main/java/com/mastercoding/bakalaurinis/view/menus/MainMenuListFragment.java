@@ -1,5 +1,6 @@
 package com.mastercoding.bakalaurinis.view.menus;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.view.kingdoms.KingdomListFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
+import com.mastercoding.bakalaurinis.view.main.MainActivity;
 
 public class MainMenuListFragment extends ListFragment {
 
@@ -54,9 +58,14 @@ public class MainMenuListFragment extends ListFragment {
            //replacinam fragmenta is main menu su lygiais
             //pirmas parametras - konteineris fragmentams
             // antras parametras naujas fragmentas
-            fragmentTransaction.replace(R.id.fragment_container_menu_list,levelsListFragment);
+            fragmentTransaction.replace(R.id.fragment_container_main_menu_list,levelsListFragment);
             fragmentTransaction.addToBackStack("levels"); //nes reikes veliau atgal
             fragmentTransaction.commit();
+        } //pasirinko karalystes
+        else if (position==1) {
+            Intent intent = new Intent(getActivity(), KingdomMenuActivity.class);
+            startActivity(intent);
+
         }
 
 

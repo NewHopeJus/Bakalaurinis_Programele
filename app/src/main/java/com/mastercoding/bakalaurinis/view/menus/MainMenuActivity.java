@@ -12,14 +12,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainMenuBinding;
 import com.mastercoding.bakalaurinis.dtos.UserInfoResponse;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
-import com.mastercoding.bakalaurinis.view.main.MainActivity;
 import com.mastercoding.bakalaurinis.viewmodel.UserViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 
@@ -51,7 +49,7 @@ public class MainMenuActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             MainMenuListFragment mainMenuListFragment = new MainMenuListFragment();
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container_menu_list, mainMenuListFragment)
+                    .add(R.id.fragment_container_main_menu_list, mainMenuListFragment)
                     .addToBackStack("home") //nes reikes grizti
                     .commit();
         }
