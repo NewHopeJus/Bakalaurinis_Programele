@@ -1,5 +1,6 @@
 package com.mastercoding.bakalaurinis.view.kingdoms;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull KingdomViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull KingdomViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         //called for each item in the list and is responsible for binding the data from the Kingdom object to the views
         //within the 'Kingdom ViewHolder'
         Kingdom kingdom = kingdomsList.get(position);
