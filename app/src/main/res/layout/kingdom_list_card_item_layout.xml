@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/cardview_kingdom"
     android:layout_height="220dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp"
@@ -30,18 +31,20 @@
             android:id="@+id/textViewKingdomCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@color/white"
-            android:textSize="28sp"
             android:gravity="center"
             android:shadowColor="#673AB7"
             android:shadowDx="8"
             android:shadowDy="8"
             android:shadowRadius="4"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.502" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,35 +1,42 @@
-package com.mastercoding.bakalaurinis.view.kingdoms;
+package com.mastercoding.bakalaurinis.view.shop;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.dtos.KingdomDto;
 import com.mastercoding.bakalaurinis.dtos.KingdomListsResponse;
-import com.mastercoding.bakalaurinis.model.Kingdom;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
-import com.mastercoding.bakalaurinis.view.questions.QuestionActivity;
+import com.mastercoding.bakalaurinis.view.kingdoms.CustomAdapter;
+import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
+import com.mastercoding.bakalaurinis.view.kingdoms.KingdomViewFragment;
+import com.mastercoding.bakalaurinis.view.menus.LevelsListFragment;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModelFactory;
-import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
-import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-public class KingdomListFragment extends Fragment implements CustomAdapter.ItemClickListener {
+
+public class ShopKingdomMenuFragment extends Fragment implements CustomAdapter.ItemClickListener{
+
 
     private List<KingdomDto> kingdomList =  new ArrayList<>();
     private CustomAdapter customAdapter = new CustomAdapter(this);
@@ -38,9 +45,10 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_kingdom_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_shop_kingdom_list, container, false);
 
-        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewFragmentKingdomList);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewShopFragmentKingdomList);
+
 
         kingdomList = new ArrayList<>();
 
@@ -53,36 +61,40 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
             kingdomViewModel.getKingdoms();
         }
 
-
         kingdomViewModel.getKingdomListsResponseLiveData().observe(getViewLifecycleOwner(), new Observer<KingdomListsResponse>() {
 
             @Override
             public void onChanged(KingdomListsResponse kingdomListsResponse) {
-                kingdomList.clear();
+
                 kingdomList.addAll(kingdomListsResponse.getOpenedKingdoms());
                 kingdomList.addAll(kingdomListsResponse.getClosedKingdoms());
                 customAdapter.updateData(kingdomList);
             }
         });
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(customAdapter);
 
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(layoutManager);
 
         return rootView;
     }
 
     @Override
     public void onItemClick(int position) {
+
+        KingdomDto selectedKingdom = kingdomList.get(position);
+        Long kingdomId = selectedKingdom.getId();
+
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
-        Fragment fragment = new KingdomViewFragment();
+        Fragment fragment = new KingdomItemsFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putInt("kingdomId", position);
+        bundle.putLong("selectedKingdomId", kingdomId);
         fragment.setArguments(bundle);
 
-        fragmentTransaction.replace(R.id.fragment_container_kingdom_list, fragment);
+        fragmentTransaction.replace(R.id.fragment_container_shop_kingdom_list, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

@@ -46,9 +46,20 @@ public class KingdomMenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro arba home buttonas
-        //pakeistiiiii!! kai fragmentai bus
+        // atgal mygtukas ant toolbaro
+        if (item.getItemId() == R.id.action_back) {
+            //nes jei maziau uz viena tai removina visus fragmentus
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+                getSupportFragmentManager().popBackStack();
+            }
+            else {
+                finish();
+            }
+            return true;
+        } else if (item.getItemId() == R.id.action_home) {
             finish();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

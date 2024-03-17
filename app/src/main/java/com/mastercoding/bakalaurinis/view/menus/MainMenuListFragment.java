@@ -18,6 +18,7 @@ import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomListFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
 import com.mastercoding.bakalaurinis.view.main.MainActivity;
+import com.mastercoding.bakalaurinis.view.shop.ShopActivity;
 
 public class MainMenuListFragment extends ListFragment {
 
@@ -64,6 +65,11 @@ public class MainMenuListFragment extends ListFragment {
         } //pasirinko karalystes
         else if (position==1) {
             Intent intent = new Intent(getActivity(), KingdomMenuActivity.class);
+            startActivity(intent);
+
+        }
+        else if (position==2) {
+            Intent intent = new Intent(getActivity(), ShopActivity.class);
             startActivity(intent);
 
         }

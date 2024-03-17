@@ -1,10 +1,10 @@
-package com.mastercoding.bakalaurinis.view.kingdoms;
+package com.mastercoding.bakalaurinis.model;
 
 public class Kingdom {
     private String kingdomName;
-    private int kingdomImg;
+    private String kingdomImg;
 
-    public Kingdom(String kingdomName, int kingdomImg) {
+    public Kingdom(String kingdomName, String kingdomImg) {
         this.kingdomName = kingdomName;
         this.kingdomImg = kingdomImg;
     }
@@ -17,11 +17,11 @@ public class Kingdom {
         this.kingdomName = kingdomName;
     }
 
-    public int getKingdomImg() {
+    public String getKingdomImg() {
         return kingdomImg;
     }
 
-    public void setKingdomImg(int kingdomImg) {
+    public void setKingdomImg(String kingdomImg) {
         this.kingdomImg = kingdomImg;
     }
 }

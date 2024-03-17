@@ -1,4 +1,4 @@
-package com.mastercoding.bakalaurinis.view.menus;
+package com.mastercoding.bakalaurinis.view.shop;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,44 +13,45 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityMainMenuBinding;
+import com.mastercoding.bakalaurinis.databinding.ActivityShopBinding;
 import com.mastercoding.bakalaurinis.dtos.UserInfoResponse;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
+import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
+import com.mastercoding.bakalaurinis.view.menus.MainMenuListFragment;
 import com.mastercoding.bakalaurinis.viewmodel.UserViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 
 import java.util.Objects;
 
-public class MainMenuActivity extends AppCompatActivity {
-    private UserViewModel userViewModel;
-
-    private ActivityMainMenuBinding activityMainMenuBinding;
+public class ShopActivity extends AppCompatActivity {
+    private ActivityShopBinding activityShopBinding;
     private TextView usernameTextView;
     private TextView coinsTextView;
     private TextView experienceTextView;
     private MineSecurityManager securityManager;
-
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_shop);
 
-        activityMainMenuBinding = DataBindingUtil.setContentView(this, R.layout.activity_main_menu);
 
-        usernameTextView = activityMainMenuBinding.textViewUserNameMainMenu;
-        coinsTextView = activityMainMenuBinding.textViewCoinsMainMenu;
-        experienceTextView = activityMainMenuBinding.textViewExperienceMainMenu;
+        activityShopBinding = DataBindingUtil.setContentView(this, R.layout.activity_shop);
 
-         securityManager = new MineSecurityManager(MainMenuActivity.this);
+        usernameTextView = activityShopBinding.textViewUserNameShop;
+        coinsTextView = activityShopBinding.textViewCoinsShop;
+        experienceTextView = activityShopBinding.textViewExperienceShop;
 
-        //pirma fragmenta pridedam su main menu listu
+        securityManager = new MineSecurityManager(ShopActivity.this);
+
         if (savedInstanceState == null) {
-            MainMenuListFragment mainMenuListFragment = new MainMenuListFragment();
+            ShopKingdomMenuFragment shopKingdomMenuFragment = new ShopKingdomMenuFragment();
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container_main_menu_list, mainMenuListFragment)
-                    .addToBackStack("home") //nes reikes grizti
+                    .add(R.id.fragment_container_shop_kingdom_list, shopKingdomMenuFragment)
+                    .addToBackStack("shop_kingdom_list") //nes reikes grizti
                     .commit();
         }
 
@@ -61,11 +62,11 @@ public class MainMenuActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
 
-        MineSecurityManager securityManager = new MineSecurityManager(MainMenuActivity.this);
+        MineSecurityManager securityManager = new MineSecurityManager(ShopActivity.this);
         userViewModel = new ViewModelProvider(this, new UserViewModelFactory(securityManager)).get(UserViewModel.class);
 
         userViewModel.fetchUserInfo();
-        userViewModel.getUserInfo().observe(MainMenuActivity.this, new Observer<UserInfoResponse>() {
+        userViewModel.getUserInfo().observe(ShopActivity.this, new Observer<UserInfoResponse>() {
             @Override
             public void onChanged(UserInfoResponse userInfoResponse) {
                 if (userInfoResponse != null) {
@@ -92,30 +93,14 @@ public class MainMenuActivity extends AppCompatActivity {
             //nes jei maziau uz viena tai removina visus fragmentus
             if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
                 getSupportFragmentManager().popBackStack();
-                return true;
-            } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this)
-                 .setTitle("Atsijungimas")
-                        .setMessage("Ar tikrai norite atsijungti nuo paskyros?");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    securityManager.removeToken();
-                    finish();
-                    }
-                });
-                builder.setNegativeButton(R.string.cancel, null); // nes jegu cancel tai tsg nieko nedarome
-                AlertDialog dialog = builder.create();
-                dialog.show();
             }
-
+            else {
+                finish();
+            }
             return true;
         } else if (item.getItemId() == R.id.action_home) {
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                //0: This flag means that the operation will only pop the back stack up to the
-                // given fragment (in this case, "home" fragment).
-                getSupportFragmentManager().popBackStack("home", 0);
-                return true;
-            }
+           finish();
+           return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -125,7 +110,7 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onResume();
         userViewModel.fetchUserInfo();
         if (!userViewModel.getUserInfo().hasActiveObservers()) {
-            userViewModel.getUserInfo().observe(MainMenuActivity.this, new Observer<UserInfoResponse>() {
+            userViewModel.getUserInfo().observe(ShopActivity.this, new Observer<UserInfoResponse>() {
                 @Override
                 public void onChanged(UserInfoResponse userInfoResponse) {
                     usernameTextView.setText(userInfoResponse.getUsername());
