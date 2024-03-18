@@ -54,7 +54,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         //called for each item in the list and is responsible for binding the data from the Kingdom object to the views
         //within the 'Kingdom ViewHolder'
         ShopItem shopItem = itemsList.get(position);
-        holder.textViewItemName.setText(shopItem.getImgName());
+        holder.textViewItemName.setText(shopItem.getName());
         holder.textViewPrice.setText(String.valueOf(shopItem.getPrice()));
 
 
@@ -93,7 +93,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         TextView textViewItemName;
         Button buttonBuy;
         TextView textViewPrice;
-        ImageView imageViewItemCoinImage;
 
         public ShopViewHolder(@NonNull View itemView) {
             super(itemView);

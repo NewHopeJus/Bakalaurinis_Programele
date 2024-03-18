@@ -19,15 +19,15 @@ public class KingdomViewFragment extends Fragment {
         int kingdomId = getArguments().getInt("kingdomId", -1);
         View view;
         switch (kingdomId) {
-            case 1:
-                view = inflater.inflate(R.layout.fragment_kingdom_view_flower_kingdom, container, false);
-                break;
-            case 2:
-                view = inflater.inflate(R.layout.fragment_kingdom_view_elf_kingdom, container, false);
-                break;
             default:
-                view = inflater.inflate(R.layout.fragment_kingdom_view_elf_kingdom, container, false);
+                view = inflater.inflate(R.layout.fragment_elfu_karalyste, container, false);
                 break;
+//            case 2:
+//                view = inflater.inflate(R.layout.fragment_kingdom_view_elf_kingdom, container, false);
+//                break;
+//            default:
+//                view = inflater.inflate(R.layout.fragment_kingdom_view_elf_kingdom, container, false);
+//                break;
 
         }
         return view;

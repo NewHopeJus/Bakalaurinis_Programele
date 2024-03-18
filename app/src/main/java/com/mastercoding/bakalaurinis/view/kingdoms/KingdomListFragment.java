@@ -19,6 +19,9 @@ import com.mastercoding.bakalaurinis.dtos.KingdomDto;
 import com.mastercoding.bakalaurinis.dtos.KingdomListsResponse;
 import com.mastercoding.bakalaurinis.model.Kingdom;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.ElfuKaralysteFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.GeliuKaralysteFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.GrybuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.questions.QuestionActivity;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModelFactory;
@@ -31,7 +34,7 @@ import java.util.Objects;
 
 public class KingdomListFragment extends Fragment implements CustomAdapter.ItemClickListener {
 
-    private List<KingdomDto> kingdomList =  new ArrayList<>();
+    private List<KingdomDto> kingdomList = new ArrayList<>();
     private CustomAdapter customAdapter = new CustomAdapter(this);
     private KingdomViewModel kingdomViewModel;
 
@@ -49,7 +52,7 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
 
         kingdomViewModel = new ViewModelProvider(this, new KingdomViewModelFactory(securityManager)).get(KingdomViewModel.class);
 
-        if(kingdomViewModel.getKingdomListsResponseLiveData()==null){
+        if (kingdomViewModel.getKingdomListsResponseLiveData() == null) {
             kingdomViewModel.getKingdoms();
         }
 
@@ -74,12 +77,33 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
 
     @Override
     public void onItemClick(int position) {
+
+        KingdomDto selectedKingdom = kingdomList.get(position);
+        Long kingdomId = selectedKingdom.getId();
+
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
-        Fragment fragment = new KingdomViewFragment();
+        Fragment fragment;
 
         Bundle bundle = new Bundle();
-        bundle.putInt("kingdomId", position);
+        bundle.putLong("kingdomId", kingdomId);
+
+
+        switch (selectedKingdom.getName()) {
+            case "Gėlių karalystė":
+                fragment = new GeliuKaralysteFragment();
+                break;
+            case "Elfų karalystė":
+                fragment = new ElfuKaralysteFragment();
+                break;
+            case "Grybų karalystė":
+                fragment = new GrybuKaralysteFragment();
+                break;
+            default:
+                fragment = new GrybuKaralysteFragment();
+                break;
+
+        }
         fragment.setArguments(bundle);
 
         fragmentTransaction.replace(R.id.fragment_container_kingdom_list, fragment);

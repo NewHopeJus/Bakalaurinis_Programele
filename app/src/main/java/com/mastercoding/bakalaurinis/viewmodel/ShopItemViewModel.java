@@ -8,7 +8,7 @@ import com.mastercoding.bakalaurinis.repository.ShopItemRepository;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
 public class ShopItemViewModel extends ViewModel {
-    private MutableLiveData<ShopItemListDto> shopItemListMutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<ShopItemListDto> shopItemListMutableLiveData;
 
     private ShopItemRepository shopItemRepository;
 
@@ -23,5 +23,6 @@ public class ShopItemViewModel extends ViewModel {
     public MutableLiveData<ShopItemListDto> getShopItemListMutableLiveData() {
         return shopItemListMutableLiveData;
     }
+
 
 }

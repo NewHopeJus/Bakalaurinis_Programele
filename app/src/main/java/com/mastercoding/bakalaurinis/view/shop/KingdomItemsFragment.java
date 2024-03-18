@@ -25,7 +25,7 @@ import java.util.List;
 
 public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopItemClickListener {
 
-   // private List<ShopItem> shopItemList = new ArrayList<>();
+    // private List<ShopItem> shopItemList = new ArrayList<>();
     private ShopAdapter shopAdapter = new ShopAdapter(this);
 
     private ShopItemViewModel shopItemViewModel;
@@ -48,12 +48,17 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
         if (bundle != null) {
             Long selectedKingdomId = bundle.getLong("selectedKingdomId");
 
-            shopItemViewModel.getKingdomItems(selectedKingdomId);
+
+            if (shopItemViewModel.getShopItemListMutableLiveData() == null) {
+                shopItemViewModel.getKingdomItems(selectedKingdomId);
+            }
+
+
             shopItemViewModel.getShopItemListMutableLiveData().observe(getViewLifecycleOwner(), new Observer<ShopItemListDto>() {
                 @Override
                 public void onChanged(ShopItemListDto shopItemListDto) {
                     shopAdapter.clearData();
-                   // shopItemList.clear();
+                    // shopItemList.clear();
 
                     if (shopItemListDto != null) {
                         //shopItemList.addAll(shopItemListDto.getShopItems());
