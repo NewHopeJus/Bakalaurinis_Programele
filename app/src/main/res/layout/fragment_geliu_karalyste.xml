@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.kingdoms.KingdomViewFragment">
+    tools:context=".view.kingdoms.views.GeliuKaralysteFragment">
 
     <ImageView
-        android:id="@+id/imageViewElfKingdomBackground"
+        android:id="@+id/imageViewMushroomKingdomBackground"
         android:layout_width="411dp"
         android:layout_height="731dp"
         android:scaleType="centerCrop"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageViewSviesiojiPilisGeliuKaralyste"
         android:layout_width="283dp"
         android:layout_height="446dp"
         android:layout_marginTop="40dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/imageViewPrinceseRozyteGeliuKaralyste"
         android:layout_width="279dp"
         android:layout_height="451dp"
         android:layout_marginEnd="132dp"
@@ -39,34 +39,34 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView23"
+        android:id="@+id/imageViewZydintisMedisGeliuKaralyste"
         android:layout_width="179dp"
         android:layout_height="472dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/zydintis_medis"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSviesiojiPilisGeliuKaralyste"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste"
         android:layout_width="102dp"
         android:layout_height="214dp"
         android:layout_marginBottom="48dp"
         android:src="@drawable/pauksciukas_svelnute"
-        app:layout_constraintBottom_toTopOf="@+id/imageView14"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView28"
+        android:id="@+id/imageViewFontanasGeliuKaralyste"
         android:layout_width="95dp"
         android:layout_height="142dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="60dp"
         android:src="@drawable/fontanas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

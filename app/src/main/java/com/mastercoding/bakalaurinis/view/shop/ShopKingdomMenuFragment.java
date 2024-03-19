@@ -1,33 +1,24 @@
 package com.mastercoding.bakalaurinis.view.shop;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.dtos.KingdomDto;
 import com.mastercoding.bakalaurinis.dtos.KingdomListsResponse;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.view.kingdoms.CustomAdapter;
-import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
-import com.mastercoding.bakalaurinis.view.kingdoms.KingdomViewFragment;
-import com.mastercoding.bakalaurinis.view.menus.LevelsListFragment;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModelFactory;
 

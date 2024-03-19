@@ -17,7 +17,9 @@ import android.view.ViewGroup;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.dtos.KingdomDto;
 import com.mastercoding.bakalaurinis.dtos.KingdomListsResponse;
+import com.mastercoding.bakalaurinis.dtos.ShopItemListDto;
 import com.mastercoding.bakalaurinis.model.Kingdom;
+import com.mastercoding.bakalaurinis.model.ShopItem;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.ElfuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.GeliuKaralysteFragment;
@@ -27,6 +29,8 @@ import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModelFactory;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
+import com.mastercoding.bakalaurinis.viewmodel.ShopItemViewModel;
+import com.mastercoding.bakalaurinis.viewmodel.ShopItemViewModelFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +42,10 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
     private CustomAdapter customAdapter = new CustomAdapter(this);
     private KingdomViewModel kingdomViewModel;
 
+    private ShopItemViewModel shopItemViewModel;
+    Bundle bundle;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,11 +54,13 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewFragmentKingdomList);
 
         kingdomList = new ArrayList<>();
+        bundle = new Bundle();
 
 
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
 
         kingdomViewModel = new ViewModelProvider(this, new KingdomViewModelFactory(securityManager)).get(KingdomViewModel.class);
+        shopItemViewModel = new ViewModelProvider(this, new ShopItemViewModelFactory(securityManager)).get(ShopItemViewModel.class);
 
         if (kingdomViewModel.getKingdomListsResponseLiveData() == null) {
             kingdomViewModel.getKingdoms();
@@ -68,6 +78,9 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
             }
         });
 
+
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(customAdapter);
 
@@ -81,12 +94,14 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
         KingdomDto selectedKingdom = kingdomList.get(position);
         Long kingdomId = selectedKingdom.getId();
 
+        bundle.putLong("kingdomId", kingdomId);
+
+
+
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         Fragment fragment;
 
-        Bundle bundle = new Bundle();
-        bundle.putLong("kingdomId", kingdomId);
 
 
         switch (selectedKingdom.getName()) {

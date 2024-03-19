@@ -3,12 +3,14 @@ package com.mastercoding.bakalaurinis.model;
 public class ShopItem {
     private Long id;
     private String name;
-    private String imgName;
+    private String imgViewId;
+    private  String imgName;
     private Integer price;
 
-    public ShopItem(Long id, String name, String imgName, Integer price) {
+    public ShopItem(Long id, String name, String imgViewId, String imgName, Integer price) {
         this.id = id;
         this.name = name;
+        this.imgViewId = imgViewId;
         this.imgName = imgName;
         this.price = price;
     }
@@ -27,6 +29,14 @@ public class ShopItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImgViewId() {
+        return imgViewId;
+    }
+
+    public void setImgViewId(String imgViewId) {
+        this.imgViewId = imgViewId;
     }
 
     public String getImgName() {

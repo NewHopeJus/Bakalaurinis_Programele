@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mastercoding.bakalaurinis.R;
-import com.mastercoding.bakalaurinis.dtos.KingdomDto;
 import com.mastercoding.bakalaurinis.model.ShopItem;
 
 import java.util.ArrayList;
@@ -66,18 +65,14 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             }
         }
 
+        //vietoje to kad klasutyti viso image clicku siuo atveju klausau tik buttonu
+        holder.buttonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemClickListener.onItemClick(position);
+            }
+        });
 
-
-
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(itemClickListener!=null) {
-//                    itemClickListener.onItemClick(position);
-//                }
-//            }
-//        });
     }
 
     @Override
