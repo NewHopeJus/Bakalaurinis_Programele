@@ -35,15 +35,6 @@
             android:name=".view.menus.MainMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Temp2"
-            android:exported="false" />
-        <activity
-            android:name=".view.Garden2"
-            android:exported="false" />
-        <activity
-            android:name=".view.Garden"
-            android:exported="false" />
-        <activity
             android:name=".view.main.RegisterActivity"
             android:exported="false" />
         <activity
