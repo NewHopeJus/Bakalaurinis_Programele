@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/flower_kingdom_empty"
+    tools:context=".view.kingdoms.views.GeliuKaralysteFragment"
+
+    >
+
+
+    <ImageView
+        android:id="@+id/imageViewSviesiojiPilisGeliuKaralyste"
+        android:layout_width="303dp"
+        android:layout_height="404dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="64dp"
+        android:src="@drawable/sviesioji_pilis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageViewPrinceseRozyteGeliuKaralyste"
+        android:layout_width="212dp"
+        android:layout_height="264dp"
+        android:layout_marginTop="76dp"
+        android:src="@drawable/princese_rozyte"
+        app:layout_constraintStart_toEndOf="@+id/imageView26"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste"
+        android:layout_width="78dp"
+        android:layout_height="122dp"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/pauksciukas_svelnute"
+        app:layout_constraintBottom_toTopOf="@+id/imageView25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.187" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="65dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/bunny_flower_kingdom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="79dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="76dp"
+        android:src="@drawable/butterflu_flower_kingdom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPrinceseRozyteGeliuKaralyste" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="51dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/bunny_2_flower_kingdom"
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="26dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/rose_flower_kingdom"
+        app:layout_constraintStart_toEndOf="@+id/imageView26"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="136dp"
+        android:layout_height="262dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/dear_flower_kingdom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="107dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="128dp"
+        android:src="@drawable/suoliukas_flower_kingdom"
+        app:layout_constraintBottom_toTopOf="@+id/imageView26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <ImageView
+        android:id="@+id/imageView28"
+        android:layout_width="168dp"
+        android:layout_height="429dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/tree_flower_kingdom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toEndOf="@+id/imageView19" />
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="66dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/bird_2_flower_kingdom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewSviesiojiPilisGeliuKaralyste"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="123dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/blossom_flower_kingdom"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

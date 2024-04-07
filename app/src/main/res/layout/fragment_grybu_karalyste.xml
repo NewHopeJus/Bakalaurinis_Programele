@@ -19,7 +19,6 @@
 
     <ImageView
         android:id="@+id/imageViewGyvenamasisGrybasGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="312dp"
         android:layout_height="504dp"
         android:layout_marginTop="32dp"
@@ -31,7 +30,6 @@
 
     <ImageView
         android:id="@+id/imageViewVoveryteGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="150dp"
         android:layout_height="161dp"
         android:layout_marginStart="4dp"
@@ -42,7 +40,6 @@
 
     <ImageView
         android:id="@+id/imageViewlinksmasisRaudonikisGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="101dp"
         android:layout_height="234dp"
         android:layout_marginStart="4dp"
@@ -53,7 +50,6 @@
 
     <ImageView
         android:id="@+id/imageViewzaliojiGudryteGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="72dp"
         android:layout_height="177dp"
         android:layout_marginStart="184dp"
@@ -64,7 +60,6 @@
 
     <ImageView
         android:id="@+id/imageViewgrybejaDidziojiGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="189dp"
         android:layout_height="369dp"
         android:layout_marginTop="52dp"
@@ -74,7 +69,6 @@
 
     <ImageView
         android:id="@+id/imageViewPauksciukasSvieseleGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="86dp"
         android:layout_height="140dp"
         android:layout_marginTop="104dp"
@@ -85,7 +79,6 @@
 
     <ImageView
         android:id="@+id/imageViewPauksciukasDziugeselisGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="69dp"
         android:layout_height="84dp"
         android:layout_marginStart="16dp"
@@ -96,7 +89,6 @@
 
     <ImageView
         android:id="@+id/imageViewStirnyteGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="71dp"
         android:layout_height="218dp"
         android:layout_marginTop="68dp"
@@ -106,7 +98,6 @@
 
     <ImageView
         android:id="@+id/imageViewPauksciukasSpalvingasGrybuKaralyste"
-        android:visibility="invisible"
         android:layout_width="101dp"
         android:layout_height="83dp"
         android:layout_marginTop="232dp"

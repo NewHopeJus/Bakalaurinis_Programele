@@ -24,6 +24,9 @@ import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.ElfuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.GeliuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.GrybuKaralysteFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.NykstukuKaralysteFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.PovandenineKaralysteFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.SalumynuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.questions.QuestionActivity;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.KingdomViewModelFactory;
@@ -79,8 +82,6 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
         });
 
 
-
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(customAdapter);
 
@@ -97,11 +98,9 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
         bundle.putLong("kingdomId", kingdomId);
 
 
-
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         Fragment fragment;
-
 
 
         switch (selectedKingdom.getName()) {
@@ -113,6 +112,15 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
                 break;
             case "Grybų karalystė":
                 fragment = new GrybuKaralysteFragment();
+                break;
+            case "Povandeninė karalystė":
+                fragment = new PovandenineKaralysteFragment();
+                break;
+            case "Saldumynų karalystė":
+                fragment = new SalumynuKaralysteFragment();
+                break;
+            case "Nykštukų karalystė":
+                fragment = new NykstukuKaralysteFragment();
                 break;
             default:
                 fragment = new GrybuKaralysteFragment();

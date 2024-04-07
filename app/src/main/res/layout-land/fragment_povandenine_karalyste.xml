@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/povandenine_karalyste_background"
+        tools:context=".view.kingdoms.views.PovandenineKaralysteFragment">
+
+
+        <ImageView
+            android:id="@+id/imageView35"
+            android:layout_width="303dp"
+            android:layout_height="477dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/castle_povandenine_karalyste_6" />
+
+        <ImageView
+            android:id="@+id/imageView37"
+            android:layout_width="101dp"
+            android:layout_height="152dp"
+            android:layout_marginTop="76dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/golden_fish" />
+
+        <ImageView
+            android:id="@+id/imageView38"
+            android:layout_width="107dp"
+            android:layout_height="93dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView40"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/blue_purple_fish" />
+
+        <ImageView
+            android:id="@+id/imageView39"
+            android:layout_width="102dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="104dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/colorful_fish" />
+
+        <ImageView
+            android:id="@+id/imageView40"
+            android:layout_width="104dp"
+            android:layout_height="141dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/orange_colorful_fish" />
+
+        <ImageView
+            android:id="@+id/imageView43"
+            android:layout_width="115dp"
+            android:layout_height="168dp"
+            android:layout_marginStart="144dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView48"
+            app:layout_constraintTop_toTopOf="@+id/imageView47"
+            app:layout_constraintVertical_bias="0.863"
+            app:srcCompat="@drawable/sea_horse" />
+
+        <ImageView
+            android:id="@+id/imageView45"
+            android:layout_width="165dp"
+            android:layout_height="181dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView51"
+            app:layout_constraintEnd_toStartOf="@+id/imageView46"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView38"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/mermaid_little" />
+
+        <ImageView
+            android:id="@+id/imageView46"
+            android:layout_width="120dp"
+            android:layout_height="158dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView37"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView35"
+            app:layout_constraintTop_toBottomOf="@+id/imageView39"
+            app:srcCompat="@drawable/papartis" />
+
+        <ImageView
+            android:id="@+id/imageView47"
+            android:layout_width="69dp"
+            android:layout_height="225dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="144dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView45"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/purple_sea_plant" />
+
+        <ImageView
+            android:id="@+id/imageView48"
+            android:layout_width="91dp"
+            android:layout_height="194dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView47"
+            app:layout_constraintHorizontal_bias="0.341"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/colorful_plant" />
+
+        <ImageView
+            android:id="@+id/imageView49"
+            android:layout_width="94dp"
+            android:layout_height="82dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView37"
+            app:layout_constraintVertical_bias="0.91"
+            app:srcCompat="@drawable/crab" />
+
+        <ImageView
+            android:id="@+id/imageView50"
+            android:layout_width="100dp"
+            android:layout_height="86dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView43"
+            app:layout_constraintHorizontal_bias="0.872"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView47"
+            app:srcCompat="@drawable/shell" />
+
+        <ImageView
+            android:id="@+id/imageView51"
+            android:layout_width="146dp"
+            android:layout_height="127dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView49"
+            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintStart_toEndOf="@+id/imageView43"
+            app:layout_constraintTop_toTopOf="@+id/imageView43"
+            app:srcCompat="@drawable/cute_creature_povandenine_karalyste" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
