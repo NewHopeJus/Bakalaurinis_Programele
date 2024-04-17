@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_saldumyu_karalyste"
+        tools:context=".view.kingdoms.views.SalumynuKaralysteFragment">
+
+
+        <ImageView
+            android:id="@+id/imageViewSaldumynuPilis"
+            android:layout_width="329dp"
+            android:layout_height="301dp"
+            android:src="@drawable/candy_kingdom_castle"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewSaldumynuFeja"
+            android:layout_width="198dp"
+            android:layout_height="256dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewBitute"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/feja" />
+
+        <ImageView
+            android:id="@+id/imageViewKatinas"
+            android:layout_width="127dp"
+            android:layout_height="133dp"
+            android:layout_marginBottom="4dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSausainis"
+            app:layout_constraintHorizontal_bias="0.913"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/cat" />
+
+        <ImageView
+            android:id="@+id/imageViewCukrausDrugelis"
+            android:layout_width="84dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="16dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldainiuPaukstis"
+            app:srcCompat="@drawable/drugelis" />
+
+        <ImageView
+            android:id="@+id/imageViewVaikstantisPyragas"
+            android:layout_width="87dp"
+            android:layout_height="67dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="96dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewLedinukasSirdute"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSaldainiuTriusiukas"
+            app:srcCompat="@drawable/pyragas" />
+
+        <ImageView
+            android:id="@+id/imageViewKaruna"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
+            android:layout_marginBottom="108dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSaldumynuPilis"
+            app:layout_constraintHorizontal_bias="0.904"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/crown" />
+
+        <ImageView
+            android:id="@+id/imageViewSaldainiuTriusiukas"
+            android:layout_width="137dp"
+            android:layout_height="138dp"
+            android:layout_marginEnd="104dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewSaldumynuPilis"
+            app:srcCompat="@drawable/bunny" />
+
+        <ImageView
+            android:id="@+id/imageViewSaldainiuPaukstis"
+            android:layout_width="161dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="16dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCukrausDrugelis"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sweets_bird" />
+
+        <ImageView
+            android:id="@+id/imageViewBitute"
+            android:layout_width="118dp"
+            android:layout_height="141dp"
+            android:layout_marginStart="12dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageViewVaikstantisPyragas"
+            app:srcCompat="@drawable/bee_saldumynu" />
+
+        <ImageView
+            android:id="@+id/imageViewSausainis"
+            android:layout_width="54dp"
+            android:layout_height="74dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSaldainiuTriusiukas"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldumynuPilis"
+            app:srcCompat="@drawable/cookie" />
+
+        <ImageView
+            android:id="@+id/imageViewLedinukas"
+            android:layout_width="73dp"
+            android:layout_height="218dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewVaikstantisPyragas"
+            app:layout_constraintStart_toStartOf="@+id/imageViewSaldumynuFeja"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.833"
+            app:srcCompat="@drawable/lolipop" />
+
+        <ImageView
+            android:id="@+id/imageViewKeksiukas"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewBitute"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSaldainiuTriusiukas"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewVaikstantisPyragas"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/cupcake" />
+
+        <ImageView
+            android:id="@+id/imageViewSaldainis"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewKaruna"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSaldumynuPilis"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCukrausDrugelis"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldainiuPaukstis"
+            app:layout_constraintVertical_bias="0.225"
+            app:srcCompat="@drawable/candy" />
+
+        <ImageView
+            android:id="@+id/imageViewSpalvotiLedai"
+            android:layout_width="57dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewCukrausDrugelis"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSaldainiuPaukstis"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.72"
+            app:srcCompat="@drawable/ice_cream" />
+
+        <ImageView
+            android:id="@+id/imageViewLedinukasSirdute"
+            android:layout_width="45dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewBitute"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldumynuFeja"
+            app:layout_constraintVertical_bias="0.887"
+            app:srcCompat="@drawable/lolipop_heart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

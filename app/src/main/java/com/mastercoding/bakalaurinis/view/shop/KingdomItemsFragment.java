@@ -100,9 +100,9 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
                     if (buyItemResponse != null) {
 
                         Toast.makeText(requireContext(), buyItemResponse.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        shopItemViewModel.getBuyItemResponseLiveData().removeObservers(getViewLifecycleOwner());
                         shopItemViewModel.resetBuyItemResponseLiveData();
+                        shopItemViewModel.getBuyItemResponseLiveData().removeObservers(getViewLifecycleOwner());
+
                     }
 
                 }

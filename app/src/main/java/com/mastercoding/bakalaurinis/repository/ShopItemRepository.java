@@ -36,21 +36,17 @@ public class ShopItemRepository {
     }
 
     public MutableLiveData<ShopItemListDto> getShopItemsForKingdom(Long kingdomId) {
-
         Call<ShopItemListDto> call = shopItemAPI.getItemsByKingdomId(kingdomId, securityManager.getToken());
         call.enqueue(new Callback<ShopItemListDto>() {
-
             @Override
             public void onResponse(@NonNull Call<ShopItemListDto> call, @NonNull Response<ShopItemListDto> response) {
                 Log.e("Response body", response.body().toString());
                 if (response.isSuccessful()) {
                     shopItemListMutableLiveData.setValue(response.body());
-
                 } else {
                     Log.e("Shop Item  Repository", "Getting shop items from backend failed");
                 }
             }
-
             @Override
             public void onFailure(Call<ShopItemListDto> call, Throwable t) {
                 Log.e("Shop Item  Repository", "Getting shop items from backend failed", t);

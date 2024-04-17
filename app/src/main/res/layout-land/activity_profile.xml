@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mano profilis"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="40dp"
+            android:text="Slapyvardis:"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewUserNameProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="28dp"
+            android:text="Justyna"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textViewCoinsProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="28dp"
+            android:text="50"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/moneta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewExperienceProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="28dp"
+            android:text="2"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCoinsProfile" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="48dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/diamond"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <Button
+            android:id="@+id/buttonChangeUsername"
+            android:layout_width="218dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:text="Keisti slapyvardį"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/toolbarProfile"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonChangePassword"
+            android:layout_width="218dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:text="Keisti slaptažodį"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/toolbarProfile"
+            app:layout_constraintStart_toEndOf="@+id/buttonChangeUsername" />
+
+        <Button
+            android:id="@+id/buttonDeleteAccount"
+            android:layout_width="218dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="68dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:text="Pašalinti paskyrą"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/toolbarProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toEndOf="@+id/buttonChangePassword"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

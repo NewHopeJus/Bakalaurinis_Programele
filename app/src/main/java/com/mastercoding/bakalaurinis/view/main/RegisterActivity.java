@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(RegisterActivity.this, "Netinkamas vartotojo vardas", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Vartotojo vardą turi sudaryti 3-20 simbolių: raidės, skaičiai arba pabraukimai.", Toast.LENGTH_SHORT).show();
 
                 }
             }

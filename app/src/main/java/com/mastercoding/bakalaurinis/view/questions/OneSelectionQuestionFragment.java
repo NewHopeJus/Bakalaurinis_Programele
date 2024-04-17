@@ -3,6 +3,7 @@ package com.mastercoding.bakalaurinis.view.questions;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,7 +100,11 @@ public class OneSelectionQuestionFragment extends Fragment {
 
             if (question != null) {
                 List<Option> optionList = question.getOptions();
-                descriptionTextView.setText(question.getDescription());
+                if (question.getQuestionTopic().equals("Trupmenos")) {
+                    descriptionTextView.setText(Html.fromHtml(question.getDescription(), Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    descriptionTextView.setText(question.getDescription());
+                }
 
                 radioButton1.setText(optionList.get(0).getText());
                 radioButton1.setTag(optionList.get(0).getId());

@@ -19,124 +19,136 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView35"
+            app:layout_constraintTop_toTopOf="@+id/imageViewPilisPovandenineKaralyste"
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
-            android:id="@+id/imageView35"
+            android:id="@+id/imageViewPilisPovandenineKaralyste"
             android:layout_width="371dp"
             android:layout_height="683dp"
             android:layout_marginBottom="64dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/castle_povandenine_karalyste_6" />
 
         <ImageView
-            android:id="@+id/imageView37"
+            android:id="@+id/imageViewAuksineZuvele"
             android:layout_width="107dp"
             android:layout_height="152dp"
             android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView39"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewZuvytePurpurineTetra"
             app:srcCompat="@drawable/golden_fish" />
 
         <ImageView
-            android:id="@+id/imageView38"
+            android:id="@+id/imageViewZuvyteMelynojiGupija"
             android:layout_width="107dp"
             android:layout_height="93dp"
             android:layout_marginStart="84dp"
             android:layout_marginTop="60dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/blue_purple_fish" />
 
         <ImageView
-            android:id="@+id/imageView39"
+            android:id="@+id/imageViewZuvytePurpurineTetra"
             android:layout_width="102dp"
             android:layout_height="110dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="72dp"
             app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/colorful_fish" />
 
         <ImageView
-            android:id="@+id/imageView40"
+            android:id="@+id/imageViewZuvyteRaudonasisNeonas"
             android:layout_width="94dp"
             android:layout_height="210dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="124dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/orange_colorful_fish" />
 
         <ImageView
-            android:id="@+id/imageView43"
+            android:id="@+id/imageViewJuruArkliukas"
             android:layout_width="133dp"
             android:layout_height="191dp"
             android:layout_marginStart="64dp"
             android:layout_marginTop="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView50"
-            app:layout_constraintStart_toStartOf="@+id/imageView47"
-            app:layout_constraintTop_toTopOf="@+id/imageView45"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewMoliuskas"
+            app:layout_constraintStart_toStartOf="@+id/imageViewGorgonaceaAugalas"
+            app:layout_constraintTop_toTopOf="@+id/imageViewUndine"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/sea_horse" />
 
         <ImageView
-            android:id="@+id/imageView45"
+            android:id="@+id/imageViewUndine"
             android:layout_width="179dp"
             android:layout_height="231dp"
             android:layout_marginTop="68dp"
             android:layout_marginEnd="92dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView38"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewZuvyteMelynojiGupija"
             app:srcCompat="@drawable/mermaid_little" />
 
         <ImageView
-            android:id="@+id/imageView46"
+            android:id="@+id/imageViewAnacharisAugalas"
             android:layout_width="67dp"
             android:layout_height="176dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="72dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView45"
-            app:layout_constraintTop_toBottomOf="@+id/imageView37"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewUndine"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAuksineZuvele"
             app:srcCompat="@drawable/papartis" />
 
         <ImageView
-            android:id="@+id/imageView47"
+            android:id="@+id/imageViewGorgonaceaAugalas"
             android:layout_width="67dp"
             android:layout_height="271dp"
             android:layout_marginTop="112dp"
             android:layout_marginEnd="76dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView45"
-            app:layout_constraintTop_toBottomOf="@+id/imageView38"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewUndine"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewZuvyteMelynojiGupija"
             app:srcCompat="@drawable/purple_sea_plant" />
 
         <ImageView
-            android:id="@+id/imageView48"
+            android:id="@+id/imageViewJurosGeles"
             android:layout_width="103dp"
             android:layout_height="206dp"
             android:layout_marginBottom="16dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView50"
+            app:layout_constraintStart_toEndOf="@+id/imageViewMoliuskas"
             app:srcCompat="@drawable/colorful_plant" />
 
         <ImageView
-            android:id="@+id/imageView49"
+            android:id="@+id/imageViewKrabas"
             android:layout_width="143dp"
             android:layout_height="78dp"
             android:layout_marginTop="64dp"
             android:layout_marginEnd="4dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView46"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAnacharisAugalas"
             app:srcCompat="@drawable/crab" />
 
         <ImageView
-            android:id="@+id/imageView50"
+            android:id="@+id/imageViewMoliuskas"
             android:layout_width="100dp"
             android:layout_height="86dp"
             android:layout_marginBottom="16dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.27"
@@ -144,13 +156,14 @@
             app:srcCompat="@drawable/shell" />
 
         <ImageView
-            android:id="@+id/imageView51"
+            android:id="@+id/imageViewAstunkojis"
             android:layout_width="150dp"
             android:layout_height="132dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="68dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView43"
-            app:layout_constraintTop_toTopOf="@+id/imageView46"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewJuruArkliukas"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAnacharisAugalas"
             app:srcCompat="@drawable/cute_creature_povandenine_karalyste" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

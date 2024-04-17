@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.mastercoding.bakalaurinis.R;
+import com.mastercoding.bakalaurinis.view.ProfileActivity;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomListFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
 import com.mastercoding.bakalaurinis.view.main.MainActivity;
@@ -72,7 +73,11 @@ public class MainMenuListFragment extends ListFragment {
             Intent intent = new Intent(getActivity(), ShopActivity.class);
             startActivity(intent);
 
+        } else if (position==4) {
+            Intent intent = new Intent(getActivity(), ProfileActivity.class);
+            startActivity(intent);
         }
+
 
 
     }

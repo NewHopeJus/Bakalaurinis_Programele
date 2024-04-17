@@ -18,6 +18,7 @@
             android:layout_height="414dp"
             android:layout_marginBottom="76dp"
             android:src="@drawable/gyvenamasis_grybas"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.531"
@@ -30,6 +31,7 @@
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="16dp"
             android:src="@drawable/voveryte"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageViewStirnyteGrybuKaralyste" />
 
@@ -39,6 +41,7 @@
             android:layout_height="254dp"
             android:layout_marginStart="52dp"
             android:src="@drawable/linksmasis_raudonikis"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
             app:layout_constraintTop_toTopOf="parent"
@@ -50,6 +53,7 @@
             android:layout_height="118dp"
             android:layout_marginTop="116dp"
             android:src="@drawable/zalioji_gudryte"
+            android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/imageViewgrybejaDidziojiGrybuKaralyste"
             app:layout_constraintTop_toTopOf="@+id/imageViewgrybejaDidziojiGrybuKaralyste" />
 
@@ -59,6 +63,7 @@
             android:layout_height="254dp"
             android:layout_marginStart="16dp"
             android:src="@drawable/grybeja_didzioji"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -70,6 +75,7 @@
             android:layout_height="87dp"
             android:layout_marginTop="60dp"
             android:src="@drawable/pauksciukas_sviesele"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste"
@@ -81,6 +87,7 @@
             android:layout_height="92dp"
             android:layout_marginStart="220dp"
             android:layout_marginBottom="56dp"
+            android:visibility="invisible"
             android:src="@drawable/pauksciukas_dziugeselis"
             app:layout_constraintBottom_toTopOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
             app:layout_constraintStart_toStartOf="parent" />
@@ -91,6 +98,7 @@
             android:layout_height="221dp"
             android:layout_marginStart="72dp"
             android:src="@drawable/stirnyte"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.407"
@@ -105,6 +113,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/pauksciukas_spalvingas"
+            android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/imageViewPauksciukasSvieseleGrybuKaralyste"
             app:layout_constraintTop_toTopOf="parent" />
 

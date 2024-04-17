@@ -2,133 +2,136 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".view.questions.OneSelectionQuestionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".view.questions.OneSelectionQuestionFragment">
 
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="199dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="44dp"
-        android:text="Klausimo vertė: "
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="199dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="44dp"
+            android:text="Klausimo vertė: "
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonSkipOpenQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="100dp"
-        android:text="Praleisti"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
+        <Button
+            android:id="@+id/buttonSkipOpenQuestion"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="36dp"
 
-    <ImageView
-        android:id="@+id/imageViewDisplayImage"
-        android:layout_width="106dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/elf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.859"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOpenQuestionDescription" />
+            android:layout_marginEnd="40dp"
+            android:text="Praleisti"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toEndOf="@+id/buttonSubmitOpenQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="40dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="44dp"
-        android:src="@drawable/moneta"
-        app:layout_constraintEnd_toStartOf="@+id/textViewExperienceOneSelQuestion"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        <ImageView
+            android:id="@+id/imageViewDisplayImage"
+            android:layout_width="150dp"
+            android:layout_height="129dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOpenQuestionDescription" />
 
-    <Button
-        android:id="@+id/buttonSubmitOpenQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="28dp"
-        android:text="Pateikti"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSkipOpenQuestion"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="44dp"
+            android:src="@drawable/moneta"
+            app:layout_constraintEnd_toStartOf="@+id/textViewExperienceOneSelQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <TextView
-        android:id="@+id/textViewExperienceOneSelQuestion"
-        android:layout_width="30dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="8dp"
-        android:text="55"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        app:layout_constraintVertical_bias="0.828" />
+        <Button
+            android:id="@+id/buttonSubmitOpenQuestion"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="36dp"
+            android:text="Pateikti"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
 
-    <TextView
-        android:id="@+id/textViewOpenQuestionDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:padding="15dp"
-        android:layout_margin="20dp"
-        android:text="Klausimo tekstas"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        <TextView
+            android:id="@+id/textViewExperienceOneSelQuestion"
+            android:layout_width="30dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="8dp"
+            android:text="55"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toStartOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.828" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="41dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/diamond"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        <TextView
+            android:id="@+id/textViewOpenQuestionDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="176dp"
+            android:padding="15dp"
+            android:text="Klausimo tekstas"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewCoinsOneSelQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginTop="28dp"
-        android:text="10"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="41dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/diamond"
+            app:layout_constraintEnd_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <EditText
-        android:id="@+id/editTextOpenQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:hint="Pateikite atsakymą"
-        android:textColor="@color/white"
-        android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewDisplayImage" />
+        <TextView
+            android:id="@+id/textViewCoinsOneSelQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="28dp"
+            android:text="10"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <EditText
+            android:id="@+id/editTextOpenQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:ems="10"
+            android:hint="Pateikite atsakymą"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.584"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDisplayImage" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

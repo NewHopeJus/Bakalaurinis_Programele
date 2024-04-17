@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+
+    >
+
+    <EditText
+        android:id="@+id/naujasSlapyvardisEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:hint="@string/naujas_slapyvardis" />
+
+    <EditText
+        android:id="@+id/naujasSlaptazodisEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:hint="@string/slaptazodis"
+        android:inputType="textPassword"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAtsauktiUsernameChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Atšaukti" />
+
+        <Button
+            android:id="@+id/buttonIssaugotiUsernameChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Išsaugoti" />
+    </LinearLayout>
+
+</LinearLayout>

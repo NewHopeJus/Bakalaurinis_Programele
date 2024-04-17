@@ -24,6 +24,7 @@ import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.ElfuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.GeliuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.GrybuKaralysteFragment;
+import com.mastercoding.bakalaurinis.view.kingdoms.views.ManoPilisFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.NykstukuKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.PovandenineKaralysteFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.views.SalumynuKaralysteFragment;
@@ -123,7 +124,7 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
                 fragment = new NykstukuKaralysteFragment();
                 break;
             default:
-                fragment = new GrybuKaralysteFragment();
+                fragment = new ManoPilisFragment();
                 break;
 
         }

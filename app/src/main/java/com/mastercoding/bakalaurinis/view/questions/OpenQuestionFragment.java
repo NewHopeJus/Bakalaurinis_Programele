@@ -1,5 +1,7 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentOpenQuestionBinding;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
@@ -27,6 +34,9 @@ import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
+import java.io.File;
+import java.io.IOException;
+
 
 public class OpenQuestionFragment extends Fragment {
 
@@ -35,6 +45,7 @@ public class OpenQuestionFragment extends Fragment {
     private String levelName;
     private String topicName;
     private QuestionViewModel questionViewModel;
+    private StorageReference storageReference;
 
 
     @Override
@@ -100,6 +111,41 @@ public class OpenQuestionFragment extends Fragment {
 
             }
         });
+
+        Button buttonSkip = fragmentOpenQuestionBinding.buttonSkipOpenQuestion;
+        buttonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                questionViewModel.getQuestion();
+            }
+        });
+
+
+        String imageName = question.getImagePath()!=null? question.getImagePath():"1-lygis/atimtis/1L_1T_1K.png";
+        storageReference = FirebaseStorage.getInstance().getReference("images/" + imageName + ".png");
+
+        try {
+            File localFile = File.createTempFile("tempfile", ".png");
+            storageReference.getFile(localFile)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                            fragmentOpenQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), "Nepavyko užkrauti paveiksliuko", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 
 }

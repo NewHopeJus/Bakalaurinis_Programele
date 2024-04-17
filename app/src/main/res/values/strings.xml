@@ -12,5 +12,7 @@
     <string name="t_sti_sprendim">Tęsti sprendimą</string>
     <string name="ok">Tęsti</string>
     <string name="cancel">Atšaukti</string>
+    <string name="naujas_slapyvardis">Naujas slapyvardis</string>
+    <string name="slaptazodis">Slaptažodis</string>
 
 </resources>

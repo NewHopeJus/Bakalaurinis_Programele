@@ -1,25 +1,20 @@
 package com.mastercoding.bakalaurinis.view.shop;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.mastercoding.bakalaurinis.R;
-import com.mastercoding.bakalaurinis.databinding.ActivityMainMenuBinding;
 import com.mastercoding.bakalaurinis.databinding.ActivityShopBinding;
 import com.mastercoding.bakalaurinis.dtos.UserInfoResponse;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
-import com.mastercoding.bakalaurinis.view.menus.MainMenuActivity;
-import com.mastercoding.bakalaurinis.view.menus.MainMenuListFragment;
 import com.mastercoding.bakalaurinis.viewmodel.UserViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gnom_kingdom_empty"
+        tools:context=".view.kingdoms.views.NykstukuKaralysteFragment">
+
+
+        <ImageView
+            android:id="@+id/imageViewNykstukuNamas"
+            android:layout_width="247dp"
+            android:layout_height="301dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginBottom="70dp"
+            android:src="@drawable/nykstuku_namas"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDarzoves" />
+
+        <ImageView
+            android:id="@+id/imageViewBoruzele"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewNykstukasBasutis"
+            app:layout_constraintStart_toEndOf="@+id/imageViewViksras"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewLaukineBitute"
+            app:srcCompat="@drawable/boruzele"
+            android:visibility="invisible"
+
+
+            />
+
+        <ImageView
+            android:id="@+id/imageViewStebuklingaZuvyte"
+            android:layout_width="72dp"
+            android:layout_height="79dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewLinksmasisVabaliukas"
+            app:srcCompat="@drawable/goldfish_little" />
+
+        <ImageView
+            android:id="@+id/imageViewNykstukasBasutis"
+            android:layout_width="107dp"
+            android:layout_height="154dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewViksras"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewBoruzele"
+            app:layout_constraintVertical_bias="0.428"
+            app:srcCompat="@drawable/nykstukas_naujas" />
+
+        <ImageView
+            android:id="@+id/imageViewPauksciukasCvirpukas"
+            android:layout_width="87dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewNykstukuNamas"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageViewRaudonasVabzdys"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bird_gnom_kingdom" />
+
+        <ImageView
+            android:id="@+id/imageViewViksras"
+            android:layout_width="85dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="60dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cetepillar" />
+
+        <ImageView
+            android:id="@+id/imageViewNykstukasIsmincius"
+            android:layout_width="92dp"
+            android:layout_height="163dp"
+            android:layout_marginTop="28dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewStebuklingaZuvyte"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDarzoves"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasCvirpukas"
+            app:srcCompat="@drawable/nykstykas_didesnis" />
+
+        <ImageView
+            android:id="@+id/imageViewRaudonasVabzdys"
+            android:layout_width="97dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewDarzoves"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bug" />
+
+        <ImageView
+            android:id="@+id/imageViewVarlyte"
+            android:layout_width="96dp"
+            android:layout_height="76dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.981"
+            app:layout_constraintStart_toEndOf="@+id/imageViewStebuklingaZuvyte"
+            app:srcCompat="@drawable/frog" />
+
+        <ImageView
+            android:id="@+id/imageViewLinksmasisVabaliukas"
+            android:layout_width="88dp"
+            android:layout_height="121dp"
+            android:layout_marginStart="44dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewNykstukasBasutis"
+            app:srcCompat="@drawable/cute_bug" />
+
+        <ImageView
+            android:id="@+id/imageViewDarzoves"
+            android:layout_width="68dp"
+            android:layout_height="126dp"
+            android:layout_marginStart="160dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewLinksmasisVabaliukas"
+            app:layout_constraintStart_toEndOf="@+id/imageViewBoruzele"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasCvirpukas"
+            app:srcCompat="@drawable/darzoves" />
+
+        <ImageView
+            android:id="@+id/imageViewZaliasisPukutis"
+            android:layout_width="78dp"
+            android:layout_height="100dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewLinksmasisVabaliukas"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewDarzoves"
+            app:layout_constraintHorizontal_bias="0.914"
+            app:layout_constraintStart_toEndOf="@+id/imageViewBoruzele"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewRaudonasVabzdys"
+            app:srcCompat="@drawable/cute_creature" />
+
+        <ImageView
+            android:id="@+id/imageViewLaukineBitute"
+            android:visibility="invisible"
+            android:layout_width="77dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewBoruzele"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewRaudonasVabzdys"
+            app:layout_constraintHorizontal_bias="0.746"
+            app:layout_constraintStart_toEndOf="@+id/imageViewViksras"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bee" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

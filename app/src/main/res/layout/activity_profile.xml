@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,11 +12,12 @@
         android:background="@drawable/background"
         android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="44dp"
             android:text="Mano profilis"
             android:textColor="@color/white"
             android:textSize="32sp"
@@ -25,93 +27,126 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="13dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="148dp"
             android:text="Slapyvardis:"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editTextText2"
-            app:layout_constraintEnd_toStartOf="@+id/editTextText2"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textViewUserNameProfile"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="13dp"
-            android:text="Slaptažodis:"
+            android:layout_height="0dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="32dp"
+            android:text="Justyna"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
+        <TextView
+            android:id="@+id/textViewCoinsProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="99dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
-
-        <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="72dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView57" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="140dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="69dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="102dp"
-            android:text="Redaguoti"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="0dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="99dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginBottom="101dp"
-            android:text="Pašalinti paskyrą"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="32dp"
+            android:text="50"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView57"
-            android:layout_width="105dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="113dp"
-            android:layout_marginBottom="46dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+            android:id="@+id/imageView7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="128dp"
+            android:layout_marginEnd="60dp"
+            android:src="@drawable/moneta"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewExperienceProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="36dp"
+            android:text="2"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCoinsProfile" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="60dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/diamond"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <Button
+            android:id="@+id/buttonChangeUsername"
+            android:layout_width="218dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="92dp"
+            android:gravity="center"
+            android:text="Keisti slapyvardį"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/owl" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <Button
+            android:id="@+id/buttonChangePassword"
+            android:layout_width="218dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="Keisti slaptažodį"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonChangeUsername" />
+
+        <Button
+            android:id="@+id/buttonDeleteAccount"
+            android:layout_width="218dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="Pašalinti paskyrą"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonChangePassword" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDeleteAccount"
+            app:layout_constraintVertical_bias="0.971" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

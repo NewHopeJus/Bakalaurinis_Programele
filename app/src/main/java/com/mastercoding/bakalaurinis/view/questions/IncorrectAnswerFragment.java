@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,11 @@ public class IncorrectAnswerFragment extends Fragment {
             if (question != null) {
                 String experiencePoints = "+" + question.getExperience().toString();
                 textViewExperiencePoints.setText(experiencePoints);
-                textViewDescription.setText(question.getDescription());
+                if (question.getQuestionTopic().equals("Trupmenos")) {
+                    textViewDescription.setText(Html.fromHtml(question.getDescription(), Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    textViewDescription.setText(question.getDescription());
+                }
                 textViewCorrectAnswer.setText(args.getString("correctAnswerText"));
             }
         }

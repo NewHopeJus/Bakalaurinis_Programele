@@ -23,120 +23,131 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView20"
+            android:id="@+id/imageViewSaldumynuPilis"
             android:layout_width="325dp"
             android:layout_height="493dp"
             android:layout_marginStart="40dp"
-            android:src="@drawable/candy_kingdom_castle_final"
+            android:src="@drawable/candy_kingdom_castle"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.563" />
 
         <ImageView
-            android:id="@+id/imageView22"
+            android:id="@+id/imageViewSaldumynuFeja"
             android:layout_width="249dp"
             android:layout_height="344dp"
             android:layout_marginEnd="64dp"
             android:layout_marginBottom="255dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView31"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewKatinas"
             app:layout_constraintEnd_toEndOf="@+id/imageView18"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/feja" />
 
         <ImageView
-            android:id="@+id/imageView31"
+            android:id="@+id/imageViewKatinas"
             android:layout_width="127dp"
             android:layout_height="182dp"
             android:layout_marginTop="80dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView41"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewBitute"
             app:layout_constraintHorizontal_bias="0.091"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView42"
+            app:layout_constraintTop_toTopOf="@+id/imageViewSausainis"
             app:srcCompat="@drawable/cat" />
 
         <ImageView
-            android:id="@+id/imageView32"
+            android:id="@+id/imageViewCukrausDrugelis"
             android:layout_width="103dp"
             android:layout_height="124dp"
             android:layout_marginStart="164dp"
             android:layout_marginTop="196dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView36"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSaldainiuPaukstis"
             app:layout_constraintTop_toTopOf="@+id/imageView18"
             app:srcCompat="@drawable/drugelis" />
 
         <ImageView
-            android:id="@+id/imageView33"
+            android:id="@+id/imageViewVaikstantisPyragas"
             android:layout_width="102dp"
             android:layout_height="94dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView20"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewSaldumynuPilis"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView29"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSaldainiuTriusiukas"
             app:srcCompat="@drawable/pyragas" />
 
         <ImageView
-            android:id="@+id/imageView34"
+            android:id="@+id/imageViewKaruna"
             android:layout_width="76dp"
             android:layout_height="83dp"
             android:layout_marginBottom="124dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView31"
-            app:layout_constraintEnd_toStartOf="@+id/imageView29"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewKatinas"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSaldainiuTriusiukas"
             app:layout_constraintHorizontal_bias="0.736"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/crown" />
 
         <ImageView
-            android:id="@+id/imageView29"
+            android:id="@+id/imageViewSaldainiuTriusiukas"
             android:layout_width="145dp"
             android:layout_height="156dp"
             android:layout_marginTop="156dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.357"
-            app:layout_constraintStart_toEndOf="@+id/imageView42"
-            app:layout_constraintTop_toBottomOf="@+id/imageView22"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSausainis"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldumynuFeja"
             app:srcCompat="@drawable/bunny" />
 
         <ImageView
-            android:id="@+id/imageView36"
+            android:id="@+id/imageViewSaldainiuPaukstis"
             android:layout_width="164dp"
             android:layout_height="144dp"
             android:layout_marginTop="160dp"
             android:layout_marginEnd="276dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bird" />
+            app:srcCompat="@drawable/sweets_bird" />
 
         <ImageView
-            android:id="@+id/imageView41"
+            android:id="@+id/imageViewBitute"
             android:layout_width="118dp"
             android:layout_height="141dp"
             android:layout_marginStart="184dp"
             android:layout_marginTop="252dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView34"
-            app:layout_constraintTop_toBottomOf="@+id/imageView22"
+            app:layout_constraintStart_toEndOf="@+id/imageViewKaruna"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldumynuFeja"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/bee" />
+            app:srcCompat="@drawable/bee_saldumynu" />
 
         <ImageView
-            android:id="@+id/imageView42"
+            android:id="@+id/imageViewSausainis"
             android:layout_width="45dp"
             android:layout_height="75dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="176dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView36"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSaldainiuPaukstis"
             app:srcCompat="@drawable/cookie" />
 
         <ImageView
-            android:id="@+id/imageView44"
+            android:id="@+id/imageViewLedinukas"
             android:layout_width="73dp"
             android:layout_height="218dp"
             android:layout_marginTop="16dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.349"
             app:layout_constraintStart_toStartOf="parent"
@@ -144,47 +155,51 @@
             app:srcCompat="@drawable/lolipop" />
 
         <ImageView
-            android:id="@+id/imageView52"
+            android:id="@+id/imageViewKeksiukas"
             android:layout_width="89dp"
             android:layout_height="68dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="52dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView41"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView31"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewBitute"
+            app:layout_constraintHorizontal_bias="0.742"
+            app:layout_constraintStart_toEndOf="@+id/imageViewKatinas"
             app:srcCompat="@drawable/cupcake" />
 
         <ImageView
-            android:id="@+id/imageView53"
+            android:id="@+id/imageViewSaldainis"
             android:layout_width="77dp"
             android:layout_height="43dp"
             android:layout_marginStart="112dp"
             android:layout_marginTop="132dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView32"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewCukrausDrugelis"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.838"
-            app:layout_constraintStart_toEndOf="@+id/imageView44"
+            app:layout_constraintStart_toEndOf="@+id/imageViewLedinukas"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/candy" />
 
         <ImageView
-            android:id="@+id/imageView54"
+            android:id="@+id/imageViewSpalvotiLedai"
             android:layout_width="52dp"
             android:layout_height="88dp"
             android:layout_marginBottom="80dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView42"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewSausainis"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ice_cream" />
 
         <ImageView
-            android:id="@+id/imageView55"
+            android:id="@+id/imageViewLedinukasSirdute"
             android:layout_width="55dp"
             android:layout_height="89dp"
             android:layout_marginStart="304dp"
             android:layout_marginBottom="64dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView33"
-            app:layout_constraintStart_toEndOf="@+id/imageView54"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewVaikstantisPyragas"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSpalvotiLedai"
             app:srcCompat="@drawable/lolipop_heart" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
