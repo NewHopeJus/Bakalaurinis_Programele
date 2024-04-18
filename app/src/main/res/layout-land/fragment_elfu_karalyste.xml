@@ -18,6 +18,7 @@
             android:layout_height="357dp"
             android:layout_marginBottom="120dp"
             android:src="@drawable/elf_home"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewStebuklingasPaukstis"
             app:layout_constraintStart_toEndOf="@+id/imageViewDrakonasElfuKaralyste"
@@ -30,6 +31,7 @@
             android:layout_marginTop="76dp"
             android:layout_marginEnd="40dp"
             android:src="@drawable/vandens_lelija"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageViewElfeLiepa" />
 
@@ -39,6 +41,7 @@
             android:layout_height="313dp"
             android:layout_marginEnd="340dp"
             android:src="@drawable/drakonas"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/imageViewStebuklingasPaukstis"
             app:layout_constraintHorizontal_bias="0.844"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +53,7 @@
             android:layout_height="220dp"
             android:layout_marginStart="16dp"
             android:src="@drawable/elfas"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewDrakonasElfuKaralyste"
             app:layout_constraintTop_toTopOf="@+id/imageViewDrakonasElfuKaralyste"
@@ -61,6 +65,7 @@
             android:layout_height="176dp"
             android:layout_marginStart="56dp"
             android:layout_marginTop="36dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/imageViewElfasJonasElfuKaralyste"
             app:layout_constraintTop_toTopOf="@+id/imageViewElfasJonasElfuKaralyste"
             app:srcCompat="@drawable/elf_girl" />
@@ -71,6 +76,7 @@
             android:layout_height="178dp"
             android:layout_marginTop="72dp"
             android:layout_marginEnd="20dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bird_magestic" />
@@ -80,6 +86,7 @@
             android:layout_width="151dp"
             android:layout_height="111dp"
             android:layout_marginStart="4dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewElfasJonasElfuKaralyste"
             app:layout_constraintTop_toTopOf="@+id/imageViewElfeLiepa"

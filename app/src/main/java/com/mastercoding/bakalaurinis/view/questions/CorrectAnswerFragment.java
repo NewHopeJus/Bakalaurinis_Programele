@@ -1,9 +1,11 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mastercoding.bakalaurinis.R;
@@ -75,6 +78,30 @@ public class CorrectAnswerFragment extends Fragment {
 
                 textViewCorrectAnswer.setText(args.getString("correctAnswerText"));
             }
+            Boolean kingdomOpened = args.getBoolean("kingdomOpened");
+            String textToShow = args.getString("openedKingdomText");
+            if(kingdomOpened){
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                View customLayout = getLayoutInflater().inflate(R.layout.opening_kingdom_dialog_custom_layout, null);
+                TextView textToDisplayTextView = customLayout.findViewById(R.id.textViewOpeningKingdom);
+                Button btn = customLayout.findViewById(R.id.buttonTestiMonsterKilled);
+
+                builder.setView(customLayout);
+
+                textToDisplayTextView.setText(textToShow);
+                AlertDialog dialog = builder.create();
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+                dialog.show();
+            }
+
+
         }
 
 

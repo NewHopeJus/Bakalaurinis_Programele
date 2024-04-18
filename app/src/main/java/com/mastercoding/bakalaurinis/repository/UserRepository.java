@@ -35,7 +35,6 @@ public class UserRepository {
 
     private MutableLiveData<String> deleteAccountResponse = new MutableLiveData<>();
     public UserRepository(MineSecurityManager mineSecurityManager) {
-        this.userAPI = userAPI;
         this.securityManager = mineSecurityManager;
         Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
         userAPI = retrofit.create(UserAPI.class);

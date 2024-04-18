@@ -92,7 +92,7 @@ public class OpenQuestionFragment extends Fragment {
 
                 } else {
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
-                            answer, 0l);
+                            answer, 0l, question.getQuestionLevel());
 
                     questionViewModel.submitAnswer(answerSubmitRequest);
                     questionViewModel.setAnswered(true);

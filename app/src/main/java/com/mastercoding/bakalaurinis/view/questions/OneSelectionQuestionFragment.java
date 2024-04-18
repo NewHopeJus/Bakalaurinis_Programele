@@ -142,8 +142,9 @@ public class OneSelectionQuestionFragment extends Fragment {
                 } else {
 
                     RadioButton selected = radioGroup.findViewById(selectedId);
+
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
-                            (String) selected.getText(), (Long) selected.getTag());
+                            (String) selected.getText(), (Long) selected.getTag(), question.getQuestionLevel());
 
                     questionViewModel.submitAnswer(answerSubmitRequest);
                     questionViewModel.setAnswered(true);

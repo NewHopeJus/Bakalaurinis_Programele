@@ -20,6 +20,7 @@ import com.mastercoding.bakalaurinis.view.kingdoms.KingdomListFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
 import com.mastercoding.bakalaurinis.view.main.MainActivity;
 import com.mastercoding.bakalaurinis.view.shop.ShopActivity;
+import com.mastercoding.bakalaurinis.view.statistics.StatisticsActivity;
 
 public class MainMenuListFragment extends ListFragment {
 
@@ -73,7 +74,13 @@ public class MainMenuListFragment extends ListFragment {
             Intent intent = new Intent(getActivity(), ShopActivity.class);
             startActivity(intent);
 
-        } else if (position==4) {
+        }
+        else if(position==3){
+            Intent intent = new Intent(getActivity(), StatisticsActivity.class);
+            startActivity(intent);
+        }
+
+        else if (position==4) {
             Intent intent = new Intent(getActivity(), ProfileActivity.class);
             startActivity(intent);
         }
