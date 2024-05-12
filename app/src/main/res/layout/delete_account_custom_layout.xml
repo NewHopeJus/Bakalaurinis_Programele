@@ -22,6 +22,7 @@
         android:id="@+id/editTextSlaptazodisPasalintiPaskyra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="Slaptažodis"
         android:layout_marginBottom="40dp"
 

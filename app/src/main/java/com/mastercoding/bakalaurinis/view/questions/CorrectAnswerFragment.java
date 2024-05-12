@@ -67,8 +67,11 @@ public class CorrectAnswerFragment extends Fragment {
         if (args != null) {
             Question question = args.getParcelable("questionObject");
             if (question != null) {
-                textViewExperiencePoints.setText(question.getExperience().toString());
-                textViewCoins.setText(question.getCoins().toString());
+                String experiencePoints = "+" + question.getExperience().toString();
+                textViewExperiencePoints.setText(experiencePoints);
+
+                String coins = "+" + question.getCoins().toString();
+                textViewCoins.setText(coins);
 
                 if (question.getQuestionTopic().equals("Trupmenos")) {
                     textViewDescription.setText(Html.fromHtml(question.getDescription(), Html.FROM_HTML_MODE_COMPACT));

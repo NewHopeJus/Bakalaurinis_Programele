@@ -40,7 +40,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/placeholder"
+            android:src="@drawable/holder_new"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.653"
             app:layout_constraintStart_toEndOf="@+id/radioGroupOneSelQuestion"

@@ -23,12 +23,9 @@ public class FragmentLoadingService {
     public static Fragment loadQuestionFragment(Question question) {
         Bundle args = new Bundle();
         Fragment fragment = new Fragment();
-
         args.putParcelable("questionObject", question);
 
-        //Pridedam fragmenta su klausimu
         if (question != null) {
-
             switch (question.getQuestionType()) {
                 case "ONE_ANSWER":
                     fragment = new OneSelectionQuestionFragment();
@@ -39,10 +36,9 @@ public class FragmentLoadingService {
                 default:
                     fragment = new OpenQuestionFragment();
                     break;
-
             }
         }
-        fragment.setArguments(args); //setArgs nes naudojam ta bundle nepamirsti
+        fragment.setArguments(args);
         return fragment;
     }
 

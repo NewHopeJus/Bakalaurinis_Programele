@@ -68,18 +68,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
             holder.textView.setText(kingdomDto.getName());
 
             if (!kingdomsList.get(position).isOpened()) {
-                // Neatidarytas padarome pilkomis
                 ColorMatrix colorMatrix = new ColorMatrix();
                 colorMatrix.setSaturation(0f);
                 ColorMatrixColorFilter colorFilter = new ColorMatrixColorFilter(colorMatrix);
                 holder.imageView.setColorFilter(colorFilter);
-
-
                 CardView cardView = holder.itemView.findViewById(R.id.cardview_kingdom);
-                cardView.setCardBackgroundColor(Color.GRAY);
-
-
-            }
+                cardView.setCardBackgroundColor(Color.GRAY);}
 
 
             if (kingdomDto.isOpened()) {

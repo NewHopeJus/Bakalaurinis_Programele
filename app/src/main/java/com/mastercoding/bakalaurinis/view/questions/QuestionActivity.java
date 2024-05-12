@@ -54,17 +54,13 @@ public class QuestionActivity extends AppCompatActivity {
         }
 
         questionViewModel.getQuestionLiveData().observe(this,
-                new Observer<Question>() {
-                    @Override
-                    public void onChanged(Question question) {
+                question -> {
 
-                        if (!questionViewModel.isAnswered()) {
-                            Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
-                            getSupportFragmentManager().beginTransaction()
-                                    .add(R.id.fragment_container_question_fragment, fragment)
-                                    .commit();
-                        }
-
+                    if (!questionViewModel.isAnswered()) {
+                        Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
+                        getSupportFragmentManager().beginTransaction()
+                                .add(R.id.fragment_container_question_fragment, fragment)
+                                .commit();
                     }
                 });
 

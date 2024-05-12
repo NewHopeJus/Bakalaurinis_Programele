@@ -5,7 +5,7 @@
     android:gravity="center"
     android:text="TextView"
     android:textSize="28sp"
-    android:textColor="#673AB7"
+    android:textColor="#E2D5F8"
     android:padding="16dp"
     android:background="@drawable/listview_border"
     />

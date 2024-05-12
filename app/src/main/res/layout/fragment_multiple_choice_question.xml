@@ -64,7 +64,7 @@
         android:layout_width="116dp"
         android:layout_height="169dp"
         android:layout_marginEnd="44dp"
-        android:src="@drawable/girl"
+        android:src="@drawable/placeholder"
         app:layout_constraintBottom_toBottomOf="@+id/checkBox4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -74,10 +74,10 @@
 
     <Button
         android:id="@+id/buttonSubmitOneSelQuestion"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="149dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="120dp"
         android:text="Pateikti"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
@@ -109,13 +109,13 @@
 
     <Button
         android:id="@+id/buttonSkipOneSelQuestion"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="152dp"
+        android:layout_height="62dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="152dp"
         android:text="Praleisti"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonSubmitOneSelQuestion"
         app:layout_constraintTop_toBottomOf="@+id/imageViewDisplayImage" />
 

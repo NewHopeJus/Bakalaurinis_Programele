@@ -66,6 +66,8 @@ public class OpenQuestionFragment extends Fragment {
 
         Bundle args = getArguments();
         TextView descriptionTextView = fragmentOpenQuestionBinding.textViewOpenQuestionDescription;
+        TextView coinsTextView = fragmentOpenQuestionBinding.textViewCoinsOneSelQuestion;
+        TextView experienceTextView = fragmentOpenQuestionBinding.textViewExperienceOneSelQuestion;
 
         if (args != null) {
             question = args.getParcelable("questionObject");
@@ -78,11 +80,19 @@ public class OpenQuestionFragment extends Fragment {
                     descriptionTextView.setTextSize(16);
                 }
 
+                String coins = question.getCoins().toString();
+                coinsTextView.setText(coins);
+
+                String experience = question.getExperience().toString();
+                experienceTextView.setText(experience);
+
             }
         }
 
         Button buttonSubmit = fragmentOpenQuestionBinding.buttonSubmitOpenQuestion;
         EditText editTextAnswer = fragmentOpenQuestionBinding.editTextOpenQuestion;
+
+
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
