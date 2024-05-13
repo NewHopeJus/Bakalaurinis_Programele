@@ -178,6 +178,7 @@ public class OneSelectionQuestionFragment extends Fragment {
         String imageName = question.getImagePath()!=null? question.getImagePath():"1-lygis/atimtis/1L_1T_1K.png";
         storageReference = FirebaseStorage.getInstance().getReference("images/" + imageName + ".png");
 
+
         try {
             File localFile = File.createTempFile("tempfile", ".png");
             storageReference.getFile(localFile)

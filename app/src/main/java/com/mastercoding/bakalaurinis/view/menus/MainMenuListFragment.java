@@ -19,6 +19,7 @@ import com.mastercoding.bakalaurinis.view.ProfileActivity;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomListFragment;
 import com.mastercoding.bakalaurinis.view.kingdoms.KingdomMenuActivity;
 import com.mastercoding.bakalaurinis.view.main.MainActivity;
+import com.mastercoding.bakalaurinis.view.ranking.RankingActivity;
 import com.mastercoding.bakalaurinis.view.shop.ShopActivity;
 import com.mastercoding.bakalaurinis.view.statistics.StatisticsActivity;
 
@@ -29,7 +30,7 @@ public class MainMenuListFragment extends ListFragment {
                              Bundle savedInstanceState) {
 
 
-        String[] mainMenuArray = {"Spręsti", "Karalystės", "Parduotuvė", "Sprendimų statistika", "Profilis"};
+        String[] mainMenuArray = {"Spręsti", "Karalystės", "Parduotuvė", "Sprendimų statistika", "Profilis", "Lyderiai"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 inflater.getContext(), R.layout.fragment_main_menu_list,
@@ -82,6 +83,10 @@ public class MainMenuListFragment extends ListFragment {
 
         else if (position==4) {
             Intent intent = new Intent(getActivity(), ProfileActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(getActivity(), RankingActivity.class);
             startActivity(intent);
         }
 

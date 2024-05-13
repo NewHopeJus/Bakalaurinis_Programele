@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/shop_card_border"
+    app:cardBackgroundColor="#6e778d"
+    app:cardCornerRadius="15dp"
+    app:strokeColor="#6750A3"
+    app:strokeWidth="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
+        app:layout_constraintStart_toStartOf="@+id/textViewPrice">
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="115dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/podium" />
+
+        <TextView
+            android:id="@+id/textViewPlace"
+            android:layout_width="44dp"
+            android:layout_height="47dp"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView21"
+            app:layout_constraintEnd_toEndOf="@+id/imageView21"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toStartOf="@+id/imageView21"
+            app:layout_constraintTop_toTopOf="@+id/imageView21"
+            app:layout_constraintVertical_bias="0.725" />
+
+        <TextView
+            android:id="@+id/textViewNameRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Justyna22"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView21" />
+
+        <TextView
+            android:id="@+id/textViewCorrectlyAnsweredRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="25"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView26"
+            app:layout_constraintStart_toEndOf="@+id/textViewNameRating"
+            app:layout_constraintTop_toTopOf="@+id/imageView26"
+            app:layout_constraintVertical_bias="0.615" />
+
+        <ImageView
+            android:id="@+id/imageView26"
+            android:layout_width="41dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewCorrectlyAnsweredRating"
+            app:srcCompat="@drawable/mark" />
+
+        <ImageView
+            android:id="@+id/imageView36"
+            android:layout_width="205dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewNameRating"
+            app:layout_constraintEnd_toStartOf="@+id/imageView26"
+            app:srcCompat="@drawable/vintage_4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
