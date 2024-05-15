@@ -11,7 +11,7 @@
         tools:context=".view.questions.CorrectAnswerFragment">
 
         <TextView
-            android:id="@+id/textViewCorrectFragmentHeader"
+            android:id="@+id/textViewInCorrectFragmentHeader"
             android:layout_width="313dp"
             android:layout_height="76dp"
             android:layout_marginTop="16dp"
@@ -31,7 +31,7 @@
             android:layout_marginTop="32dp"
             android:src="@drawable/diamond"
             app:layout_constraintStart_toEndOf="@+id/textViewExpPointsInCorrectAnswer"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewInCorrectFragmentHeader" />
 
         <Button
             android:id="@+id/buttonContinueInCorrectAnswerFragment"
@@ -57,7 +57,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewInCorrectFragmentHeader" />
 
         <TextView
             android:id="@+id/textViewQuestionDescriptionInCorrectAnswerFragment"
@@ -103,7 +103,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageViewGasSad"
             android:layout_width="159dp"
             android:layout_height="115dp"
             android:src="@drawable/gas_sad"
@@ -111,11 +111,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.73"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCorrectFragmentHeader"
+            app:layout_constraintTop_toBottomOf="@+id/textViewInCorrectFragmentHeader"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageViewLumi"
             android:layout_width="132dp"
             android:layout_height="113dp"
             android:layout_marginTop="8dp"

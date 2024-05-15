@@ -6,8 +6,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mastercoding.bakalaurinis.R;
@@ -30,10 +34,20 @@ public class MainActivity extends AppCompatActivity {
         // and returns a binding object that can be used to reference any view with an ID within the layout.
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        ImageView imageViewWalking = binding.loginPageMonster;
+        ImageView owl = binding.loginPageOwl;
+        AnimationDrawable walkingAnimation = (AnimationDrawable) imageViewWalking.getBackground();
+        walkingAnimation.start();
+
+        AnimationDrawable sleeping = (AnimationDrawable) owl.getBackground();
+        sleeping.start();
+
+
+
+
         MineSecurityManager securityManager = new MineSecurityManager(MainActivity.this);
 
         userViewModel = new ViewModelProvider(this, new UserViewModelFactory(securityManager)).get(UserViewModel.class);
-
 
 
         binding.buttonLoginPageLogin.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
 
 
         binding.buttonLoginPageRegister.setOnClickListener(new View.OnClickListener() {

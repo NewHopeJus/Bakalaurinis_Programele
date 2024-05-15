@@ -1,6 +1,7 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
 import android.content.DialogInterface;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,15 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentCorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.model.Question;
@@ -61,6 +67,7 @@ public class CorrectAnswerFragment extends Fragment {
         TextView textViewCoins = binding.textViewCoinsCorrectAnswer;
         TextView textViewDescription = binding.textViewQuestionDescriptionCorrectAnswer;
         TextView textViewCorrectAnswer = binding.textViewCorrectAnswer;
+        ImageView greenCutie = binding.greenCutieImageCorrectAnswerFragment;
 
         Bundle args = getArguments();
 
@@ -81,6 +88,30 @@ public class CorrectAnswerFragment extends Fragment {
 
                 textViewCorrectAnswer.setText(args.getString("correctAnswerText"));
             }
+
+            TextView textViewTeisingai = binding.textViewCorrectFragmentHeader;
+            YoYo.with(Techniques.DropOut)
+                    .duration(700)
+                    .playOn(textViewTeisingai);
+
+
+
+            YoYo.with(Techniques.ZoomIn)
+                    .duration(700)
+                    .repeat(2)
+                    .playOn(textViewExperiencePoints);
+
+
+            YoYo.with(Techniques.ZoomIn)
+                    .duration(700)
+                    .repeat(2)
+                    .playOn(textViewCoins);
+
+
+            Animation jumpAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.jump);
+            greenCutie.startAnimation(jumpAnimation);
+
+
             Boolean kingdomOpened = args.getBoolean("kingdomOpened");
             String textToShow = args.getString("openedKingdomText");
             if(kingdomOpened){
@@ -89,10 +120,31 @@ public class CorrectAnswerFragment extends Fragment {
                 TextView textToDisplayTextView = customLayout.findViewById(R.id.textViewOpeningKingdom);
                 Button btn = customLayout.findViewById(R.id.buttonTestiMonsterKilled);
 
+                ImageView imageViewKilled =  customLayout.findViewById(R.id.imageViewMonsterKilled);
+                AnimationDrawable monsterKill = (AnimationDrawable) imageViewKilled.getBackground();
+                monsterKill.start();
                 builder.setView(customLayout);
+
+
+                ImageView imageViewFirework1 =  customLayout.findViewById(R.id.imageViewFirework1);
+                ImageView imageViewFirework2 =  customLayout.findViewById(R.id.imageViewFirework2);
+
+                YoYo.with(Techniques.Flash)
+                        .duration(700)
+                        .repeat(5)
+                        .playOn(imageViewFirework1);
+
+                YoYo.with(Techniques.Flash)
+                        .duration(700)
+                        .repeat(5)
+                        .playOn(imageViewFirework2);
+
+
 
                 textToDisplayTextView.setText(textToShow);
                 AlertDialog dialog = builder.create();
+
+
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -102,6 +154,7 @@ public class CorrectAnswerFragment extends Fragment {
 
 
                 dialog.show();
+
             }
 
 

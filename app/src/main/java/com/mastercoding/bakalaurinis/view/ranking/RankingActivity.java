@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.ActivityRankingBinding;
 import com.mastercoding.bakalaurinis.databinding.ActivityStatisticsBinding;
@@ -54,6 +57,12 @@ public class RankingActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(rankingAdapter);
 
+        ImageView star =  activityRankingBinding.imageViewStar;
+
+        YoYo.with(Techniques.Flash)
+                .duration(700)
+                .repeat(2)
+                .playOn(star);
 
 
 

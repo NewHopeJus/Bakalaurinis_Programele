@@ -31,7 +31,7 @@
             android:id="@+id/editText_login_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="68dp"
             android:ems="10"
             android:hint="slapyvardis"
             android:inputType="textEmailAddress"
@@ -45,7 +45,7 @@
             android:id="@+id/editText_login_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:ems="10"
             android:hint="@string/slapta_odis"
             android:inputType="textPassword"
@@ -86,25 +86,26 @@
 
         <ImageView
             android:id="@+id/login_page_monster"
-            android:layout_width="126dp"
-            android:layout_height="295dp"
-            android:layout_marginStart="40dp"
+            android:layout_width="142dp"
+            android:layout_height="254dp"
+            android:layout_marginStart="84dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/walk"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_login_page"
-            app:srcCompat="@drawable/monster" />
+            app:layout_constraintVertical_bias="0.118" />
 
         <ImageView
             android:id="@+id/login_page_owl"
-            android:layout_width="94dp"
-            android:layout_height="148dp"
+            android:layout_width="211dp"
+            android:layout_height="150dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/sleep"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.904"
+            app:layout_constraintHorizontal_bias="0.68"
             app:layout_constraintStart_toEndOf="@+id/editText_login_username"
-            app:layout_constraintTop_toBottomOf="@+id/textView_login_page"
-            app:srcCompat="@drawable/owl" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_login_page" />
 
         <ImageView
             android:id="@+id/login_page_jelly"

@@ -1,5 +1,9 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -140,10 +144,26 @@ public class OpenQuestionFragment extends Fragment {
                     .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                            Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
-                            fragmentOpenQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
+                            // Start flip out animation
+                            @SuppressLint("ResourceType") Animator animOut = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_out);
+                            animOut.setTarget(fragmentOpenQuestionBinding.imageViewDisplayImage);
+                            animOut.start();
+
+                            // After the flip out animation ends, load the actual image and start flip in animation
+                            animOut.addListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                                    fragmentOpenQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
+
+                                    @SuppressLint("ResourceType") Animator animIn = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_in);
+                                    animIn.setTarget(fragmentOpenQuestionBinding.imageViewDisplayImage);
+                                    animIn.start();
+                                }
+                            });
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(getActivity(), "Nepavyko užkrauti paveiksliuko", Toast.LENGTH_SHORT).show();
@@ -153,6 +173,7 @@ public class OpenQuestionFragment extends Fragment {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
 
 
 

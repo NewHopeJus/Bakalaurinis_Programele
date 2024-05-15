@@ -1,5 +1,6 @@
 package com.mastercoding.bakalaurinis.view.questions;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,9 +14,14 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentIncorrectAnswerBinding;
 import com.mastercoding.bakalaurinis.model.Question;
@@ -69,6 +75,37 @@ public class IncorrectAnswerFragment extends Fragment {
                 textViewCorrectAnswer.setText(args.getString("correctAnswerText"));
             }
 
+            ImageView imageView = fragmentIncorrectAnswerBinding.imageViewGasSad;
+            TextView textView = fragmentIncorrectAnswerBinding.textViewInCorrectFragmentHeader;
+            ImageView imageView2 = fragmentIncorrectAnswerBinding.imageView12;
+            ImageView imageView3 = fragmentIncorrectAnswerBinding.imageViewLumi;
+
+
+            YoYo.with(Techniques.DropOut)
+                    .duration(500)
+                    .playOn(textView);
+
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(1)
+                    .playOn(imageView);
+
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(1)
+                    .playOn(textViewExperiencePoints);
+
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(1)
+                    .playOn(imageView2);
+
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(1)
+                    .playOn(imageView3);
+
+
             Boolean kingdomOpened = args.getBoolean("kingdomOpened");
             String textToShow = args.getString("openedKingdomText");
             if(kingdomOpened){
@@ -76,6 +113,24 @@ public class IncorrectAnswerFragment extends Fragment {
                 View customLayout = getLayoutInflater().inflate(R.layout.opening_kingdom_dialog_custom_layout, null);
                 TextView textToDisplayTextView = customLayout.findViewById(R.id.textViewOpeningKingdom);
                 Button btn = customLayout.findViewById(R.id.buttonTestiMonsterKilled);
+
+                ImageView imageViewFirework1 =  customLayout.findViewById(R.id.imageViewFirework1);
+                ImageView imageViewFirework2 =  customLayout.findViewById(R.id.imageViewFirework2);
+
+                ImageView imageViewKilled =  customLayout.findViewById(R.id.imageViewMonsterKilled);
+                AnimationDrawable monsterKill = (AnimationDrawable) imageViewKilled.getBackground();
+                monsterKill.start();
+
+                YoYo.with(Techniques.Flash)
+                        .duration(700)
+                        .repeat(5)
+                        .playOn(imageViewFirework1);
+
+                YoYo.with(Techniques.Flash)
+                        .duration(700)
+                        .repeat(5)
+                        .playOn(imageViewFirework2);
+
 
                 builder.setView(customLayout);
 

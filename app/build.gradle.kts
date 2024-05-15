@@ -59,5 +59,9 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("androidx.datastore:datastore-preferences-core:1.0.0")
     implementation ("com.firebaseui:firebase-ui-storage:7.2.0")
+    implementation ("com.daimajia.easing:library:2.0@aar")
+    implementation ("com.daimajia.androidanimations:library:2.3@aar")
+
+
 
 }

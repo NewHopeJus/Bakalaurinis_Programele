@@ -17,24 +17,27 @@
 
         <TextView
             android:id="@+id/textView_login_page"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="387dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/prisijunkite"
             android:textColor="#673AB7"
             android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/editText_login_username"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.093" />
 
         <EditText
             android:id="@+id/editText_login_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="50dp"
             android:ems="10"
             android:hint="slapyvardis"
             android:inputType="textEmailAddress"
@@ -49,9 +52,9 @@
             android:id="@+id/editText_login_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="100dp"
             android:ems="10"
             android:hint="@string/slapta_odis"
             android:inputType="textPassword"
@@ -92,27 +95,26 @@
         <ImageView
             android:id="@+id/login_page_monster"
             android:layout_width="126dp"
-            android:layout_height="295dp"
+            android:layout_height="243dp"
+            android:background="@drawable/walk"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.963"
-            app:srcCompat="@drawable/monster" />
+            app:layout_constraintVertical_bias="0.969" />
 
         <ImageView
             android:id="@+id/login_page_owl"
-            android:layout_width="85dp"
-            android:layout_height="137dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView_login_page"
+            android:layout_width="194dp"
+            android:layout_height="146dp"
+            android:background="@drawable/sleep"
+            app:layout_constraintBottom_toTopOf="@+id/editText_login_username"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintHorizontal_bias="0.944"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/owl" />
+            app:layout_constraintTop_toTopOf="@+id/textView_login_page"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/login_page_jelly"

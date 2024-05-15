@@ -1,0 +1,54 @@
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+
+    <item android:drawable="@drawable/owl1" android:duration="200" />
+    <item android:drawable="@drawable/owl2" android:duration="200" />
+    <item android:drawable="@drawable/owl3" android:duration="200" />
+    <item android:drawable="@drawable/owl4" android:duration="50" />
+    <item android:drawable="@drawable/owl5" android:duration="50" />
+    <item android:drawable="@drawable/owl6" android:duration="50" />
+    <item android:drawable="@drawable/owl7" android:duration="50" />
+    <item android:drawable="@drawable/owl8" android:duration="50" />
+    <item android:drawable="@drawable/owl9" android:duration="50" />
+    <item android:drawable="@drawable/owl15" android:duration="50" />
+    <item android:drawable="@drawable/owl16" android:duration="50" />
+    <item android:drawable="@drawable/owl17" android:duration="50" />
+    <item android:drawable="@drawable/owl18" android:duration="50" />
+    <item android:drawable="@drawable/owl19" android:duration="200" />
+    <item android:drawable="@drawable/owl20" android:duration="200" />
+    <item android:drawable="@drawable/owl21" android:duration="200" />
+    <item android:drawable="@drawable/owl22" android:duration="200" />
+    <item android:drawable="@drawable/owl23" android:duration="200" />
+    <item android:drawable="@drawable/owl24" android:duration="200" />
+    <item android:drawable="@drawable/owl25" android:duration="300" />
+
+    <item android:drawable="@drawable/owl1" android:duration="200" />
+    <item android:drawable="@drawable/owl2" android:duration="200" />
+    <item android:drawable="@drawable/owl3" android:duration="200" />
+    <item android:drawable="@drawable/owl4" android:duration="50" />
+    <item android:drawable="@drawable/owl5" android:duration="50" />
+    <item android:drawable="@drawable/owl6" android:duration="50" />
+    <item android:drawable="@drawable/owl7" android:duration="50" />
+    <item android:drawable="@drawable/owl8" android:duration="50" />
+    <item android:drawable="@drawable/owl9" android:duration="50" />
+    <item android:drawable="@drawable/owl15" android:duration="50" />
+    <item android:drawable="@drawable/owl16" android:duration="50" />
+    <item android:drawable="@drawable/owl17" android:duration="50" />
+    <item android:drawable="@drawable/owl18" android:duration="50" />
+    <item android:drawable="@drawable/owl19" android:duration="200" />
+    <item android:drawable="@drawable/owl20" android:duration="200" />
+    <item android:drawable="@drawable/owl21" android:duration="200" />
+    <item android:drawable="@drawable/owl22" android:duration="200" />
+    <item android:drawable="@drawable/owl23" android:duration="200" />
+    <item android:drawable="@drawable/owl24" android:duration="200" />
+    <item android:drawable="@drawable/owl25" android:duration="300" />
+
+
+
+    <item android:drawable="@drawable/owl26" android:duration="500" />
+    <item android:drawable="@drawable/owl27" android:duration="500" />
+    <item android:drawable="@drawable/owl28" android:duration="500" />
+    <item android:drawable="@drawable/owl29" android:duration="500" />
+    <item android:drawable="@drawable/owl30" android:duration="500" />
+
+</animation-list>

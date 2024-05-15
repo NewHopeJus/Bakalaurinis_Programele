@@ -1,0 +1,22 @@
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
+
+    <item android:drawable="@drawable/die1" android:duration="200" />
+    <item android:drawable="@drawable/die2" android:duration="200" />
+    <item android:drawable="@drawable/die3" android:duration="200" />
+    <item android:drawable="@drawable/die4" android:duration="200" />
+    <item android:drawable="@drawable/die5" android:duration="200" />
+    <item android:drawable="@drawable/die6" android:duration="200" />
+    <item android:drawable="@drawable/die7" android:duration="200" />
+    <item android:drawable="@drawable/die8" android:duration="200" />
+    <item android:drawable="@drawable/die9" android:duration="200" />
+    <item android:drawable="@drawable/die10" android:duration="200" />
+    <item android:drawable="@drawable/die11" android:duration="200" />
+    <item android:drawable="@drawable/die12" android:duration="200" />
+    <item android:drawable="@drawable/die13" android:duration="200" />
+    <item android:drawable="@drawable/die14" android:duration="200" />
+    <item android:drawable="@drawable/die15" android:duration="200" />
+
+
+
+</animation-list>

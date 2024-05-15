@@ -3,11 +3,13 @@ package com.mastercoding.bakalaurinis.view.main;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -35,6 +37,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         ActivityRegisterBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
+
+        ImageView imageViewWalking = binding.registerMonster;
+        AnimationDrawable walkingAnimation = (AnimationDrawable) imageViewWalking.getBackground();
+        walkingAnimation.start();
 
         binding.buttonRegisterRegister.setOnClickListener(new View.OnClickListener() {
             @Override

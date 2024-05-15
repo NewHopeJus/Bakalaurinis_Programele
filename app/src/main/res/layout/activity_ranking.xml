@@ -21,7 +21,7 @@
             android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewStar" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -39,23 +39,25 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Savaitės"
-            android:textColor="@color/white"
+            android:layout_width="376dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Savaitės top 10 vartotojų"
+            android:textColor="#fbc741"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView24"
+            android:id="@+id/imageViewStar"
             android:layout_width="206dp"
             android:layout_height="114dp"
             android:layout_marginStart="100dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:srcCompat="@drawable/top_10" />
+            app:srcCompat="@drawable/star_cute" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
