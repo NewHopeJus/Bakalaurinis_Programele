@@ -42,6 +42,11 @@ public class RegisterActivity extends AppCompatActivity {
         AnimationDrawable walkingAnimation = (AnimationDrawable) imageViewWalking.getBackground();
         walkingAnimation.start();
 
+        ImageView jelly = binding.registerJelly;
+
+        AnimationDrawable jellyAnimation = (AnimationDrawable) jelly.getBackground();
+        jellyAnimation.start();
+
         binding.buttonRegisterRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

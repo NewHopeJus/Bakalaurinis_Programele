@@ -33,6 +33,7 @@ import com.mastercoding.bakalaurinis.R;
 import com.mastercoding.bakalaurinis.databinding.FragmentOpenQuestionBinding;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitRequest;
 import com.mastercoding.bakalaurinis.dtos.AnswerSubmitResponse;
+import com.mastercoding.bakalaurinis.model.Option;
 import com.mastercoding.bakalaurinis.model.Question;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModel;
@@ -40,6 +41,7 @@ import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 public class OpenQuestionFragment extends Fragment {
@@ -61,6 +63,7 @@ public class OpenQuestionFragment extends Fragment {
         topicName = getActivity().getIntent().getStringExtra("topicName");
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
+        disableButtons();
         return fragmentOpenQuestionBinding.getRoot();
     }
 
@@ -80,8 +83,10 @@ public class OpenQuestionFragment extends Fragment {
 
                 String description = question.getDescription();
                 descriptionTextView.setText(description);
+
                 if (description != null && description.length() > 50) {
                     descriptionTextView.setTextSize(16);
+                    adjustImageViewSize(description);
                 }
 
                 String coins = question.getCoins().toString();
@@ -149,7 +154,6 @@ public class OpenQuestionFragment extends Fragment {
                             animOut.setTarget(fragmentOpenQuestionBinding.imageViewDisplayImage);
                             animOut.start();
 
-                            // After the flip out animation ends, load the actual image and start flip in animation
                             animOut.addListener(new AnimatorListenerAdapter() {
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
@@ -159,6 +163,13 @@ public class OpenQuestionFragment extends Fragment {
                                     @SuppressLint("ResourceType") Animator animIn = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_in);
                                     animIn.setTarget(fragmentOpenQuestionBinding.imageViewDisplayImage);
                                     animIn.start();
+                                    animIn.addListener(new AnimatorListenerAdapter() {
+                                        @Override
+                                        public void onAnimationEnd(Animator animation) {
+                                            enableButtons();
+
+                                        }
+                                    });
                                 }
                             });
                         }
@@ -174,8 +185,26 @@ public class OpenQuestionFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void adjustImageViewSize(String description) {
+            if (description.split(" ").length > 10) {
+                ViewGroup.LayoutParams layoutParams = fragmentOpenQuestionBinding.imageViewDisplayImage.getLayoutParams();
+                layoutParams.height = 500;
+                layoutParams.width = 500;
+                fragmentOpenQuestionBinding.imageViewDisplayImage.setLayoutParams(layoutParams);
+            }
+    }
+    private void disableButtons() {
+        fragmentOpenQuestionBinding.buttonSubmitOpenQuestion.setEnabled(false);
+        fragmentOpenQuestionBinding.buttonSkipOpenQuestion.setEnabled(false);
 
 
+    }
+
+    private void enableButtons() {
+        fragmentOpenQuestionBinding.buttonSubmitOpenQuestion.setEnabled(true);
+        fragmentOpenQuestionBinding.buttonSkipOpenQuestion.setEnabled(true);
 
     }
 

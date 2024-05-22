@@ -25,6 +25,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,6 +47,7 @@ import com.mastercoding.bakalaurinis.viewmodel.QuestionViewModelFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Retrofit;
 
@@ -71,6 +73,7 @@ public class OneSelectionQuestionFragment extends Fragment {
         topicName = getActivity().getIntent().getStringExtra("topicName");
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
+        disableButtons();
 
         return fragmentOneSelectionQuestionBinding.getRoot();
 
@@ -126,6 +129,9 @@ public class OneSelectionQuestionFragment extends Fragment {
 
                 String experience = question.getExperience().toString();
                 experienceTextView.setText(experience);
+
+                adjustImageViewSize(optionList);
+
             }
 
 
@@ -143,9 +149,9 @@ public class OneSelectionQuestionFragment extends Fragment {
                 } else {
 
                     RadioButton selected = radioGroup.findViewById(selectedId);
-
+                    CharSequence selectedText = selected.getText();
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
-                            (String) selected.getText(), (Long) selected.getTag(), question.getQuestionLevel());
+                            selectedText.toString(), (Long) selected.getTag(), question.getQuestionLevel());
 
                     questionViewModel.submitAnswer(answerSubmitRequest);
                     questionViewModel.setAnswered(true);
@@ -186,23 +192,34 @@ public class OneSelectionQuestionFragment extends Fragment {
                     .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                            // Start flip out animation
-                            @SuppressLint("ResourceType") Animator animOut = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_out);
-                            animOut.setTarget(fragmentOneSelectionQuestionBinding.imageViewDisplayImage);
-                            animOut.start();
+                            if(getContext()!=null) {
 
-                            // After the flip out animation ends, load the actual image and start flip in animation
-                            animOut.addListener(new AnimatorListenerAdapter() {
-                                @Override
-                                public void onAnimationEnd(Animator animation) {
-                                    Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
-                                    fragmentOneSelectionQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
+                                @SuppressLint("ResourceType") Animator animOut = AnimatorInflater.loadAnimator(requireContext(), R.anim.card_flip_out);
+                                animOut.setTarget(fragmentOneSelectionQuestionBinding.imageViewDisplayImage);
+                                animOut.start();
 
-                                    @SuppressLint("ResourceType") Animator animIn = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_in);
-                                    animIn.setTarget(fragmentOneSelectionQuestionBinding.imageViewDisplayImage);
-                                    animIn.start();
-                                }
-                            });
+                                animOut.addListener(new AnimatorListenerAdapter() {
+                                    @Override
+                                    public void onAnimationEnd(Animator animation) {
+                                        Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                                        fragmentOneSelectionQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
+                                        if (getContext() != null) {
+
+                                            @SuppressLint("ResourceType") Animator animIn = AnimatorInflater.loadAnimator(requireContext(), R.anim.card_flip_in);
+                                            animIn.setTarget(fragmentOneSelectionQuestionBinding.imageViewDisplayImage);
+                                            animIn.start();
+                                            animIn.addListener(new AnimatorListenerAdapter() {
+                                                @Override
+                                                public void onAnimationEnd(Animator animation) {
+                                                    enableButtons();
+
+                                                }
+                                            });
+                                        }
+                                    }
+
+                                });
+                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -219,7 +236,47 @@ public class OneSelectionQuestionFragment extends Fragment {
 
     }
 
+    private void disableButtons() {
+        fragmentOneSelectionQuestionBinding.buttonSubmitOneSelQuestion.setEnabled(false);
+        fragmentOneSelectionQuestionBinding.buttonSkipOneSelQuestion.setEnabled(false);
+
+
+    }
+
+    private void enableButtons() {
+        fragmentOneSelectionQuestionBinding.buttonSubmitOneSelQuestion.setEnabled(true);
+        fragmentOneSelectionQuestionBinding.buttonSkipOneSelQuestion.setEnabled(true);
+
+    }
+
+    private void adjustImageViewSize(List<Option> optionList) {
+        for (Option option : optionList) {
+            if (option.getText().split(" ").length > 1) {
+
+
+                ViewGroup.LayoutParams layoutParams = fragmentOneSelectionQuestionBinding.imageViewDisplayImage.getLayoutParams();
+                layoutParams.height = 500;
+                layoutParams.width = 500;
+                fragmentOneSelectionQuestionBinding.imageViewDisplayImage.setLayoutParams(layoutParams);
+
+                ViewGroup.LayoutParams frameLayoutParams = fragmentOneSelectionQuestionBinding.cardFrame.getLayoutParams();
+                frameLayoutParams.height = 500;
+                frameLayoutParams.width = 500;
+                fragmentOneSelectionQuestionBinding.cardFrame.setLayoutParams(frameLayoutParams);
+
+                fragmentOneSelectionQuestionBinding.radioOption1.setTextSize(14);
+                fragmentOneSelectionQuestionBinding.radioOption2.setTextSize(14);
+                fragmentOneSelectionQuestionBinding.radioOption3.setTextSize(14);
+                fragmentOneSelectionQuestionBinding.radioOption4.setTextSize(14);
+
+                break;
+            }
+        }
+    }
 
 
 
-}
+
+
+
+    }

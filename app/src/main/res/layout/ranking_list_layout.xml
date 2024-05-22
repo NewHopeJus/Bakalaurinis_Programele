@@ -51,7 +51,7 @@
             android:layout_marginEnd="40dp"
             android:text="Justyna22"
             android:textColor="@color/white"
-            android:textSize="34sp"
+            android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewCorrectlyAnsweredRating"
             app:layout_constraintHorizontal_bias="0.372"

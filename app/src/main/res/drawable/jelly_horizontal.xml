@@ -1,0 +1,25 @@
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+
+    <item android:drawable="@drawable/jellyh1" android:duration="400" />
+    <item android:drawable="@drawable/jellyh2" android:duration="400" />
+    <item android:drawable="@drawable/jellyh3" android:duration="400" />
+    <item android:drawable="@drawable/jellyh4" android:duration="400" />
+    <item android:drawable="@drawable/jellyh5" android:duration="400" />
+    <item android:drawable="@drawable/jellyh6" android:duration="400" />
+    <item android:drawable="@drawable/jellyh7" android:duration="400" />
+    <item android:drawable="@drawable/jellyh8" android:duration="400" />
+    <item android:drawable="@drawable/jellyh9" android:duration="400" />
+    <item android:drawable="@drawable/jellyh10" android:duration="400" />
+    <item android:drawable="@drawable/jellyh11" android:duration="400" />
+    <item android:drawable="@drawable/jellyh12" android:duration="400" />
+    <item android:drawable="@drawable/jellyh13" android:duration="400" />
+    <item android:drawable="@drawable/jellyh14" android:duration="400" />
+    <item android:drawable="@drawable/jellyh15" android:duration="400" />
+    <item android:drawable="@drawable/jellyh16" android:duration="400" />
+    <item android:drawable="@drawable/jellyh17" android:duration="400" />
+    <item android:drawable="@drawable/jellyh18" android:duration="400" />
+    <item android:drawable="@drawable/jellyh19" android:duration="400" />
+    <item android:drawable="@drawable/jellyh20" android:duration="400" />
+
+</animation-list>

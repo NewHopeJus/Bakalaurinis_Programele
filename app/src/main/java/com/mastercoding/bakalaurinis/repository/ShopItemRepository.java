@@ -63,11 +63,8 @@ public class ShopItemRepository {
 
             @Override
             public void onResponse(@NonNull Call<BuyItemResponse> call, @NonNull Response<BuyItemResponse> response) {
-                Log.e("Response body", response.body().toString());
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() ) {
                     buyItemResponseMutableLiveData.setValue(response.body());
-                    Log.e("Shop Item  Repository", response.body().getMessage());
-
 
                 } else {
                     Log.e("Shop Item  Repository", "Buying item failed");

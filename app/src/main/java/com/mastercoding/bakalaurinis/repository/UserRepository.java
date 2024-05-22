@@ -51,22 +51,22 @@ public class UserRepository {
                 if (response.isSuccessful()) {
                     if (response.body() != null && !response.body().getJwt().isEmpty()) {
                         securityManager.saveToken(response.body().getJwt());
-                        loginResponseMutableLiveData.setValue(response.body());
-
+                        loginResponseMutableLiveData.postValue(response.body());
                     }
-                }
-                else {
-                    Log.d("Login", "Login failed. Bad token. " + response.code());
-                    loginResponseMutableLiveData.setValue(null);
-
+                } else {
+                    Log.d("Login", "Login failed. HTTP error code: " + response.code());
+                    if (response.code() == 403) {
+                        loginResponseMutableLiveData.postValue(new LoginResponse("User is blocked."));
+                    } else {
+                        loginResponseMutableLiveData.postValue(null);
+                    }
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                Log.d("Login", "Login failed " + t.getLocalizedMessage());
-                loginResponseMutableLiveData.setValue(null);
-
+                Log.d("Login", "Login failed: " + t.getLocalizedMessage());
+                loginResponseMutableLiveData.postValue(null);
             }
         });
         return loginResponseMutableLiveData;

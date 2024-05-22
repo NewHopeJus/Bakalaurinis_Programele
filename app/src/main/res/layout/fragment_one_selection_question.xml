@@ -14,31 +14,34 @@
             android:id="@+id/textView11"
             android:layout_width="199dp"
             android:layout_height="29dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="36dp"
             android:text="Klausimo vertė: "
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHorizontal_bias="0.183"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonSkipOneSelQuestion"
-            android:layout_width="130dp"
-            android:layout_height="60dp"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
             android:layout_marginStart="24dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="20dp"
             android:text="Praleisti"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toEndOf="@+id/buttonSubmitOneSelQuestion" />
 
         <FrameLayout
             android:id="@+id/card_frame"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="190dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/radioGroupOneSelQuestion"
@@ -46,10 +49,12 @@
 
             <ImageView
                 android:id="@+id/imageViewDisplayImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="190dp"
+                android:layout_height="180dp"
+                android:layout_marginEnd="20dp"
                 android:src="@drawable/holder_new"
-                 />
+
+                />
 
 
         </FrameLayout>
@@ -58,18 +63,19 @@
             android:id="@+id/imageView9"
             android:layout_width="40dp"
             android:layout_height="42dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:src="@drawable/moneta"
             app:layout_constraintEnd_toStartOf="@+id/textViewExperienceOneSelQuestion"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <Button
             android:id="@+id/buttonSubmitOneSelQuestion"
-            android:layout_width="130dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="20dp"
+
             android:text="Pateikti"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -78,27 +84,26 @@
             android:id="@+id/textViewExperienceOneSelQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="10dp"
             android:text="55"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
             app:layout_constraintEnd_toStartOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
-            app:layout_constraintVertical_bias="0.828" />
+            app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
         <TextView
             android:id="@+id/textViewQuestionDescriptionCorrectAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="108dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="15dp"
             android:gravity="left"
-            android:padding="20dp"
+            android:padding="25dp"
             android:text="Klausimo tekstas"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="22sp"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +114,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
+
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDescriptionCorrectAnswer">
@@ -120,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="Pirmas"
                 android:textColor="@color/white"
+                android:textSize="20sp"
                 app:buttonTint="@color/white" />
 
             <RadioButton
@@ -128,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:text="Antras"
                 android:textColor="@color/white"
+                android:textSize="20sp"
                 app:buttonTint="@color/white" />
 
             <RadioButton
@@ -137,6 +145,7 @@
                 android:buttonTint="@color/white"
                 android:text="Trecias"
                 android:textColor="@color/white"
+                android:textSize="20sp"
                 app:buttonTint="@color/white" />
 
             <RadioButton
@@ -146,6 +155,7 @@
                 android:buttonTint="@color/white"
                 android:text="Ketvirtas"
                 android:textColor="@color/white"
+                android:textSize="20sp"
                 app:buttonTint="@color/white" />
 
         </RadioGroup>
@@ -154,21 +164,23 @@
             android:id="@+id/imageView10"
             android:layout_width="41dp"
             android:layout_height="42dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="196dp"
             android:src="@drawable/diamond"
-            app:layout_constraintEnd_toEndOf="@+id/textView11"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <TextView
             android:id="@+id/textViewCoinsOneSelQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginEnd="10dp"
             android:text="10"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

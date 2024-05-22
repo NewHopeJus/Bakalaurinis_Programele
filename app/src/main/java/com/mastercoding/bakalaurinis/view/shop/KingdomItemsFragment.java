@@ -24,6 +24,8 @@ import com.mastercoding.bakalaurinis.dtos.ShopItemListDto;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 import com.mastercoding.bakalaurinis.viewmodel.ShopItemViewModel;
 import com.mastercoding.bakalaurinis.viewmodel.ShopItemViewModelFactory;
+import com.mastercoding.bakalaurinis.viewmodel.UserViewModel;
+import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,8 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
     private ShopAdapter shopAdapter = new ShopAdapter(this);
 
     private ShopItemViewModel shopItemViewModel;
+    private UserViewModel userViewModel;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +53,8 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
 
         shopItemViewModel = new ViewModelProvider(this, new ShopItemViewModelFactory(securityManager)).get(ShopItemViewModel.class);
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+
 
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -88,6 +94,7 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
         });
 
 
+
     }
 
     @Override
@@ -102,6 +109,9 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
                         Toast.makeText(requireContext(), buyItemResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         shopItemViewModel.resetBuyItemResponseLiveData();
                         shopItemViewModel.getBuyItemResponseLiveData().removeObservers(getViewLifecycleOwner());
+
+                        userViewModel.fetchUserInfo();
+
 
                     }
 

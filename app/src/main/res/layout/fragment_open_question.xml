@@ -27,20 +27,20 @@
             android:id="@+id/buttonSkipOpenQuestion"
             android:layout_width="150dp"
             android:layout_height="70dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="28dp"
 
             android:layout_marginEnd="40dp"
             android:text="Praleisti"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintHorizontal_bias="0.894"
             app:layout_constraintStart_toEndOf="@+id/buttonSubmitOpenQuestion"
             app:layout_constraintTop_toBottomOf="@+id/editTextOpenQuestion" />
 
         <ImageView
             android:id="@+id/imageViewDisplayImage"
-            android:layout_width="150dp"
-            android:layout_height="129dp"
+            android:layout_width="190dp"
+            android:layout_height="180dp"
             android:layout_marginTop="28dp"
             android:src="@drawable/holder_new"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,18 +52,20 @@
             android:id="@+id/imageView9"
             android:layout_width="40dp"
             android:layout_height="42dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="56dp"
             android:src="@drawable/moneta"
-            app:layout_constraintEnd_toStartOf="@+id/textViewExperienceOneSelQuestion"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBottom_toTopOf="@+id/textViewOpenQuestionDescription"
+            app:layout_constraintEnd_toStartOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/buttonSubmitOpenQuestion"
             android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_marginStart="52dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="28dp"
             android:text="Pateikti"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,26 +73,29 @@
 
         <TextView
             android:id="@+id/textViewExperienceOneSelQuestion"
-            android:layout_width="30dp"
-            android:layout_height="29dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="10dp"
             android:text="55"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
             app:layout_constraintEnd_toStartOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
-            app:layout_constraintVertical_bias="0.828" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView10"
+            app:layout_constraintVertical_bias="0.833" />
 
         <TextView
             android:id="@+id/textViewOpenQuestionDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="176dp"
-            android:padding="15dp"
+            android:layout_marginTop="165dp"
+            android:padding="20dp"
             android:text="Klausimo tekstas"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,21 +105,26 @@
             android:id="@+id/imageView10"
             android:layout_width="41dp"
             android:layout_height="42dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="192dp"
             android:src="@drawable/diamond"
-            app:layout_constraintEnd_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBottom_toTopOf="@+id/textViewOpenQuestionDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textViewCoinsOneSelQuestion"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginEnd="10dp"
             android:text="10"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9"
+            app:layout_constraintVertical_bias="0.857" />
 
         <EditText
             android:id="@+id/editTextOpenQuestion"
@@ -123,7 +133,7 @@
             android:layout_marginTop="36dp"
             android:ems="10"
             android:hint="Pateikite atsakymą"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"

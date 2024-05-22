@@ -36,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageViewWalking = binding.loginPageMonster;
         ImageView owl = binding.loginPageOwl;
+        ImageView jelly = binding.loginPageJelly;
+
         AnimationDrawable walkingAnimation = (AnimationDrawable) imageViewWalking.getBackground();
         walkingAnimation.start();
 
         AnimationDrawable sleeping = (AnimationDrawable) owl.getBackground();
         sleeping.start();
 
-
-
+        AnimationDrawable jellyH = (AnimationDrawable) jelly.getBackground();
+        jellyH.start();
 
         MineSecurityManager securityManager = new MineSecurityManager(MainActivity.this);
 
@@ -65,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
                         userViewModel.getLoginResponseMutableLiveData().observe(MainActivity.this, new Observer<LoginResponse>() {
                             @Override
                             public void onChanged(LoginResponse loginResponse) {
-                                if (loginResponse != null) {
+                                if (loginResponse != null && "User is blocked.".equals(loginResponse.getJwt())) {
+                                    Toast.makeText(MainActivity.this, "Vartotojas yra užblokuotas.", Toast.LENGTH_LONG).show();
+                                } else if (loginResponse != null && loginResponse.getJwt() != null && !loginResponse.getJwt().isEmpty()) {
                                     Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
                                     startActivity(intent);
                                 } else {

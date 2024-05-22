@@ -46,13 +46,12 @@ public class QuestionRepository {
                     questionMutableLiveData.setValue(response.body());
 
                 } else {
-                    Log.e("Question Fetching Service", "Getting question from backend failed 1");
-                }
+                    questionMutableLiveData.setValue(null);                }
             }
 
             @Override
             public void onFailure(Call<Question> call, Throwable t) {
-                Log.e("Question Fetching Service", "Getting question from backend failed 2", t);
+                Log.e("Question Fetching Service", "Getting question from backend failed", t);
             }
         });
 

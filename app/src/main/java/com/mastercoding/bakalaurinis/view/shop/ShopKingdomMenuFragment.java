@@ -63,6 +63,7 @@ public class ShopKingdomMenuFragment extends Fragment implements CustomAdapter.I
             }
         });
 
+
         recyclerView.setAdapter(customAdapter);
 
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);

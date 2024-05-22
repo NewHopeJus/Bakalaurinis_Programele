@@ -53,16 +53,19 @@ public class QuestionActivity extends AppCompatActivity {
             questionViewModel.getQuestion();
         }
 
-        questionViewModel.getQuestionLiveData().observe(this,
-                question -> {
-
-                    if (!questionViewModel.isAnswered()) {
-                        Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
-                        getSupportFragmentManager().beginTransaction()
-                                .add(R.id.fragment_container_question_fragment, fragment)
-                                .commit();
-                    }
-                });
+        questionViewModel.getQuestionLiveData().observe(this, question -> {
+            if (question != null && !questionViewModel.isAnswered()) {
+                Fragment fragment = FragmentLoadingService.loadQuestionFragment(question);
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container_question_fragment, fragment)
+                        .commit();
+            } else {
+                Fragment errorFragment = new FinishedTopicFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container_question_fragment, errorFragment)
+                        .commit();
+            }
+        });
 
 
         Toolbar toolbar = activityQuestionBinding.toolbarQuestionActivity;

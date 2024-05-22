@@ -1,0 +1,14 @@
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+
+    <item android:drawable="@drawable/jelly1" android:duration="200" />
+    <item android:drawable="@drawable/jelly2" android:duration="200" />
+    <item android:drawable="@drawable/jelly3" android:duration="200" />
+    <item android:drawable="@drawable/jelly4" android:duration="200" />
+    <item android:drawable="@drawable/jelly5" android:duration="200" />
+    <item android:drawable="@drawable/jelly6" android:duration="200" />
+    <item android:drawable="@drawable/jelly7" android:duration="200" />
+    <item android:drawable="@drawable/jelly8" android:duration="200" />
+    <item android:drawable="@drawable/jelly9" android:duration="200" />
+
+</animation-list>

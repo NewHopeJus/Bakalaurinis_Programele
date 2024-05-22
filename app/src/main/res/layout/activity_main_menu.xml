@@ -15,8 +15,8 @@
                     android:id="@+id/textViewUserNameMainMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
                     android:text="Justyna"
                     android:textColor="@color/white"
                     android:textSize="22sp"
@@ -27,7 +27,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="44dp"
                     android:text="@string/vartotojas"
                     android:textColor="@color/white"
@@ -82,13 +82,15 @@
 
                 <FrameLayout
                     android:id="@+id/fragment_container_main_menu_list"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="30dp"
                     app:layout_constraintBottom_toTopOf="@+id/toolbar"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8"></FrameLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8"
+                    app:layout_constraintVertical_bias="1.0"></FrameLayout>
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -102,13 +104,16 @@
 
                 <ImageView
                     android:id="@+id/imageView15"
-                    android:layout_width="97dp"
-                    android:layout_height="66dp"
-                    android:layout_marginStart="52dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="102dp"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/jelly"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_container_main_menu_list"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewExperienceMainMenu"
+                    app:layout_constraintHorizontal_bias="0.148"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewUserNameMainMenu"
-                    app:srcCompat="@drawable/jelly_register" />
+                    app:layout_constraintVertical_bias="1.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

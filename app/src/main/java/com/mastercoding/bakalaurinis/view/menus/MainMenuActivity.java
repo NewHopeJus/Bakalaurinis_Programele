@@ -7,10 +7,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.DialogInterface;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -76,6 +80,17 @@ public class MainMenuActivity extends AppCompatActivity {
 
             }
         });
+
+        ImageView jelly = activityMainMenuBinding.imageView15;
+        AnimationDrawable walkingAnimation = (AnimationDrawable) jelly.getBackground();
+        walkingAnimation.start();
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(jelly, "translationX", 0f, 1000f);
+        animator.setDuration(10000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.start();
+
     }
 
     @Override
