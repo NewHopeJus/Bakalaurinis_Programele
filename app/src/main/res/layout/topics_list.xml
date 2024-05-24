@@ -2,10 +2,9 @@
     android:id="@+id/textView3"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:text="TextView"
-    android:textSize="28sp"
-    android:textColor="#E2D5F8"
-    android:padding="16dp"
     android:background="@drawable/listview_border"
-    />
+    android:gravity="center"
+    android:padding="16dp"
+    android:text="@string/textview"
+    android:textColor="#E2D5F8"
+    android:textSize="28sp" />

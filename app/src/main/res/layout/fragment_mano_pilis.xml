@@ -2,143 +2,143 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.kingdoms.views.ManoPilisFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.kingdoms.views.ManoPilisFragment">
 
-    <ImageView
-        android:id="@+id/imageView63"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/mano_pilis_empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mano_pilis_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewPagrinidinePilis"
-        android:layout_width="341dp"
-        android:layout_height="448dp"
-        android:layout_marginStart="92dp"
-        android:visibility="invisible"
-        android:src="@drawable/pilis"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        <ImageView
+            android:id="@+id/imageViewPagrinidinePilis"
+            android:layout_width="341dp"
+            android:layout_height="448dp"
+            android:layout_marginStart="92dp"
+            android:src="@drawable/pilis"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.265" />
 
-    <ImageView
-        android:id="@+id/imageViewVejoKariai"
-        android:visibility="invisible"
-        android:layout_width="111dp"
-        android:layout_height="194dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="152dp"
-        android:src="@drawable/army"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewVejoKariai"
+            android:layout_width="111dp"
+            android:layout_height="194dp"
+            android:layout_marginEnd="300dp"
+            android:layout_marginBottom="152dp"
+            android:src="@drawable/army"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewMelynujuSarvuRiteriai"
-        android:visibility="invisible"
-        android:layout_width="187dp"
-        android:layout_height="281dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="368dp"
-        android:src="@drawable/army_bigger"
-        app:layout_constraintStart_toEndOf="@+id/imageViewVejoKariai"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewMelynujuSarvuRiteriai"
+            android:layout_width="187dp"
+            android:layout_height="281dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="368dp"
+            android:src="@drawable/army_bigger"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewVejoKariai"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewFlyingDragon"
-        android:visibility="invisible"
-        android:layout_width="239dp"
-        android:layout_height="417dp"
-        android:layout_marginBottom="48dp"
-        android:src="@drawable/flying_dragon"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewVejoKariai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.319"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewFlyingDragon"
+            android:layout_width="239dp"
+            android:layout_height="417dp"
+            android:layout_marginBottom="48dp"
+            android:src="@drawable/flying_dragon"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewVejoKariai"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.319"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewGarsusisPabaisuNugaletojas"
-        android:visibility="invisible"
-        android:layout_width="43dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/knight_cute"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewLaivasSuGinkluote" />
+        <ImageView
+            android:id="@+id/imageViewGarsusisPabaisuNugaletojas"
+            android:layout_width="43dp"
+            android:layout_height="131dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/knight_cute"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.638"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewLaivasSuGinkluote" />
 
-    <ImageView
-        android:id="@+id/imageViewLaivasSuGinkluote"
-        android:visibility="invisible"
-        android:layout_width="111dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="72dp"
-        android:src="@drawable/ship"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewLaivasSuGinkluote"
+            android:layout_width="111dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="72dp"
+            android:src="@drawable/ship"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.61"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewPatranka"
-        android:visibility="invisible"
-        android:layout_width="55dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="108dp"
-        android:src="@drawable/cannon"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewMelynujuSarvuRiteriai"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewVejoKariai"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFlyingDragon" />
+        <ImageView
+            android:id="@+id/imageViewPatranka"
+            android:layout_width="55dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="108dp"
+            android:src="@drawable/cannon"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewMelynujuSarvuRiteriai"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageViewVejoKariai"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewFlyingDragon" />
 
-    <ImageView
-        android:id="@+id/imageViewBaloon"
-        android:visibility="invisible"
-        android:layout_width="125dp"
-        android:layout_height="271dp"
-        android:layout_marginEnd="284dp"
-        android:layout_marginBottom="168dp"
-        android:src="@drawable/baloon"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewVejoKariai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageView
+            android:id="@+id/imageViewBaloon"
+            android:layout_width="125dp"
+            android:layout_height="271dp"
+            android:layout_marginEnd="284dp"
+            android:layout_marginBottom="168dp"
+            android:src="@drawable/baloon"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewVejoKariai"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/imageViewDraugiskasisDidvyris"
-        android:visibility="invisible"
-        android:layout_width="27dp"
-        android:layout_height="54dp"
-        android:src="@drawable/kinght_second"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewVejoKariai"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewPatranka"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewVejoKariai"
-        app:layout_constraintVertical_bias="0.85" />
+        <ImageView
+            android:id="@+id/imageViewDraugiskasisDidvyris"
+            android:layout_width="27dp"
+            android:layout_height="54dp"
+            android:src="@drawable/kinght_second"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewVejoKariai"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewPatranka"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewVejoKariai"
+            app:layout_constraintVertical_bias="0.85" />
 
-    <ImageView
-        android:id="@+id/imageViewKatapulta"
-        android:visibility="invisible"
-        android:layout_width="49dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/catapult"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewGarsusisPabaisuNugaletojas"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewVejoKariai" />
+        <ImageView
+            android:id="@+id/imageViewKatapulta"
+            android:layout_width="49dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/catapult"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewGarsusisPabaisuNugaletojas"
+            app:layout_constraintHorizontal_bias="0.72"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewVejoKariai" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

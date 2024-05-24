@@ -29,8 +29,8 @@ import retrofit2.Retrofit;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
-    UserAPI userService = retrofit.create(UserAPI.class);
+    private final Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
+    private final UserAPI userService = retrofit.create(UserAPI.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -47,7 +47,7 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
     private KingdomViewModel kingdomViewModel;
 
     private ShopItemViewModel shopItemViewModel;
-    Bundle bundle;
+    private Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

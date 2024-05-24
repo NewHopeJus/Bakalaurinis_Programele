@@ -25,7 +25,7 @@ import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 
 
 public class MainActivity extends AppCompatActivity {
-    UserViewModel userViewModel;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

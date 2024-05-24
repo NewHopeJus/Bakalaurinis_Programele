@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="Visi šios temos klausimai teisingai atsakyti!"
+        android:text="@string/all_topic_questions_answered"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"

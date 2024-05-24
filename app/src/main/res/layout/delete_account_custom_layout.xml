@@ -4,28 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    >
-
+    android:paddingRight="20dp">
 
     <TextView
         android:id="@+id/textViewSlaptazodisPasalintiPaskyra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Veiksmo patvirtinimui įveskite savo slaptažodį"
-        android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:textSize="16dp"
-        />
+        android:layout_marginBottom="20dp"
+        android:text="@string/account_delete_heading"
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/editTextSlaptazodisPasalintiPaskyra"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Slaptažodis"
+        android:layout_height="48dp"
         android:layout_marginBottom="40dp"
-
-        />
+        android:hint="@string/slaptazodis"
+        android:inputType="textPassword" />
 
 </LinearLayout>

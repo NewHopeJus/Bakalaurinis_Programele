@@ -2,156 +2,156 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.kingdoms.views.GeliuKaralysteFragment">
 
-    <ImageView
-        android:id="@+id/imageViewMushroomKingdomBackground"
-        android:layout_width="411dp"
-        android:layout_height="731dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/flower_kingdom_empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewZydintisMedis"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.kingdoms.views.GeliuKaralysteFragment">
 
-    <ImageView
-        android:id="@+id/imageViewSviesiojiPilisGeliuKaralyste"
-        android:layout_width="240dp"
-        android:layout_height="396dp"
-        android:src="@drawable/sviesioji_pilis"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217" />
+        <ImageView
+            android:id="@+id/imageViewMushroomKingdomBackground"
+            android:layout_width="411dp"
+            android:layout_height="731dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/flower_kingdom_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewZydintisMedis"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageViewPrinceseRozyteGeliuKaralyste"
-        android:layout_width="311dp"
-        android:layout_height="591dp"
-        android:src="@drawable/princese_rozyte"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewSviesiojiPilisGeliuKaralyste"
+            android:layout_width="240dp"
+            android:layout_height="396dp"
+            android:src="@drawable/sviesioji_pilis"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217" />
 
-    <ImageView
-        android:id="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste"
-        android:layout_width="78dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="48dp"
-        android:visibility="invisible"
-        android:src="@drawable/pauksciukas_svelnute"
-        app:layout_constraintStart_toEndOf="@+id/imageViewZiedai"
-        app:layout_constraintTop_toTopOf="@+id/imageViewMushroomKingdomBackground" />
+        <ImageView
+            android:id="@+id/imageViewPrinceseRozyteGeliuKaralyste"
+            android:layout_width="311dp"
+            android:layout_height="591dp"
+            android:src="@drawable/princese_rozyte"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewPukuotasSmalsuolis"
-        android:layout_width="65dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="72dp"
-        android:visibility="invisible"
-        android:src="@drawable/bunny_flower_kingdom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste"
+            android:layout_width="78dp"
+            android:layout_height="122dp"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/pauksciukas_svelnute"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewZiedai"
+            app:layout_constraintTop_toTopOf="@+id/imageViewMushroomKingdomBackground" />
 
-    <ImageView
-        android:id="@+id/imageViewDrugelis"
-        android:layout_width="95dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginBottom="124dp"
-        android:visibility="invisible"
-        android:src="@drawable/butterfly_flower_kingdom"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewMushroomKingdomBackground"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPukuotasSmalsuolis" />
+        <ImageView
+            android:id="@+id/imageViewPukuotasSmalsuolis"
+            android:layout_width="65dp"
+            android:layout_height="93dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginBottom="72dp"
+            android:src="@drawable/bunny_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewLaukoTykotojas"
-        android:layout_width="51dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:visibility="invisible"
-        android:src="@drawable/bunny_2_flower_kingdom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewSuoliukas" />
+        <ImageView
+            android:id="@+id/imageViewDrugelis"
+            android:layout_width="95dp"
+            android:layout_height="136dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginBottom="124dp"
+            android:src="@drawable/butterfly_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewMushroomKingdomBackground"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPukuotasSmalsuolis" />
 
-    <ImageView
-        android:id="@+id/imageViewRoze"
-        android:layout_width="31dp"
-        android:layout_height="101dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="76dp"
-        android:src="@drawable/rose_flower_kingdom"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewElnias"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
-        app:layout_constraintStart_toStartOf="@+id/imageViewLaukoTykotojas" />
+        <ImageView
+            android:id="@+id/imageViewLaukoTykotojas"
+            android:layout_width="51dp"
+            android:layout_height="92dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/bunny_2_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewSuoliukas" />
 
-    <ImageView
-        android:id="@+id/imageViewElnias"
-        android:layout_width="87dp"
-        android:layout_height="270dp"
-        android:layout_marginTop="76dp"
-        android:src="@drawable/dear_flower_kingdom"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewZydintisMedis"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewRoze"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewRoze"
+            android:layout_width="31dp"
+            android:layout_height="101dp"
+            android:layout_marginStart="216dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="76dp"
+            android:src="@drawable/rose_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewElnias"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
+            app:layout_constraintStart_toStartOf="@+id/imageViewLaukoTykotojas" />
 
-    <ImageView
-        android:id="@+id/imageViewSuoliukas"
-        android:layout_width="107dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:visibility="invisible"
-        android:src="@drawable/suoliukas_flower_kingdom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewZiedai" />
+        <ImageView
+            android:id="@+id/imageViewElnias"
+            android:layout_width="87dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="76dp"
+            android:src="@drawable/dear_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewZydintisMedis"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageViewRoze"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvelnuteGeliuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewZydintisMedis"
-        android:layout_width="126dp"
-        android:layout_height="384dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:visibility="invisible"
-        android:src="@drawable/tree_flower_kingdom"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasMelsvasisDziaugsmas" />
+        <ImageView
+            android:id="@+id/imageViewSuoliukas"
+            android:layout_width="107dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/suoliukas_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewZiedai" />
 
-    <ImageView
-        android:id="@+id/imageViewPauksciukasMelsvasisDziaugsmas"
-        android:layout_width="66dp"
-        android:layout_height="162dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
-        android:visibility="invisible"
-        android:src="@drawable/bird_2_flower_kingdom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewZydintisMedis"
+            android:layout_width="126dp"
+            android:layout_height="384dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/tree_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPrinceseRozyteGeliuKaralyste"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasMelsvasisDziaugsmas" />
 
-    <ImageView
-        android:id="@+id/imageViewZiedai"
-        android:layout_width="130dp"
-        android:layout_height="187dp"
-        android:visibility="invisible"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/blossom_flower_kingdom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageViewPauksciukasMelsvasisDziaugsmas"
+            android:layout_width="66dp"
+            android:layout_height="162dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
+            android:src="@drawable/bird_2_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/imageViewZiedai"
+            android:layout_width="130dp"
+            android:layout_height="187dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="72dp"
+            android:src="@drawable/blossom_flower_kingdom"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:layout_marginBottom="8dp"
     android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/shop_card_border"
     app:cardBackgroundColor="#737A8C"
     app:cardCornerRadius="15dp"
     app:strokeColor="#6750A3"
-    app:strokeWidth="5dp"
-    android:background="@drawable/shop_card_border"
-    >
+    app:strokeWidth="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,12 +18,11 @@
         app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
         app:layout_constraintStart_toStartOf="@+id/textViewPrice">
 
-
         <TextView
             android:id="@+id/textViewLevelName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1 Lygis"
+            android:text="@string/level_name"
             android:textColor="#673AB7"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +36,7 @@
             android:layout_height="28dp"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="200"
+            android:text="@string/correct_num"
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="150"
+            android:text="@string/incorrect_num"
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +63,7 @@
             android:layout_width="163dp"
             android:layout_height="34dp"
             android:gravity="center"
-            android:text="Tikslingumas"
+            android:text="@string/tikslingumas"
             android:textColor="#673AB7"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -102,14 +99,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="25%"
+            android:text="@string/percent"
             android:textColor="@color/white"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="@+id/textView8" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </com.google.android.material.card.MaterialCardView>

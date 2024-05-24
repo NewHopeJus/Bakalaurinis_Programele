@@ -87,8 +87,8 @@
             android:layout_height="92dp"
             android:layout_marginStart="220dp"
             android:layout_marginBottom="56dp"
-            android:visibility="invisible"
             android:src="@drawable/pauksciukas_dziugeselis"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -116,7 +116,6 @@
             android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/imageViewPauksciukasSvieseleGrybuKaralyste"
             app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

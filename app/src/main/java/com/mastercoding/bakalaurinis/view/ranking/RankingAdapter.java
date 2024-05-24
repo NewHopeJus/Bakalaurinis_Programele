@@ -57,9 +57,9 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.RankingV
 
 
     public static class RankingViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewPlace;
-        TextView username;
-        TextView correctlyAnswered;
+        private final TextView textViewPlace;
+        private final TextView username;
+        private final TextView correctlyAnswered;
 
         public RankingViewHolder(@NonNull View itemView) {
             super(itemView);

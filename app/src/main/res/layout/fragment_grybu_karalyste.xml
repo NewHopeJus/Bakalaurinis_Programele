@@ -2,121 +2,122 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.kingdoms.views.GrybuKaralysteFragment">
 
-    <ImageView
-        android:id="@+id/imageViewMushroomKingdomBackground"
-        android:layout_width="411dp"
-        android:layout_height="731dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/grybu_karalyste_empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.kingdoms.views.GrybuKaralysteFragment">
 
-    <ImageView
-        android:id="@+id/imageViewGyvenamasisGrybasGrybuKaralyste"
-        android:layout_width="312dp"
-        android:layout_height="504dp"
-        android:layout_marginTop="32dp"
-        android:visibility="invisible"
-        android:src="@drawable/gyvenamasis_grybas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewMushroomKingdomBackground" />
+        <ImageView
+            android:id="@+id/imageViewMushroomKingdomBackground"
+            android:layout_width="411dp"
+            android:layout_height="731dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/grybu_karalyste_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewVoveryteGrybuKaralyste"
-        android:layout_width="150dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        android:src="@drawable/voveryte"
-        app:layout_constraintStart_toEndOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewStirnyteGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewGyvenamasisGrybasGrybuKaralyste"
+            android:layout_width="312dp"
+            android:layout_height="504dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/gyvenamasis_grybas"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewMushroomKingdomBackground" />
 
-    <ImageView
-        android:id="@+id/imageViewlinksmasisRaudonikisGrybuKaralyste"
-        android:layout_width="101dp"
-        android:layout_height="234dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="108dp"
-        android:visibility="invisible"
-        android:src="@drawable/linksmasis_raudonikis"
-        app:layout_constraintStart_toEndOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvieseleGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewVoveryteGrybuKaralyste"
+            android:layout_width="150dp"
+            android:layout_height="161dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/voveryte"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewStirnyteGrybuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewzaliojiGudryteGrybuKaralyste"
-        android:layout_width="72dp"
-        android:layout_height="177dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="108dp"
-        android:visibility="invisible"
-        android:src="@drawable/zalioji_gudryte"
-        app:layout_constraintStart_toStartOf="@+id/imageViewMushroomKingdomBackground"
-        app:layout_constraintTop_toTopOf="@+id/imageViewgrybejaDidziojiGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewlinksmasisRaudonikisGrybuKaralyste"
+            android:layout_width="101dp"
+            android:layout_height="234dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="108dp"
+            android:src="@drawable/linksmasis_raudonikis"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/imageViewzaliojiGudryteGrybuKaralyste"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvieseleGrybuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewgrybejaDidziojiGrybuKaralyste"
-        android:layout_width="189dp"
-        android:layout_height="369dp"
-        android:layout_marginTop="52dp"
-        android:visibility="invisible"
-        android:src="@drawable/grybeja_didzioji"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasDziugeselisGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewzaliojiGudryteGrybuKaralyste"
+            android:layout_width="72dp"
+            android:layout_height="177dp"
+            android:layout_marginStart="184dp"
+            android:layout_marginTop="108dp"
+            android:src="@drawable/zalioji_gudryte"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/imageViewMushroomKingdomBackground"
+            app:layout_constraintTop_toTopOf="@+id/imageViewgrybejaDidziojiGrybuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewPauksciukasSvieseleGrybuKaralyste"
-        android:layout_width="86dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="96dp"
-        android:visibility="invisible"
-        android:src="@drawable/pauksciukas_sviesele"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewgrybejaDidziojiGrybuKaralyste"
+            android:layout_width="189dp"
+            android:layout_height="369dp"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/grybeja_didzioji"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasDziugeselisGrybuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewPauksciukasDziugeselisGrybuKaralyste"
-        android:layout_width="69dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
-        android:visibility="invisible"
-        android:src="@drawable/pauksciukas_dziugeselis"
-        app:layout_constraintStart_toStartOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste"
-        app:layout_constraintTop_toTopOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewPauksciukasSvieseleGrybuKaralyste"
+            android:layout_width="86dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="104dp"
+            android:layout_marginEnd="96dp"
+            android:src="@drawable/pauksciukas_sviesele"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewStirnyteGrybuKaralyste"
-        android:layout_width="71dp"
-        android:layout_height="218dp"
-        android:layout_marginTop="68dp"
-        android:visibility="invisible"
-        android:src="@drawable/stirnyte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvieseleGrybuKaralyste" />
+        <ImageView
+            android:id="@+id/imageViewPauksciukasDziugeselisGrybuKaralyste"
+            android:layout_width="69dp"
+            android:layout_height="84dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="200dp"
+            android:src="@drawable/pauksciukas_dziugeselis"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste"
+            app:layout_constraintTop_toTopOf="@+id/imageViewGyvenamasisGrybasGrybuKaralyste" />
 
-    <ImageView
-        android:id="@+id/imageViewPauksciukasSpalvingasGrybuKaralyste"
-        android:layout_width="101dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="232dp"
-        android:layout_marginEnd="40dp"
-        android:visibility="invisible"
-        android:src="@drawable/pauksciukas_spalvingas"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewStirnyteGrybuKaralyste"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewMushroomKingdomBackground"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageView
+            android:id="@+id/imageViewStirnyteGrybuKaralyste"
+            android:layout_width="71dp"
+            android:layout_height="218dp"
+            android:layout_marginTop="68dp"
+            android:src="@drawable/stirnyte"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasSvieseleGrybuKaralyste" />
+
+        <ImageView
+            android:id="@+id/imageViewPauksciukasSpalvingasGrybuKaralyste"
+            android:layout_width="101dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="232dp"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/pauksciukas_spalvingas"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewStirnyteGrybuKaralyste"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewMushroomKingdomBackground"
+            app:layout_constraintVertical_bias="1.0" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

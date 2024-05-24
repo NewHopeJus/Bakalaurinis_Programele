@@ -27,11 +27,11 @@
             android:layout_height="80dp"
             android:layout_marginStart="56dp"
             android:layout_marginTop="10dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/imageViewNykstukasBasutis"
             app:layout_constraintStart_toEndOf="@+id/imageViewViksras"
             app:layout_constraintTop_toBottomOf="@+id/imageViewLaukineBitute"
             app:srcCompat="@drawable/boruzele"
-            android:visibility="invisible"
 
 
             />
@@ -42,8 +42,8 @@
             android:layout_height="79dp"
             android:layout_marginStart="92dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewLinksmasisVabaliukas"
             app:srcCompat="@drawable/goldfish_little" />
 
@@ -153,11 +153,11 @@
 
         <ImageView
             android:id="@+id/imageViewLaukineBitute"
-            android:visibility="invisible"
             android:layout_width="77dp"
             android:layout_height="83dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="14dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/imageViewBoruzele"
             app:layout_constraintEnd_toStartOf="@+id/imageViewRaudonasVabzdys"
             app:layout_constraintHorizontal_bias="0.746"

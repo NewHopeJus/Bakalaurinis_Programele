@@ -9,7 +9,6 @@
         android:background="@drawable/background_saldumyu_karalyste"
         tools:context=".view.kingdoms.views.SalumynuKaralysteFragment">
 
-
         <ImageView
             android:id="@+id/imageViewSaldumynuPilis"
             android:layout_width="329dp"
@@ -56,8 +55,8 @@
             android:id="@+id/imageViewVaikstantisPyragas"
             android:layout_width="87dp"
             android:layout_height="67dp"
-            android:visibility="invisible"
             android:layout_marginBottom="96dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewLedinukasSirdute"
             app:layout_constraintHorizontal_bias="0.592"
@@ -188,6 +187,4 @@
             app:srcCompat="@drawable/lolipop_heart" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>

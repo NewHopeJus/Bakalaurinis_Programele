@@ -75,10 +75,10 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     public static class ShopViewHolder extends RecyclerView.ViewHolder {
         //Holds te references to the views within the item layout
-        ImageView imageViewItemImage;
-        TextView textViewItemName;
-        Button buttonBuy;
-        TextView textViewPrice;
+        private final ImageView imageViewItemImage;
+        private final TextView textViewItemName;
+        private final Button buttonBuy;
+        private final TextView textViewPrice;
 
         public ShopViewHolder(@NonNull View itemView) {
             super(itemView);

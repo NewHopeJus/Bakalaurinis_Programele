@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
@@ -17,7 +14,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="24dp"
-            android:text="Justyna"
+            android:text="@string/temp_name"
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +59,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="28dp"
-            android:text="2"
+            android:text="@string/patirties_taskai_temp"
             android:textColor="@color/white"
             android:textSize="28sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView8"
@@ -74,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="24dp"
-            android:text="50"
+            android:text="@string/monetos_temp"
             android:textColor="@color/white"
             android:textSize="28sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView7"
@@ -87,9 +84,7 @@
             app:layout_constraintBottom_toTopOf="@+id/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView8">
-
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -100,7 +95,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

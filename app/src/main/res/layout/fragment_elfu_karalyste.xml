@@ -78,13 +78,12 @@
             android:layout_width="127dp"
             android:layout_height="238dp"
             android:layout_marginTop="88dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.152"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bird_magestic"
-            android:visibility="invisible"
-            />
+            app:srcCompat="@drawable/bird_magestic" />
 
         <ImageView
             android:id="@+id/imageViewMagiskaGele"

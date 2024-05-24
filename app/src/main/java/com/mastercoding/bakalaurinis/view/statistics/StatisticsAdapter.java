@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class StatisticsAdapter extends RecyclerView.Adapter<StatisticsAdapter.StatisticsViewHolder> {
 
-    List<LevelStatisticsDto> levelStatisticsDtoList;
+    private final List<LevelStatisticsDto> levelStatisticsDtoList;
 
     public StatisticsAdapter() {
         this.levelStatisticsDtoList = new ArrayList<>();
@@ -70,10 +70,10 @@ public class StatisticsAdapter extends RecyclerView.Adapter<StatisticsAdapter.St
     }
 
     public static class StatisticsViewHolder extends RecyclerView.ViewHolder {
-        TextView levelName;
-        TextView textViewLevelIncorrect;
-        TextView textViewLevelCorrect;
-        TextView textViewTikslingumas;
+        private final TextView levelName;
+        private final TextView textViewLevelIncorrect;
+        private final TextView textViewLevelCorrect;
+        private final TextView textViewTikslingumas;
 
         public StatisticsViewHolder(@NonNull View itemView) {
             super(itemView);

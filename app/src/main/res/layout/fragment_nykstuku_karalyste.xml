@@ -32,32 +32,32 @@
 
         <ImageView
             android:id="@+id/imageViewBoruzele"
-            android:visibility="invisible"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:layout_marginStart="4dp"
             android:layout_marginBottom="368dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/boruzele" />
 
         <ImageView
             android:id="@+id/imageViewStebuklingaZuvyte"
-            android:visibility="invisible"
             android:layout_width="81dp"
             android:layout_height="91dp"
             android:layout_marginEnd="88dp"
             android:layout_marginBottom="4dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewNykstukuNamas"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/goldfish_little" />
 
         <ImageView
             android:id="@+id/imageViewNykstukasBasutis"
-            android:visibility="invisible"
             android:layout_width="137dp"
             android:layout_height="320dp"
             android:layout_marginTop="88dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/imageViewLinksmasisVabaliukas"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,10 +66,10 @@
 
         <ImageView
             android:id="@+id/imageViewPauksciukasCvirpukas"
-            android:visibility="invisible"
             android:layout_width="103dp"
             android:layout_height="109dp"
             android:layout_marginStart="256dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/imageViewNykstukasBasutis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -78,22 +78,22 @@
 
         <ImageView
             android:id="@+id/imageViewViksras"
-            android:visibility="invisible"
             android:layout_width="85dp"
             android:layout_height="200dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="56dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/imageViewBoruzele"
             app:layout_constraintTop_toBottomOf="@+id/imageViewRaudonasVabzdys"
             app:srcCompat="@drawable/cetepillar" />
 
         <ImageView
             android:id="@+id/imageViewNykstukasIsmincius"
-            android:visibility="invisible"
             android:layout_width="118dp"
             android:layout_height="224dp"
             android:layout_marginTop="168dp"
             android:layout_marginEnd="52dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasCvirpukas"
@@ -102,11 +102,11 @@
 
         <ImageView
             android:id="@+id/imageViewRaudonasVabzdys"
-            android:visibility="invisible"
             android:layout_width="97dp"
             android:layout_height="130dp"
             android:layout_marginStart="52dp"
             android:layout_marginTop="76dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/imageViewPauksciukasCvirpukas"
             app:layout_constraintHorizontal_bias="0.682"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,21 +115,21 @@
 
         <ImageView
             android:id="@+id/imageViewVarlyte"
-            android:visibility="invisible"
             android:layout_width="121dp"
             android:layout_height="102dp"
             android:layout_marginStart="64dp"
             android:layout_marginTop="292dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/imageViewNykstukasIsmincius"
             app:layout_constraintTop_toBottomOf="@+id/imageViewPauksciukasCvirpukas"
             app:srcCompat="@drawable/frog" />
 
         <ImageView
             android:id="@+id/imageViewLinksmasisVabaliukas"
-            android:visibility="invisible"
             android:layout_width="103dp"
             android:layout_height="142dp"
             android:layout_marginTop="12dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
@@ -138,10 +138,10 @@
 
         <ImageView
             android:id="@+id/imageViewDarzoves"
-            android:visibility="invisible"
             android:layout_width="85dp"
             android:layout_height="149dp"
             android:layout_marginTop="196dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/imageViewStebuklingaZuvyte"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.457"
@@ -152,10 +152,10 @@
 
         <ImageView
             android:id="@+id/imageViewZaliasisPukutis"
-            android:visibility="invisible"
             android:layout_width="78dp"
             android:layout_height="100dp"
             android:layout_marginTop="124dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/imageViewLinksmasisVabaliukas"
             app:layout_constraintEnd_toStartOf="@+id/imageViewNykstukasIsmincius"
             app:layout_constraintHorizontal_bias="0.459"
@@ -166,11 +166,11 @@
 
         <ImageView
             android:id="@+id/imageViewLaukineBitute"
-            android:visibility="invisible"
             android:layout_width="77dp"
             android:layout_height="83dp"
             android:layout_marginStart="72dp"
             android:layout_marginTop="124dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageViewRaudonasVabzdys"
             app:srcCompat="@drawable/bee" />

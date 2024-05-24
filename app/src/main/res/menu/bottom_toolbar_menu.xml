@@ -4,12 +4,12 @@
     <item
         android:id="@+id/action_back"
         android:icon="@drawable/icons8_back"
-        android:title="Atgal"
+        android:title="@string/back_btn"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_home"
         android:icon="@drawable/icons8_home"
-        android:title="Atgal"
+        android:title="@string/home"
         app:showAsAction="ifRoom" />
 </menu>
