@@ -30,8 +30,6 @@ public class QuestionRepository {
         questionMutableLiveData = new MutableLiveData<>();
     }
 
-    //returnina live data questiona
-
     public MutableLiveData<Question> getQuestion(String levelName, String topicName) {
 
         Call<Question> call = questionAPI.getQuestionByLevelAndTopic(levelName, topicName, securityManager.getToken());
@@ -46,7 +44,8 @@ public class QuestionRepository {
                     questionMutableLiveData.setValue(response.body());
 
                 } else {
-                    questionMutableLiveData.setValue(null);                }
+                    questionMutableLiveData.setValue(null);
+                }
             }
 
             @Override
@@ -71,7 +70,7 @@ public class QuestionRepository {
                     }
 
                 } else {
-                    Log.e("Question Fetching Service", "Sending the submission failed");
+                    Log.e("Question Fetching Service", "Response for sending the submission was not successful");
                 }
             }
 
@@ -83,5 +82,4 @@ public class QuestionRepository {
 
         return answerSubmitResponseLiveData;
     }
-
 }

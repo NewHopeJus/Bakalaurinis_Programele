@@ -49,7 +49,7 @@ public class QuestionActivity extends AppCompatActivity {
         questionViewModel = new ViewModelProvider(this, new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
 
 
-        if (questionViewModel.getQuestionLiveData() == null) { //tikrinimas ar perkraunam nes kitu aveju jei rotatina screena nereikia
+        if (questionViewModel.getQuestionLiveData() == null) { //Because if the screen is rotated, we do not need to fetch a new question
             questionViewModel.getQuestion();
         }
 
@@ -67,31 +67,26 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-
         Toolbar toolbar = activityQuestionBinding.toolbarQuestionActivity;
         setSupportActionBar(toolbar);
 
-        //kad paslepti teksta toolbaro
+        //Hiding toolbar text
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
-        //Griztam i lygio temu langa
         if (item.getItemId() == R.id.action_back) {
             finish();
             return true;
         } else if (item.getItemId() == R.id.action_home) {
-            //Griztam i pagrindini puslapi
             Intent intent = new Intent(this, MainMenuActivity.class);
             intent.putExtra("home", 0);
             startActivity(intent);
@@ -99,7 +94,5 @@ public class QuestionActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
 

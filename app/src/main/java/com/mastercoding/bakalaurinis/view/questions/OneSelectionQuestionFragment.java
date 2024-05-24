@@ -68,7 +68,6 @@ public class OneSelectionQuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentOneSelectionQuestionBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_one_selection_question, container, false);
-
         levelName = getActivity().getIntent().getStringExtra("levelName");
         topicName = getActivity().getIntent().getStringExtra("topicName");
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
@@ -79,12 +78,10 @@ public class OneSelectionQuestionFragment extends Fragment {
 
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Bundle args = getArguments(); //kad gauti is activity klausimo informacija
-
+        Bundle args = getArguments();
 
         TextView descriptionTextView = view.findViewById(R.id.textViewQuestionDescriptionCorrectAnswer);
 
@@ -123,7 +120,6 @@ public class OneSelectionQuestionFragment extends Fragment {
                 radioButton4.setText(optionList.get(3).getText());
                 radioButton4.setTag(optionList.get(3).getId());
 
-
                 String coins = question.getCoins().toString();
                 coinsTextView.setText(coins);
 
@@ -131,32 +127,24 @@ public class OneSelectionQuestionFragment extends Fragment {
                 experienceTextView.setText(experience);
 
                 adjustImageViewSize(optionList);
-
             }
-
-
         }
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 if (selectedId == -1) {
                     Toast.makeText(getContext(), "Pasirinkite vieną teisingą atsakymą.", Toast.LENGTH_SHORT).show();
 
                 } else {
-
                     RadioButton selected = radioGroup.findViewById(selectedId);
                     CharSequence selectedText = selected.getText();
                     AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
                             selectedText.toString(), (Long) selected.getTag(), question.getQuestionLevel());
-
                     questionViewModel.submitAnswer(answerSubmitRequest);
                     questionViewModel.setAnswered(true);
                     FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-
                     questionViewModel.getAnswerSubmitResponseLiveData().observe(requireActivity(), new Observer<AnswerSubmitResponse>() {
                         @Override
                         public void onChanged(AnswerSubmitResponse answerSubmitResponse) {
@@ -166,11 +154,8 @@ public class OneSelectionQuestionFragment extends Fragment {
                                     .commit();
                         }
                     });
-
                 }
-
             }
-
         });
 
         Button buttonSkip = fragmentOneSelectionQuestionBinding.buttonSkipOneSelQuestion;
@@ -181,10 +166,8 @@ public class OneSelectionQuestionFragment extends Fragment {
             }
         });
 
-
         String imageName = question.getImagePath() != null ? question.getImagePath() : "1-lygis/atimtis/1L_1T_1K.png";
         storageReference = FirebaseStorage.getInstance().getReference("images/" + imageName + ".png");
-
 
         try {
             File localFile = File.createTempFile("tempfile", ".png");
@@ -192,19 +175,16 @@ public class OneSelectionQuestionFragment extends Fragment {
                     .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                            if(getContext()!=null) {
-
+                            if (getContext() != null) {
                                 @SuppressLint("ResourceType") Animator animOut = AnimatorInflater.loadAnimator(requireContext(), R.anim.card_flip_out);
                                 animOut.setTarget(fragmentOneSelectionQuestionBinding.imageViewDisplayImage);
                                 animOut.start();
-
                                 animOut.addListener(new AnimatorListenerAdapter() {
                                     @Override
                                     public void onAnimationEnd(Animator animation) {
                                         Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
                                         fragmentOneSelectionQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
                                         if (getContext() != null) {
-
                                             @SuppressLint("ResourceType") Animator animIn = AnimatorInflater.loadAnimator(requireContext(), R.anim.card_flip_in);
                                             animIn.setTarget(fragmentOneSelectionQuestionBinding.imageViewDisplayImage);
                                             animIn.start();
@@ -212,7 +192,6 @@ public class OneSelectionQuestionFragment extends Fragment {
                                                 @Override
                                                 public void onAnimationEnd(Animator animation) {
                                                     enableButtons();
-
                                                 }
                                             });
                                         }
@@ -232,51 +211,35 @@ public class OneSelectionQuestionFragment extends Fragment {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     private void disableButtons() {
         fragmentOneSelectionQuestionBinding.buttonSubmitOneSelQuestion.setEnabled(false);
         fragmentOneSelectionQuestionBinding.buttonSkipOneSelQuestion.setEnabled(false);
-
-
     }
 
     private void enableButtons() {
         fragmentOneSelectionQuestionBinding.buttonSubmitOneSelQuestion.setEnabled(true);
         fragmentOneSelectionQuestionBinding.buttonSkipOneSelQuestion.setEnabled(true);
-
     }
 
     private void adjustImageViewSize(List<Option> optionList) {
         for (Option option : optionList) {
             if (option.getText().split(" ").length > 1) {
-
-
                 ViewGroup.LayoutParams layoutParams = fragmentOneSelectionQuestionBinding.imageViewDisplayImage.getLayoutParams();
                 layoutParams.height = 500;
                 layoutParams.width = 500;
                 fragmentOneSelectionQuestionBinding.imageViewDisplayImage.setLayoutParams(layoutParams);
-
                 ViewGroup.LayoutParams frameLayoutParams = fragmentOneSelectionQuestionBinding.cardFrame.getLayoutParams();
                 frameLayoutParams.height = 500;
                 frameLayoutParams.width = 500;
                 fragmentOneSelectionQuestionBinding.cardFrame.setLayoutParams(frameLayoutParams);
-
                 fragmentOneSelectionQuestionBinding.radioOption1.setTextSize(14);
                 fragmentOneSelectionQuestionBinding.radioOption2.setTextSize(14);
                 fragmentOneSelectionQuestionBinding.radioOption3.setTextSize(14);
                 fragmentOneSelectionQuestionBinding.radioOption4.setTextSize(14);
-
                 break;
             }
         }
     }
-
-
-
-
-
-
-    }
+}

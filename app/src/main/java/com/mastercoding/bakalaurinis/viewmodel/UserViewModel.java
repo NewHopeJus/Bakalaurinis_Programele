@@ -47,7 +47,7 @@ public class UserViewModel extends ViewModel {
     }
 
     public void loginUser(LoginRequest loginRequest) {
-         userRepository.loginUser(loginRequest);
+        userRepository.loginUser(loginRequest);
     }
 
     public LoginResponse getLoginResponse() {
@@ -55,7 +55,7 @@ public class UserViewModel extends ViewModel {
     }
 
     public void fetchUserInfo() {
-         userRepository.getUserInfo();
+        userRepository.getUserInfo();
     }
 
     public MutableLiveData<UserInfoResponse> getUserInfo() {
@@ -66,18 +66,19 @@ public class UserViewModel extends ViewModel {
         this.userInfo = userInfo;
     }
 
-    public void updateUsername(LoginRequest loginRequest){
+    public void updateUsername(LoginRequest loginRequest) {
         userRepository.updateUsername(loginRequest);
     }
 
-    public void deleteAccount(AccountDeleteRequest password){
+    public void deleteAccount(AccountDeleteRequest password) {
         userRepository.deleteUser(password);
     }
 
     public MutableLiveData<LoginResponse> getUpdateResponseMutableLiveData() {
         return updateResponseMutableLiveData;
     }
-    public void updatePassword(PasswordChangeRequest passwordChangeRequest){
+
+    public void updatePassword(PasswordChangeRequest passwordChangeRequest) {
         userRepository.updatePassword(passwordChangeRequest);
     }
 

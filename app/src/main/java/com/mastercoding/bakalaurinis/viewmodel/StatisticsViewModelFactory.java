@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
-public class StatisticsViewModelFactory implements ViewModelProvider.Factory{
+public class StatisticsViewModelFactory implements ViewModelProvider.Factory {
     private MineSecurityManager securityManager;
+
     public StatisticsViewModelFactory(MineSecurityManager securityManager) {
         this.securityManager = securityManager;
     }

@@ -16,9 +16,10 @@ public class RankingViewModel extends ViewModel {
 
     public RankingViewModel(MineSecurityManager securityManager) {
         this.rankingRepository = new RankingRepository(securityManager);
-        this.rankings= rankingRepository.getRankings();
+        this.rankings = rankingRepository.getRankings();
     }
-    public void getRankingList(){
+
+    public void getRankingList() {
         rankings = rankingRepository.getRankingList();
     }
 

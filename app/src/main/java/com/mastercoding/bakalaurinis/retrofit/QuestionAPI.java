@@ -18,10 +18,10 @@ public interface QuestionAPI {
 
     @GET("/api/questions/{level}/{topic}")
     Call<Question> getQuestionByLevelAndTopic(@Path("level") String level, @Path("topic") String topic,
-                                              @Header("Authorization") String jwtToken );
+                                              @Header("Authorization") String jwtToken);
 
     @POST("api/questions/answerSubmit")
-    Call<AnswerSubmitResponse>submitAnswer(@Body AnswerSubmitRequest answerSubmitRequest,
-                                           @Header("Authorization") String jwtToken);
+    Call<AnswerSubmitResponse> submitAnswer(@Body AnswerSubmitRequest answerSubmitRequest,
+                                            @Header("Authorization") String jwtToken);
 
 }

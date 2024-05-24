@@ -34,6 +34,7 @@ public class UserRepository {
     private MutableLiveData<LoginResponse> updatePasswordResponseMutableLiveData = new MutableLiveData<>();
 
     private MutableLiveData<String> deleteAccountResponse = new MutableLiveData<>();
+
     public UserRepository(MineSecurityManager mineSecurityManager) {
         this.securityManager = mineSecurityManager;
         Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
@@ -41,7 +42,7 @@ public class UserRepository {
         this.securityManager = mineSecurityManager;
     }
 
-    public MutableLiveData<LoginResponse> loginUser(LoginRequest loginRequest){
+    public MutableLiveData<LoginResponse> loginUser(LoginRequest loginRequest) {
         Call<LoginResponse> call = userAPI.loginUser(loginRequest);
 
         call.enqueue(new Callback<LoginResponse>() {
@@ -72,7 +73,7 @@ public class UserRepository {
         return loginResponseMutableLiveData;
     }
 
-    public MutableLiveData<UserInfoResponse> getUserInfo(){
+    public MutableLiveData<UserInfoResponse> getUserInfo() {
         Call<UserInfoResponse> call = userAPI.getUserInfo(securityManager.getToken());
         call.enqueue(new Callback<UserInfoResponse>() {
             @Override
@@ -82,13 +83,13 @@ public class UserRepository {
                     if (response.body() != null) {
                         userInfoResponseMutableLiveData.postValue(response.body());
                     }
-                }
-                else {
-                    Log.d("User Info", "Getting user info failed." + response.code());
+                } else {
+                    Log.d("User Info", "Response for getting user info was not successful." + response.code());
                     userInfoResponseMutableLiveData.postValue(null);
 
                 }
             }
+
             @Override
             public void onFailure(@NonNull Call<UserInfoResponse> call, @NonNull Throwable t) {
                 Log.d("User Info", "Getting user info failed." + t.getLocalizedMessage());
@@ -99,7 +100,7 @@ public class UserRepository {
         return userInfoResponseMutableLiveData;
     }
 
-    public MutableLiveData<LoginResponse> updateUsername(LoginRequest loginRequest){
+    public MutableLiveData<LoginResponse> updateUsername(LoginRequest loginRequest) {
         Call<LoginResponse> call = userAPI.updateUsername(loginRequest, securityManager.getToken());
 
         call.enqueue(new Callback<LoginResponse>() {
@@ -114,9 +115,8 @@ public class UserRepository {
                         securityManager.saveToken(response.body().getJwt());
 
                     }
-                }
-                else {
-                    Log.d("Login", "Username update failed. " + response.code());
+                } else {
+                    Log.d("Login", "Response for username update was not successful. " + response.code());
                     updateResponseMutableLiveData.setValue(null);
 
                 }
@@ -132,7 +132,7 @@ public class UserRepository {
         return updateResponseMutableLiveData;
     }
 
-    public MutableLiveData<LoginResponse> updatePassword(PasswordChangeRequest passwordChangeRequest){
+    public MutableLiveData<LoginResponse> updatePassword(PasswordChangeRequest passwordChangeRequest) {
         Call<LoginResponse> call = userAPI.updatePassword(passwordChangeRequest, securityManager.getToken());
 
         call.enqueue(new Callback<LoginResponse>() {
@@ -147,9 +147,8 @@ public class UserRepository {
                         securityManager.saveToken(response.body().getJwt());
 
                     }
-                }
-                else {
-                    Log.d("Login", "Username update failed. " + response.code());
+                } else {
+                    Log.d("Login", "Response for password update was not successful. " + response.code());
                     updatePasswordResponseMutableLiveData.setValue(null);
 
                 }
@@ -157,7 +156,7 @@ public class UserRepository {
 
             @Override
             public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                Log.d("Login", "Username update failed. " + t.getLocalizedMessage());
+                Log.d("Login", "Password update failed. " + t.getLocalizedMessage());
                 updatePasswordResponseMutableLiveData.setValue(null);
 
             }
@@ -179,9 +178,8 @@ public class UserRepository {
 
                     }
                 } else {
-                    Log.d("Delete", "Delete account failed" + response.code());
+                    Log.d("Delete", "Response for delete account was not successful" + response.code());
                     deleteAccountResponse.setValue(null);
-
                 }
             }
 
@@ -190,8 +188,6 @@ public class UserRepository {
                 Log.d("Delete", "Delete account failed");
                 deleteAccountResponse.setValue(null);
             }
-
-
         });
 
         return deleteAccountResponse;

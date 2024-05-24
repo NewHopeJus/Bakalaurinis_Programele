@@ -1,7 +1,4 @@
 package com.mastercoding.bakalaurinis.dtos;
-
-import com.mastercoding.bakalaurinis.model.Kingdom;
-
 public class KingdomDto {
     private Long id;
     private String name;

@@ -33,10 +33,7 @@ import java.util.Objects;
 public class RankingActivity extends AppCompatActivity {
     private RankingViewModel rankingViewModel;
     private RankingAdapter rankingAdapter = new RankingAdapter();
-
     private ActivityRankingBinding activityRankingBinding;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,27 +41,21 @@ public class RankingActivity extends AppCompatActivity {
 
         activityRankingBinding = DataBindingUtil.setContentView(this, R.layout.activity_ranking);
 
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //kad paslepti teksta toolbaro
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-
         MineSecurityManager securityManager = new MineSecurityManager(this);
 
         RecyclerView recyclerView = activityRankingBinding.recyclerViewRanking;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(rankingAdapter);
 
-        ImageView star =  activityRankingBinding.imageViewStar;
+        ImageView star = activityRankingBinding.imageViewStar;
 
         YoYo.with(Techniques.Flash)
                 .duration(700)
                 .repeat(2)
                 .playOn(star);
-
-
 
         rankingViewModel = new ViewModelProvider(this, new RankingViewModelFactory(securityManager)).get(RankingViewModel.class);
         rankingViewModel.getRankingList();
@@ -80,14 +71,12 @@ public class RankingActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
         if (item.getItemId() == R.id.action_back || item.getItemId() == R.id.action_home) {
             finish();
             return true;

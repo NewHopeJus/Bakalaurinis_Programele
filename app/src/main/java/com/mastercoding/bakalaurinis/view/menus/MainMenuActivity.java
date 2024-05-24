@@ -46,22 +46,19 @@ public class MainMenuActivity extends AppCompatActivity {
         usernameTextView = activityMainMenuBinding.textViewUserNameMainMenu;
         coinsTextView = activityMainMenuBinding.textViewCoinsMainMenu;
         experienceTextView = activityMainMenuBinding.textViewExperienceMainMenu;
+        securityManager = new MineSecurityManager(MainMenuActivity.this);
 
-         securityManager = new MineSecurityManager(MainMenuActivity.this);
-
-        //pirma fragmenta pridedam su main menu listu
         if (savedInstanceState == null) {
             MainMenuListFragment mainMenuListFragment = new MainMenuListFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container_main_menu_list, mainMenuListFragment)
-                    .addToBackStack("home") //nes reikes grizti
+                    .addToBackStack("home")
                     .commit();
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //kad paslepti teksta toolbaro
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
 
@@ -77,14 +74,12 @@ public class MainMenuActivity extends AppCompatActivity {
                     coinsTextView.setText(String.valueOf(userInfoResponse.getUserCoins()));
                     experienceTextView.setText(String.valueOf(userInfoResponse.getUserExperience()));
                 }
-
             }
         });
 
         ImageView jelly = activityMainMenuBinding.imageView15;
         AnimationDrawable walkingAnimation = (AnimationDrawable) jelly.getBackground();
         walkingAnimation.start();
-
         ObjectAnimator animator = ObjectAnimator.ofFloat(jelly, "translationX", 0f, 1000f);
         animator.setDuration(10000);
         animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -95,30 +90,27 @@ public class MainMenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
         if (item.getItemId() == R.id.action_back) {
-            //nes jei maziau uz viena tai removina visus fragmentus
             if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
                 getSupportFragmentManager().popBackStack();
                 return true;
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this)
-                 .setTitle("Atsijungimas")
+                        .setTitle("Atsijungimas")
                         .setMessage("Ar tikrai norite atsijungti nuo paskyros?");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                    securityManager.removeToken();
-                    finish();
+                        securityManager.removeToken();
+                        finish();
                     }
                 });
-                builder.setNegativeButton(R.string.cancel, null); // nes jegu cancel tai tsg nieko nedarome
+                builder.setNegativeButton(R.string.cancel, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
@@ -146,7 +138,6 @@ public class MainMenuActivity extends AppCompatActivity {
                     usernameTextView.setText(userInfoResponse.getUsername());
                     coinsTextView.setText(String.valueOf(userInfoResponse.getUserCoins()));
                     experienceTextView.setText(String.valueOf(userInfoResponse.getUserExperience()));
-
                 }
             });
         }

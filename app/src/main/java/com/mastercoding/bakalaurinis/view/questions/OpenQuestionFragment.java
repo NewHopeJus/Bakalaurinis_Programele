@@ -53,11 +53,8 @@ public class OpenQuestionFragment extends Fragment {
     private QuestionViewModel questionViewModel;
     private StorageReference storageReference;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragmentOpenQuestionBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_open_question, container, false);
         levelName = getActivity().getIntent().getStringExtra("levelName");
         topicName = getActivity().getIntent().getStringExtra("topicName");
@@ -70,38 +67,28 @@ public class OpenQuestionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         Bundle args = getArguments();
         TextView descriptionTextView = fragmentOpenQuestionBinding.textViewOpenQuestionDescription;
         TextView coinsTextView = fragmentOpenQuestionBinding.textViewCoinsOneSelQuestion;
         TextView experienceTextView = fragmentOpenQuestionBinding.textViewExperienceOneSelQuestion;
-
         if (args != null) {
             question = args.getParcelable("questionObject");
-
             if (question != null) {
-
                 String description = question.getDescription();
                 descriptionTextView.setText(description);
-
                 if (description != null && description.length() > 50) {
                     descriptionTextView.setTextSize(16);
                     adjustImageViewSize(description);
                 }
-
                 String coins = question.getCoins().toString();
                 coinsTextView.setText(coins);
-
                 String experience = question.getExperience().toString();
                 experienceTextView.setText(experience);
-
             }
         }
 
         Button buttonSubmit = fragmentOpenQuestionBinding.buttonSubmitOpenQuestion;
         EditText editTextAnswer = fragmentOpenQuestionBinding.editTextOpenQuestion;
-
-
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,13 +97,11 @@ public class OpenQuestionFragment extends Fragment {
                     Toast.makeText(getContext(), "Įveskite atsakymą.", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(),
-                            answer, 0l, question.getQuestionLevel());
+                    AnswerSubmitRequest answerSubmitRequest = new AnswerSubmitRequest(question.getId(), answer, 0l, question.getQuestionLevel());
 
                     questionViewModel.submitAnswer(answerSubmitRequest);
                     questionViewModel.setAnswered(true);
                     FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-
                     questionViewModel.getAnswerSubmitResponseLiveData().observe(requireActivity(), new Observer<AnswerSubmitResponse>() {
                         @Override
                         public void onChanged(AnswerSubmitResponse answerSubmitResponse) {
@@ -139,8 +124,7 @@ public class OpenQuestionFragment extends Fragment {
             }
         });
 
-
-        String imageName = question.getImagePath()!=null? question.getImagePath():"1-lygis/atimtis/1L_1T_1K.png";
+        String imageName = question.getImagePath() != null ? question.getImagePath() : "1-lygis/atimtis/1L_1T_1K.png";
         storageReference = FirebaseStorage.getInstance().getReference("images/" + imageName + ".png");
 
         try {
@@ -153,13 +137,11 @@ public class OpenQuestionFragment extends Fragment {
                             @SuppressLint("ResourceType") Animator animOut = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_out);
                             animOut.setTarget(fragmentOpenQuestionBinding.imageViewDisplayImage);
                             animOut.start();
-
                             animOut.addListener(new AnimatorListenerAdapter() {
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
                                     Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
                                     fragmentOpenQuestionBinding.imageViewDisplayImage.setImageBitmap(bitmap);
-
                                     @SuppressLint("ResourceType") Animator animIn = AnimatorInflater.loadAnimator(getContext(), R.anim.card_flip_in);
                                     animIn.setTarget(fragmentOpenQuestionBinding.imageViewDisplayImage);
                                     animIn.start();
@@ -167,7 +149,6 @@ public class OpenQuestionFragment extends Fragment {
                                         @Override
                                         public void onAnimationEnd(Animator animation) {
                                             enableButtons();
-
                                         }
                                     });
                                 }
@@ -188,24 +169,22 @@ public class OpenQuestionFragment extends Fragment {
     }
 
     private void adjustImageViewSize(String description) {
-            if (description.split(" ").length > 10) {
-                ViewGroup.LayoutParams layoutParams = fragmentOpenQuestionBinding.imageViewDisplayImage.getLayoutParams();
-                layoutParams.height = 500;
-                layoutParams.width = 500;
-                fragmentOpenQuestionBinding.imageViewDisplayImage.setLayoutParams(layoutParams);
-            }
+        if (description.split(" ").length > 10) {
+            ViewGroup.LayoutParams layoutParams = fragmentOpenQuestionBinding.imageViewDisplayImage.getLayoutParams();
+            layoutParams.height = 500;
+            layoutParams.width = 500;
+            fragmentOpenQuestionBinding.imageViewDisplayImage.setLayoutParams(layoutParams);
+        }
     }
+
     private void disableButtons() {
         fragmentOpenQuestionBinding.buttonSubmitOpenQuestion.setEnabled(false);
         fragmentOpenQuestionBinding.buttonSkipOpenQuestion.setEnabled(false);
-
-
     }
 
     private void enableButtons() {
         fragmentOpenQuestionBinding.buttonSubmitOpenQuestion.setEnabled(true);
         fragmentOpenQuestionBinding.buttonSkipOpenQuestion.setEnabled(true);
-
     }
 
 }

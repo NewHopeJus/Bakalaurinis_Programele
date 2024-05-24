@@ -4,7 +4,7 @@ public class ShopItem {
     private Long id;
     private String name;
     private String imgViewId;
-    private  String imgName;
+    private String imgName;
     private Integer price;
 
     public ShopItem(Long id, String name, String imgViewId, String imgName, Integer price) {

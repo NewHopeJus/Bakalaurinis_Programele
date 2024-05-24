@@ -48,7 +48,7 @@ public class StatisticsRepository {
                     statisticsMutableLiveData.setValue(response.body());
 
                 } else {
-                    Log.e("Statistics Fetching Repository", "Getting statistics from backend failed");
+                    Log.e("Statistics Fetching Repository", "Response for getting statistics from backend was not successful");
                 }
             }
 
@@ -57,9 +57,7 @@ public class StatisticsRepository {
                 Log.e("Statistics Fetching Repository", "Getting statistics from backend failed", t);
             }
         });
-
         return statisticsMutableLiveData;
     }
-
 
 }

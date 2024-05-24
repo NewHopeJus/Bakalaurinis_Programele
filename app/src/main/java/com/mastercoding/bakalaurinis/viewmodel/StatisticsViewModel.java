@@ -8,7 +8,7 @@ import com.mastercoding.bakalaurinis.repository.StatisticsRepository;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
 public class StatisticsViewModel extends ViewModel {
-    private MutableLiveData<StatisticsResponse> statisticsResponseMutableLiveData ;
+    private MutableLiveData<StatisticsResponse> statisticsResponseMutableLiveData;
     private StatisticsRepository statisticsRepository;
 
     public StatisticsViewModel(MineSecurityManager securityManager) {
@@ -16,7 +16,7 @@ public class StatisticsViewModel extends ViewModel {
         this.statisticsResponseMutableLiveData = statisticsRepository.getStatisticsMutableLiveData();
     }
 
-    public void getStatistics(){
+    public void getStatistics() {
         statisticsResponseMutableLiveData = statisticsRepository.getStatistics();
     }
 

@@ -28,25 +28,19 @@ public class MainMenuListFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         String[] mainMenuArray = {"Spręsti", "Karalystės", "Parduotuvė", "Sprendimų statistika", "Profilis", "Lyderiai"};
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 inflater.getContext(), R.layout.fragment_main_menu_list,
                 mainMenuArray);
         setListAdapter(adapter);
-
         return super.onCreateView(inflater, container, savedInstanceState);
-
     }
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ListView listView = getListView();
-        listView.setPadding(100, 0, 100, 20); // kad prideti tarpus prie pagrindinio menu listo is sonu
+        listView.setPadding(100, 0, 100, 20);
         listView.setClipToPadding(false);
     }
 
@@ -54,43 +48,34 @@ public class MainMenuListFragment extends ListFragment {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        //jei pasirinko spresti
-        if(position == 0){
+        //If the "Spresti" option from main menu was chosen
+        if (position == 0) {
             LevelsListFragment levelsListFragment = new LevelsListFragment();
             FragmentManager manager = requireActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction= manager.beginTransaction();
-           //replacinam fragmenta is main menu su lygiais
-            //pirmas parametras - konteineris fragmentams
-            // antras parametras naujas fragmentas
-            fragmentTransaction.replace(R.id.fragment_container_main_menu_list,levelsListFragment);
-            fragmentTransaction.addToBackStack("levels"); //nes reikes veliau atgal
+            FragmentTransaction fragmentTransaction = manager.beginTransaction();
+
+            //Replacing fragment with levels fragment
+            //First parameter - container for the fragment
+            //Second parameter - new fragment
+            fragmentTransaction.replace(R.id.fragment_container_main_menu_list, levelsListFragment);
+            fragmentTransaction.addToBackStack("levels");
             fragmentTransaction.commit();
-        } //pasirinko karalystes
-        else if (position==1) {
+
+        } else if (position == 1) {
             Intent intent = new Intent(getActivity(), KingdomMenuActivity.class);
             startActivity(intent);
-
-        }
-        else if (position==2) {
+        } else if (position == 2) {
             Intent intent = new Intent(getActivity(), ShopActivity.class);
             startActivity(intent);
-
-        }
-        else if(position==3){
+        } else if (position == 3) {
             Intent intent = new Intent(getActivity(), StatisticsActivity.class);
             startActivity(intent);
-        }
-
-        else if (position==4) {
+        } else if (position == 4) {
             Intent intent = new Intent(getActivity(), ProfileActivity.class);
             startActivity(intent);
-        }
-        else {
+        } else {
             Intent intent = new Intent(getActivity(), RankingActivity.class);
             startActivity(intent);
         }
-
-
-
     }
 }

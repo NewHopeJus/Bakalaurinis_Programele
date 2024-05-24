@@ -26,10 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShopKingdomMenuFragment extends Fragment implements CustomAdapter.ItemClickListener{
-
-
-    private List<KingdomDto> kingdomList =  new ArrayList<>();
+public class ShopKingdomMenuFragment extends Fragment implements CustomAdapter.ItemClickListener {
+    private List<KingdomDto> kingdomList = new ArrayList<>();
     private CustomAdapter customAdapter = new CustomAdapter(this);
     private KingdomViewModel kingdomViewModel;
 
@@ -39,33 +37,23 @@ public class ShopKingdomMenuFragment extends Fragment implements CustomAdapter.I
         View rootView = inflater.inflate(R.layout.fragment_shop_kingdom_list, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewShopFragmentKingdomList);
-
-
         kingdomList = new ArrayList<>();
-
-
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
-
         kingdomViewModel = new ViewModelProvider(this, new KingdomViewModelFactory(securityManager)).get(KingdomViewModel.class);
-
-        if(kingdomViewModel.getKingdomListsResponseLiveData()==null){
+        if (kingdomViewModel.getKingdomListsResponseLiveData() == null) {
             kingdomViewModel.getKingdoms();
         }
-
         kingdomViewModel.getKingdomListsResponseLiveData().observe(getViewLifecycleOwner(), new Observer<KingdomListsResponse>() {
 
             @Override
             public void onChanged(KingdomListsResponse kingdomListsResponse) {
-
                 kingdomList.addAll(kingdomListsResponse.getOpenedKingdoms());
                 kingdomList.addAll(kingdomListsResponse.getClosedKingdoms());
                 customAdapter.updateData(kingdomList);
             }
         });
 
-
         recyclerView.setAdapter(customAdapter);
-
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -89,6 +77,5 @@ public class ShopKingdomMenuFragment extends Fragment implements CustomAdapter.I
         fragmentTransaction.replace(R.id.fragment_container_shop_kingdom_list, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
     }
 }

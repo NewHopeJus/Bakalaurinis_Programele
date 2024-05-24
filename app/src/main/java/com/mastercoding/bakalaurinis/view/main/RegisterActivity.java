@@ -55,44 +55,28 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = binding.editTextRegisterPassword.getText().toString();
                 String passwordRepeated = binding.editTextRegisterRetypePassword.getText().toString();
 
-                //^ and $: These are the start and end anchors, respectively.
-                // They indicate that the entire string being validated must match the pattern from start to finish.
-                //[a-zA-Z0-9_]: This is a character class. It means that the username should only consist of characters from within this set.
-                //{3,20}: This part specifies the minimum and maximum length of the username.
-                //+ _ . - These special characters are allowed in email
-                //+ means one or more  of the preceding character class
-                //(.+) matches one or more characters for the domain part of the email
-
                 String usernamePattern = "^[a-zA-Z0-9_]{3,20}$";
-                //nors viena maza raide, nors viena didele, nors vienas skaicius, nors vienas simbolis
-                //ne trumpesnis nei 8 character
-                String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!_]).{8,}$";
 
+                // Requires at least one lowercase letter, one uppercase letter, one digit,
+                // one special character from the set @#$%^&+=!_, and a minimum length of 8 characters.
+                String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!_]).{8,}$";
 
                 if (!username.isEmpty() && username.matches(usernamePattern)) {
                     if (!password.isEmpty() && password.matches(passwordPattern)) {
                         if (!passwordRepeated.isEmpty() && password.equals(passwordRepeated)) {
                             LoginRequest user = new LoginRequest(username, password);
                             registerUser(user);
-                        }
-                        else {
+                        } else {
                             Toast.makeText(RegisterActivity.this, "Pakartokite slaptažodį", Toast.LENGTH_SHORT).show();
-
                         }
-                    }
-                    else {
+                    } else {
                         Toast.makeText(RegisterActivity.this, "Netinkamas slaptažodis", Toast.LENGTH_SHORT).show();
-
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(RegisterActivity.this, "Vartotojo vardą turi sudaryti 3-20 simbolių: raidės, skaičiai arba pabraukimai.", Toast.LENGTH_SHORT).show();
-
                 }
             }
-
         });
-
 
         binding.buttonRegisterBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +100,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-
-    //bendravimas su api
     private void registerUser(LoginRequest user) {
         Call<LoginRequest> call = userService.registerUser(user);
         call.enqueue(new Callback<LoginRequest>() {
@@ -140,16 +122,12 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this, "Nesėkminga registracija. Bandykite dar kartą", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
-
 
     private void showInfoPopup(View anchorView, String popupText) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.popup_window, null);
 
-        // Create the popup window
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = true;
@@ -159,14 +137,12 @@ public class RegisterActivity extends AppCompatActivity {
         popupTextView.setText(popupText);
         popupWindow.showAsDropDown(anchorView);
 
-        // Dismisinam popup kai parodo
         popupView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 popupWindow.dismiss();
                 return true;
             }
-
         });
     }
 }

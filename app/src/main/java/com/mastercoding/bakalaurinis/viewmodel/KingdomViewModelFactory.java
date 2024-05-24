@@ -10,7 +10,6 @@ public class KingdomViewModelFactory implements ViewModelProvider.Factory {
     private MineSecurityManager securityManager;
 
     public KingdomViewModelFactory(MineSecurityManager securityManager) {
-
         this.securityManager = securityManager;
     }
 
@@ -19,5 +18,4 @@ public class KingdomViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         return (T) new KingdomViewModel(securityManager);
     }
-
 }

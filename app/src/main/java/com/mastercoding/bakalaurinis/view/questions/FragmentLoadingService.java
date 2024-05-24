@@ -19,7 +19,6 @@ import java.util.Objects;
 
 public class FragmentLoadingService {
 
-
     public static Fragment loadQuestionFragment(Question question) {
         Bundle args = new Bundle();
         Fragment fragment = new Fragment();
@@ -53,8 +52,6 @@ public class FragmentLoadingService {
 
         } else {
             fragment = new IncorrectAnswerFragment();
-
-
         }
         fragment.setArguments(args);
         return fragment;

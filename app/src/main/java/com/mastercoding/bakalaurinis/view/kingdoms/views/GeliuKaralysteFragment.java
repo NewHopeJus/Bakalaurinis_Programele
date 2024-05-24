@@ -26,20 +26,15 @@ public class GeliuKaralysteFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentGeliuKaralysteBinding.inflate(inflater, container, false);
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
         ShopItemViewModel shopItemViewModel = new ViewModelProvider(this, new ShopItemViewModelFactory(securityManager)).get(ShopItemViewModel.class);
-
         Bundle bundle = getArguments();
         if (bundle != null) {
             Long selectedKingdomId = bundle.getLong("kingdomId");
             if (selectedKingdomId != -1) {
                 shopItemViewModel.getBoughtItemsByKingdomId(selectedKingdomId);
-
-
                 shopItemViewModel.getBoughtItemListLiveData().observe(getViewLifecycleOwner(), new Observer<ShopItemListDto>() {
                     @Override
                     public void onChanged(ShopItemListDto shopItemListDto) {
@@ -48,7 +43,6 @@ public class GeliuKaralysteFragment extends Fragment {
                 });
             }
         }
-
         return binding.getRoot();
     }
 }

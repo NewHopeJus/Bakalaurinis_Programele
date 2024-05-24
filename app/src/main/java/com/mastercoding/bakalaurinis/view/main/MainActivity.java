@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         userViewModel = new ViewModelProvider(this, new UserViewModelFactory(securityManager)).get(UserViewModel.class);
 
-
         binding.buttonLoginPageLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
         binding.buttonLoginPageRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +90,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

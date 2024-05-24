@@ -11,7 +11,7 @@ public class QuestionViewModelFactory implements ViewModelProvider.Factory {
     private String levelName;
     private MineSecurityManager securityManager;
 
-    public QuestionViewModelFactory(String levelName, String topicName,  MineSecurityManager securityManager) {
+    public QuestionViewModelFactory(String levelName, String topicName, MineSecurityManager securityManager) {
         this.topicName = topicName;
         this.levelName = levelName;
         this.securityManager = securityManager;

@@ -24,7 +24,6 @@ public class RankingRepository {
 
     private MutableLiveData<List<RankingDto>> rankings;
 
-
     public RankingRepository(MineSecurityManager securityManager) {
         Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
         rankingAPI = retrofit.create(RankingAPI.class);
@@ -48,7 +47,7 @@ public class RankingRepository {
                     rankings.setValue(response.body());
 
                 } else {
-                    Log.e("Statistics Fetching Repository", "Getting statistics from backend failed");
+                    Log.e("Statistics Fetching Repository", "Response for getting statistics from backend was not successful");
                 }
             }
 

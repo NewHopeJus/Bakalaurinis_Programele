@@ -33,26 +33,24 @@ public class KingdomMenuActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //kad paslepti teksta toolbaro
+        //Hiding toolbar text
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
+        // Toolbar button back
         if (item.getItemId() == R.id.action_back) {
-            //nes jei maziau uz viena tai removina visus fragmentus
+            //If less than 1 all fragments are removed
             if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
                 getSupportFragmentManager().popBackStack();
-            }
-            else {
+            } else {
                 finish();
             }
             return true;

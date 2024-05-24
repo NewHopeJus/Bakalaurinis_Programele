@@ -25,34 +25,24 @@ import com.mastercoding.bakalaurinis.viewmodel.ShopItemViewModelFactory;
 public class ElfuKaralysteFragment extends Fragment {
     private FragmentElfuKaralysteBinding binding;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentElfuKaralysteBinding.inflate(inflater, container, false);
-
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
         ShopItemViewModel shopItemViewModel = new ViewModelProvider(this, new ShopItemViewModelFactory(securityManager)).get(ShopItemViewModel.class);
-
         Bundle bundle = getArguments();
         if (bundle != null) {
             Long selectedKingdomId = bundle.getLong("kingdomId");
             if (selectedKingdomId != -1) {
                 shopItemViewModel.getBoughtItemsByKingdomId(selectedKingdomId);
-
-
                 shopItemViewModel.getBoughtItemListLiveData().observe(getViewLifecycleOwner(), new Observer<ShopItemListDto>() {
                     @Override
                     public void onChanged(ShopItemListDto shopItemListDto) {
                         ShopItemVisibilityUtil.setBoughtItemsVisibility(binding.getRoot(), shopItemListDto, getContext());
                     }
-
-
                 });
             }
         }
-
         return binding.getRoot();
     }
 }

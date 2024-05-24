@@ -32,19 +32,15 @@ import java.util.List;
 
 
 public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopItemClickListener {
-
     private List<ShopItem> shopItemList = new ArrayList<>();
     private ShopAdapter shopAdapter = new ShopAdapter(this);
 
     private ShopItemViewModel shopItemViewModel;
     private UserViewModel userViewModel;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
 
         View rootView = inflater.inflate(R.layout.fragment_kingdom_items, container, false);
 
@@ -55,25 +51,17 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
         shopItemViewModel = new ViewModelProvider(this, new ShopItemViewModelFactory(securityManager)).get(ShopItemViewModel.class);
         userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
 
-
         Bundle bundle = getArguments();
         if (bundle != null) {
             Long selectedKingdomId = bundle.getLong("selectedKingdomId");
-
-
             if (shopItemViewModel.getShopItemListMutableLiveData() == null) {
                 shopItemViewModel.getKingdomItems(selectedKingdomId);
             }
-
         }
-
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(shopAdapter);
 
-
         return rootView;
-
     }
 
     @Override
@@ -84,41 +72,28 @@ public class KingdomItemsFragment extends Fragment implements ShopAdapter.ShopIt
             @Override
             public void onChanged(ShopItemListDto shopItemListDto) {
                 shopAdapter.clearData();
-
                 if (shopItemListDto != null) {
                     shopItemList.addAll(shopItemListDto.getShopItems());
                     shopAdapter.updateData(shopItemList);
                 }
             }
-
         });
-
-
-
     }
 
     @Override
     public void onItemClick(int position) {
         Long itemId = shopItemList.get(position).getId();
         shopItemViewModel.buyItem(itemId);
-            shopItemViewModel.getBuyItemResponseLiveData().observe(getViewLifecycleOwner(), new Observer<BuyItemResponse>() {
-                @Override
-                public void onChanged(BuyItemResponse buyItemResponse) {
-                    if (buyItemResponse != null) {
-
-                        Toast.makeText(requireContext(), buyItemResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                        shopItemViewModel.resetBuyItemResponseLiveData();
-                        shopItemViewModel.getBuyItemResponseLiveData().removeObservers(getViewLifecycleOwner());
-
-                        userViewModel.fetchUserInfo();
-
-
-                    }
-
+        shopItemViewModel.getBuyItemResponseLiveData().observe(getViewLifecycleOwner(), new Observer<BuyItemResponse>() {
+            @Override
+            public void onChanged(BuyItemResponse buyItemResponse) {
+                if (buyItemResponse != null) {
+                    Toast.makeText(requireContext(), buyItemResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    shopItemViewModel.resetBuyItemResponseLiveData();
+                    shopItemViewModel.getBuyItemResponseLiveData().removeObservers(getViewLifecycleOwner());
+                    userViewModel.fetchUserInfo();
                 }
-            });
-        }
-
-
-
+            }
+        });
+    }
 }

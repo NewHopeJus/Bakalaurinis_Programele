@@ -39,13 +39,13 @@ public class KingdomRepository {
                     kingdomListsResponseMutableLiveData.setValue(response.body());
 
                 } else {
-                    Log.e("Kingdom Fetching Service", "Getting kingdom from backend failed 1");
+                    Log.e("Kingdom Fetching Service", "Response was not successful");
                 }
             }
 
             @Override
             public void onFailure(Call<KingdomListsResponse> call, Throwable t) {
-                Log.e("Kingdom Fetching Service", "Getting kingdom from backend failed 2", t);
+                Log.e("Kingdom Fetching Service", "Getting kingdom from backend failed", t);
             }
         });
 

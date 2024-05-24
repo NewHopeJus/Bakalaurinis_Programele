@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomViewHolder> {
-
     private List<KingdomDto> kingdomsList;
     private ItemClickListener itemClickListener;
 
@@ -41,22 +40,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
     @NonNull
     @Override
     public KingdomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Inflating the layout for each item in the recyclerview
-
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.kingdom_list_card_item_layout, parent, false);
-
         return new KingdomViewHolder(itemView);
     }
 
+    // Called for each item in the list. This method is responsible for binding the data from the
+    // Kingdom object to the views defined in the KingdomViewHolder.
     @Override
     public void onBindViewHolder(@NonNull KingdomViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        //called for each item in the list and is responsible for binding the data from the Kingdom object to the views
-        //within the 'Kingdom ViewHolder'
-
         KingdomDto kingdomDto = kingdomsList.get(position);
         if (kingdomDto != null) {
-
             if (!kingdomDto.getImg().isEmpty()) {
                 String imageName = kingdomDto.getImg();
                 int imageResId = holder.itemView.getContext().getResources().getIdentifier(imageName, "drawable", holder.itemView.getContext().getPackageName());
@@ -64,9 +58,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
                     holder.imageView.setImageResource(imageResId);
                 }
             }
-
             holder.textView.setText(kingdomDto.getName());
-
             if (!kingdomsList.get(position).isOpened()) {
                 ColorMatrix colorMatrix = new ColorMatrix();
                 colorMatrix.setSaturation(0f);
@@ -74,9 +66,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
                         new ColorMatrixColorFilter(colorMatrix);
                 holder.imageView.setColorFilter(colorFilter);
                 CardView cardView = holder.itemView.findViewById(R.id.cardview_kingdom);
-                cardView.setCardBackgroundColor(Color.GRAY);}
-
-
+                cardView.setCardBackgroundColor(Color.GRAY);
+            }
             if (kingdomDto.isOpened()) {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -86,15 +77,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
                         }
                     }
                 });
-            }
-            else {
-                // Disablinam clikinima uzdarytoms karalystems
+            } else {
+                // Disabling clicks for the closed kingdoms
                 holder.itemView.setOnClickListener(null);
             }
-
-
         }
-
     }
 
     @Override
@@ -102,11 +89,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
         return kingdomsList.size();
     }
 
-
     public static class KingdomViewHolder extends RecyclerView.ViewHolder {
-
         //Holds te references to the views within the item layout
-
         TextView textView;
         ImageView imageView;
 
@@ -115,7 +99,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.KingdomVie
             this.textView = itemView.findViewById(R.id.textViewKingdomCard);
             this.imageView = itemView.findViewById(R.id.imageviewKingdomCard);
         }
-
     }
 
     public interface ItemClickListener {

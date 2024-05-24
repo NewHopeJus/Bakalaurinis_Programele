@@ -22,11 +22,6 @@ public class LevelsData {
         )));
     }
 
-    public List<Level> getLevels() {
-        return levels;
-    }
-
-    //naudojamas leveliu meniu pavadinimams uzkrauti
     public List<String> getLevelNames() {
         List<String> levelNames = new ArrayList<>();
         for (Level level : levels) {
@@ -41,6 +36,6 @@ public class LevelsData {
                 return level.getTopics();
             }
         }
-        return new ArrayList<>(); //returninam tuscia jeigu nk nerado
+        return new ArrayList<>();
     }
 }

@@ -17,10 +17,11 @@ import com.mastercoding.bakalaurinis.model.ShopItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder>{
+public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
 
     private List<ShopItem> itemsList;
     private ShopAdapter.ShopItemClickListener itemClickListener;
+
     public ShopAdapter(ShopAdapter.ShopItemClickListener itemClickListener) {
         this.itemsList = new ArrayList<>();
         this.itemClickListener = itemClickListener;
@@ -40,22 +41,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     @NonNull
     @Override
     public ShopViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Inflating the layout for each item in the recyclerview
-
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.shop_list_item_layout, parent, false);
-
         return new ShopAdapter.ShopViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ShopViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        //called for each item in the list and is responsible for binding the data from the Kingdom object to the views
-        //within the 'Kingdom ViewHolder'
         ShopItem shopItem = itemsList.get(position);
         holder.textViewItemName.setText(shopItem.getName());
         holder.textViewPrice.setText(String.valueOf(shopItem.getPrice()));
-
 
         if (!shopItem.getImgName().isEmpty()) {
             String imageName = shopItem.getImgName();
@@ -64,15 +59,13 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
                 holder.imageViewItemImage.setImageResource(imageResId);
             }
         }
-
-        //vietoje to kad klasutyti viso image clicku siuo atveju klausau tik buttonu
+        //Listening to button clicks
         holder.buttonBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 itemClickListener.onItemClick(position);
             }
         });
-
     }
 
     @Override
@@ -80,9 +73,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         return itemsList.size();
     }
 
-
     public static class ShopViewHolder extends RecyclerView.ViewHolder {
-
         //Holds te references to the views within the item layout
         ImageView imageViewItemImage;
         TextView textViewItemName;
@@ -96,7 +87,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             this.buttonBuy = itemView.findViewById(R.id.buttonBuy);
             this.textViewPrice = itemView.findViewById(R.id.textViewPrice);
         }
-
     }
 
     public interface ShopItemClickListener {

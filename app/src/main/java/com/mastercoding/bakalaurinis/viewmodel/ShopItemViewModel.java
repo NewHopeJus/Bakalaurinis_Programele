@@ -10,21 +10,18 @@ import com.mastercoding.bakalaurinis.repository.ShopItemRepository;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
 public class ShopItemViewModel extends ViewModel {
-    private MutableLiveData<ShopItemListDto> shopItemListMutableLiveData ;
-
+    private MutableLiveData<ShopItemListDto> shopItemListMutableLiveData;
     private MutableLiveData<BuyItemResponse> buyItemResponseLiveData;
-
     private LiveData<ShopItemListDto> boughtItemListMutableLiveData;
-
 
     private ShopItemRepository shopItemRepository;
 
     public ShopItemViewModel(MineSecurityManager securityManager) {
         this.shopItemRepository = new ShopItemRepository(securityManager);
-        this.boughtItemListMutableLiveData= shopItemRepository.getBoughtItemsLiveData();
+        this.boughtItemListMutableLiveData = shopItemRepository.getBoughtItemsLiveData();
     }
 
-    public void getKingdomItems(Long id){
+    public void getKingdomItems(Long id) {
         this.shopItemListMutableLiveData = shopItemRepository.getShopItemsForKingdom(id);
     }
 
@@ -32,7 +29,7 @@ public class ShopItemViewModel extends ViewModel {
         return shopItemListMutableLiveData;
     }
 
-    public void buyItem(Long id){
+    public void buyItem(Long id) {
         this.buyItemResponseLiveData = shopItemRepository.buyItem(id);
     }
 
@@ -40,11 +37,11 @@ public class ShopItemViewModel extends ViewModel {
         return buyItemResponseLiveData;
     }
 
-    public void resetBuyItemResponseLiveData(){
+    public void resetBuyItemResponseLiveData() {
         buyItemResponseLiveData.setValue(null);
     }
 
-    public void getBoughtItemsByKingdomId(Long id){
+    public void getBoughtItemsByKingdomId(Long id) {
         shopItemRepository.getBoughtItemsByKingdomId(id);
     }
 

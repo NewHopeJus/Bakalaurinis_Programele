@@ -30,6 +30,7 @@ public interface UserAPI {
 
     @POST("api/users/update/password")
     Call<LoginResponse> updatePassword(@Body PasswordChangeRequest passwordChangeRequest, @Header("Authorization") String jwtToken);
+
     @POST("api/users/delete")
     Call<ResponseBody> deleteAccount(@Header("Authorization") String jwtToken, @Body AccountDeleteRequest deleteAccountRequest);
 }

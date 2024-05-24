@@ -9,16 +9,14 @@ import com.mastercoding.bakalaurinis.repository.KingdomRepository;
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
 public class KingdomViewModel extends ViewModel {
-
     private MutableLiveData<KingdomListsResponse> kingdomListsResponseLiveData;
-
     private KingdomRepository kingdomRepository;
 
     public KingdomViewModel(MineSecurityManager securityManager) {
         this.kingdomRepository = new KingdomRepository(securityManager);
     }
 
-    public void getKingdoms(){
+    public void getKingdoms() {
         this.kingdomListsResponseLiveData = kingdomRepository.getKingdoms();
     }
 

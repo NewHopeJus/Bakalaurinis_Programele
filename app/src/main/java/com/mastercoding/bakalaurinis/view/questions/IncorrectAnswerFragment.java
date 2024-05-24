@@ -61,7 +61,6 @@ public class IncorrectAnswerFragment extends Fragment {
         TextView textViewCorrectAnswer = fragmentIncorrectAnswerBinding.textViewCorrectAnswer;
 
         Bundle args = getArguments();
-
         if (args != null) {
             Question question = args.getParcelable("questionObject");
             if (question != null) {
@@ -79,7 +78,6 @@ public class IncorrectAnswerFragment extends Fragment {
             TextView textView = fragmentIncorrectAnswerBinding.textViewInCorrectFragmentHeader;
             ImageView imageView2 = fragmentIncorrectAnswerBinding.imageView12;
             ImageView imageView3 = fragmentIncorrectAnswerBinding.imageViewLumi;
-
 
             YoYo.with(Techniques.DropOut)
                     .duration(500)
@@ -105,19 +103,16 @@ public class IncorrectAnswerFragment extends Fragment {
                     .repeat(1)
                     .playOn(imageView3);
 
-
             Boolean kingdomOpened = args.getBoolean("kingdomOpened");
             String textToShow = args.getString("openedKingdomText");
-            if(kingdomOpened){
+            if (kingdomOpened) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                 View customLayout = getLayoutInflater().inflate(R.layout.opening_kingdom_dialog_custom_layout, null);
                 TextView textToDisplayTextView = customLayout.findViewById(R.id.textViewOpeningKingdom);
                 Button btn = customLayout.findViewById(R.id.buttonTestiMonsterKilled);
-
-                ImageView imageViewFirework1 =  customLayout.findViewById(R.id.imageViewFirework1);
-                ImageView imageViewFirework2 =  customLayout.findViewById(R.id.imageViewFirework2);
-
-                ImageView imageViewKilled =  customLayout.findViewById(R.id.imageViewMonsterKilled);
+                ImageView imageViewFirework1 = customLayout.findViewById(R.id.imageViewFirework1);
+                ImageView imageViewFirework2 = customLayout.findViewById(R.id.imageViewFirework2);
+                ImageView imageViewKilled = customLayout.findViewById(R.id.imageViewMonsterKilled);
                 AnimationDrawable monsterKill = (AnimationDrawable) imageViewKilled.getBackground();
                 monsterKill.start();
 
@@ -131,9 +126,7 @@ public class IncorrectAnswerFragment extends Fragment {
                         .repeat(5)
                         .playOn(imageViewFirework2);
 
-
                 builder.setView(customLayout);
-
                 textToDisplayTextView.setText(textToShow);
                 AlertDialog dialog = builder.create();
                 btn.setOnClickListener(new View.OnClickListener() {
@@ -142,12 +135,9 @@ public class IncorrectAnswerFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
-
-
                 dialog.show();
             }
         }
-
         Button buttonContinue = fragmentIncorrectAnswerBinding.buttonContinueInCorrectAnswerFragment;
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +146,5 @@ public class IncorrectAnswerFragment extends Fragment {
                 questionViewModel.getQuestion();
             }
         });
-
     }
-
 }

@@ -36,14 +36,12 @@ import com.mastercoding.bakalaurinis.viewmodel.UserViewModelFactory;
 import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity {
-
     private ActivityProfileBinding activityProfileBinding;
     private TextView usernameTextView;
     private TextView coinsTextView;
     private TextView experienceTextView;
     private MineSecurityManager securityManager;
     private UserViewModel userViewModel;
-
     private Button changeUsernameButton;
     private Button changePasswordButton;
     private Button deleteAccoutButton;
@@ -58,7 +56,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = activityProfileBinding.toolbarProfile;
         setSupportActionBar(toolbar);
-        //kad paslepti teksta toolbaro
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
         usernameTextView = activityProfileBinding.textViewUserNameProfile;
@@ -79,7 +76,6 @@ public class ProfileActivity extends AppCompatActivity {
                     coinsTextView.setText(String.valueOf(userInfoResponse.getUserCoins()));
                     experienceTextView.setText(String.valueOf(userInfoResponse.getUserExperience()));
                 }
-
             }
         });
         userViewModel.fetchUserInfo();
@@ -89,11 +85,8 @@ public class ProfileActivity extends AppCompatActivity {
             public void onChanged(LoginResponse loginResponse) {
                 if (loginResponse != null) {
                     Toast.makeText(getApplicationContext(), "Slapyvardis sėkmingai pakeistas!", Toast.LENGTH_SHORT).show();
-
-
                 } else {
                     Toast.makeText(getApplicationContext(), "Nepavyko pakeisti slapyvardžio. Bandykite dar kartą.", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -105,7 +98,6 @@ public class ProfileActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Slaptažodis sėkmingai pakeistas!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Nepavyko pakeisti slaptažodžio. Bandykite dar kartą.", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -113,20 +105,18 @@ public class ProfileActivity extends AppCompatActivity {
         userViewModel.getDeleteAccountMutableLiveData().observe(ProfileActivity.this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                if(s!=null){
+                if (s != null) {
                     Toast.makeText(getApplicationContext(), "Paskyra sėkmingai ištrinta.", Toast.LENGTH_SHORT).show();
                     securityManager.removeToken();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                }
-                else {
+                } else {
                     Toast.makeText(getApplicationContext(), "Nepavyko ištrinti paskyros.", Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
-
 
         changeUsernameButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,10 +131,8 @@ public class ProfileActivity extends AppCompatActivity {
                 builder.setView(customLayout);
                 AlertDialog dialog = builder.create();
 
-
                 Button saveButton = customLayout.findViewById(R.id.buttonIssaugotiUsernameChange);
                 Button cancelBtn = customLayout.findViewById(R.id.buttonAtsauktiUsernameChange);
-
 
                 EditText naujasSlapyvardis = customLayout.findViewById(R.id.naujasSlapyvardisEditText);
                 EditText slaptazodis = customLayout.findViewById(R.id.naujasSlaptazodisEditText);
@@ -168,14 +156,10 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
-
                     }
                 });
                 dialog.show();
-
-
             }
-
         });
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +176,6 @@ public class ProfileActivity extends AppCompatActivity {
                 EditText oldPassword = customLayout.findViewById(R.id.oldPassword);
                 EditText newPassword = customLayout.findViewById(R.id.newPassword);
                 EditText newPasswordRepeated = customLayout.findViewById(R.id.newPasswordRepeated);
-
 
                 String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!_]).{8,}$";
 
@@ -220,7 +203,6 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
-
                     }
                 });
 
@@ -246,14 +228,11 @@ public class ProfileActivity extends AppCompatActivity {
                                 confirmBuilder.setPositiveButton("Patvirtinti", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog_remove, int which_remove) {
-                                        if(password!=null&& !password.getText().toString().trim().isEmpty()) {
+                                        if (password != null && !password.getText().toString().trim().isEmpty()) {
                                             userViewModel.deleteAccount(new AccountDeleteRequest(password.getText().toString().trim()));
-                                        }
-                                        else{
+                                        } else {
                                             Toast.makeText(ProfileActivity.this, "Iveskite slaptažodį.", Toast.LENGTH_SHORT).show();
-
                                         }
-
                                     }
                                 });
                                 confirmBuilder.setNegativeButton("Atšaukti", new DialogInterface.OnClickListener() {
@@ -278,23 +257,19 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
         if (item.getItemId() == R.id.action_back || item.getItemId() == R.id.action_home) {
             finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }

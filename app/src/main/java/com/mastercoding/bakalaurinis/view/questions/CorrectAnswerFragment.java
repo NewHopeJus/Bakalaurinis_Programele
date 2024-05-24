@@ -42,19 +42,15 @@ public class CorrectAnswerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_correct_answer, container, false);
-
 
         levelName = getActivity().getIntent().getStringExtra("levelName");
         topicName = getActivity().getIntent().getStringExtra("topicName");
 
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
 
-
         questionViewModel = new ViewModelProvider(getActivity(), new QuestionViewModelFactory(levelName, topicName, securityManager)).get(QuestionViewModel.class);
-
 
         return binding.getRoot();
     }
@@ -76,7 +72,6 @@ public class CorrectAnswerFragment extends Fragment {
             if (question != null) {
                 String experiencePoints = "+" + question.getExperience().toString();
                 textViewExperiencePoints.setText(experiencePoints);
-
                 String coins = "+" + question.getCoins().toString();
                 textViewCoins.setText(coins);
 
@@ -85,49 +80,40 @@ public class CorrectAnswerFragment extends Fragment {
                 } else {
                     textViewDescription.setText(question.getDescription());
                 }
-
                 textViewCorrectAnswer.setText(args.getString("correctAnswerText"));
             }
-
             TextView textViewTeisingai = binding.textViewCorrectFragmentHeader;
             YoYo.with(Techniques.DropOut)
                     .duration(700)
                     .playOn(textViewTeisingai);
-
-
 
             YoYo.with(Techniques.ZoomIn)
                     .duration(700)
                     .repeat(2)
                     .playOn(textViewExperiencePoints);
 
-
             YoYo.with(Techniques.ZoomIn)
                     .duration(700)
                     .repeat(2)
                     .playOn(textViewCoins);
 
-
             Animation jumpAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.jump);
             greenCutie.startAnimation(jumpAnimation);
 
-
             Boolean kingdomOpened = args.getBoolean("kingdomOpened");
             String textToShow = args.getString("openedKingdomText");
-            if(kingdomOpened){
+
+            if (kingdomOpened) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                 View customLayout = getLayoutInflater().inflate(R.layout.opening_kingdom_dialog_custom_layout, null);
                 TextView textToDisplayTextView = customLayout.findViewById(R.id.textViewOpeningKingdom);
                 Button btn = customLayout.findViewById(R.id.buttonTestiMonsterKilled);
-
-                ImageView imageViewKilled =  customLayout.findViewById(R.id.imageViewMonsterKilled);
+                ImageView imageViewKilled = customLayout.findViewById(R.id.imageViewMonsterKilled);
                 AnimationDrawable monsterKill = (AnimationDrawable) imageViewKilled.getBackground();
                 monsterKill.start();
                 builder.setView(customLayout);
-
-
-                ImageView imageViewFirework1 =  customLayout.findViewById(R.id.imageViewFirework1);
-                ImageView imageViewFirework2 =  customLayout.findViewById(R.id.imageViewFirework2);
+                ImageView imageViewFirework1 = customLayout.findViewById(R.id.imageViewFirework1);
+                ImageView imageViewFirework2 = customLayout.findViewById(R.id.imageViewFirework2);
 
                 YoYo.with(Techniques.Flash)
                         .duration(700)
@@ -139,11 +125,8 @@ public class CorrectAnswerFragment extends Fragment {
                         .repeat(5)
                         .playOn(imageViewFirework2);
 
-
-
                 textToDisplayTextView.setText(textToShow);
                 AlertDialog dialog = builder.create();
-
 
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -151,25 +134,18 @@ public class CorrectAnswerFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
-
-
                 dialog.show();
-
             }
-
-
         }
-
 
         Button buttonContinue = binding.buttonContinueCorrectAnswerFragment;
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               questionViewModel.setAnswered(false);
-                    questionViewModel.getQuestion();
+                questionViewModel.setAnswered(false);
+                questionViewModel.getQuestion();
             }
         });
     }
-
 
 }

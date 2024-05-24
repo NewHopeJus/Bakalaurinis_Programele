@@ -15,16 +15,15 @@ public class MineSecurityManager {
 
     public void saveToken(String token) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_JWT_TOKEN, token); //nes reikes tokena deti i kiekviena requesta todel ji issaugom
+        editor.putString(KEY_JWT_TOKEN, token); //The token needs to be included in every request, so it is saved in the mobile app's local storage.
         editor.apply();
-
     }
 
     public String getToken() {
         return "Bearer " + sharedPreferences.getString(KEY_JWT_TOKEN, "");
     }
 
-    public void removeToken(){
+    public void removeToken() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();

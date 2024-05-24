@@ -22,7 +22,6 @@ public class ShopItemRepository {
     private MineSecurityManager securityManager;
     private MutableLiveData<ShopItemListDto> shopItemListMutableLiveData;
     private MutableLiveData<BuyItemResponse> buyItemResponseMutableLiveData;
-
     private MutableLiveData<ShopItemListDto> boughtItemsForKingdomMutableLiveData;
 
     public ShopItemRepository(MineSecurityManager securityManager) {
@@ -32,7 +31,6 @@ public class ShopItemRepository {
         shopItemListMutableLiveData = new MutableLiveData<>();
         boughtItemsForKingdomMutableLiveData = new MutableLiveData<>();
         buyItemResponseMutableLiveData = new MutableLiveData<>();
-
     }
 
     public MutableLiveData<ShopItemListDto> getShopItemsForKingdom(Long kingdomId) {
@@ -40,13 +38,13 @@ public class ShopItemRepository {
         call.enqueue(new Callback<ShopItemListDto>() {
             @Override
             public void onResponse(@NonNull Call<ShopItemListDto> call, @NonNull Response<ShopItemListDto> response) {
-                Log.e("Response body", response.body().toString());
                 if (response.isSuccessful()) {
                     shopItemListMutableLiveData.setValue(response.body());
                 } else {
-                    Log.e("Shop Item  Repository", "Getting shop items from backend failed");
+                    Log.e("Shop Item  Repository", "Response for getting shop items from backend was not successful");
                 }
             }
+
             @Override
             public void onFailure(Call<ShopItemListDto> call, Throwable t) {
                 Log.e("Shop Item  Repository", "Getting shop items from backend failed", t);
@@ -63,11 +61,11 @@ public class ShopItemRepository {
 
             @Override
             public void onResponse(@NonNull Call<BuyItemResponse> call, @NonNull Response<BuyItemResponse> response) {
-                if (response.isSuccessful() ) {
+                if (response.isSuccessful()) {
                     buyItemResponseMutableLiveData.setValue(response.body());
 
                 } else {
-                    Log.e("Shop Item  Repository", "Buying item failed");
+                    Log.e("Shop Item  Repository", "Buying item response was not successful");
                 }
             }
 
@@ -87,12 +85,11 @@ public class ShopItemRepository {
 
             @Override
             public void onResponse(@NonNull Call<ShopItemListDto> call, @NonNull Response<ShopItemListDto> response) {
-                Log.e("Response body", response.body().toString());
                 if (response.isSuccessful() && response.body() != null) {
                     boughtItemsForKingdomMutableLiveData.setValue(response.body());
 
                 } else {
-                    Log.e("Shop Item  Repository", "Getting bought items from backend failed");
+                    Log.e("Shop Item  Repository", "Response for getting bought items from backend was not successful");
                 }
             }
 

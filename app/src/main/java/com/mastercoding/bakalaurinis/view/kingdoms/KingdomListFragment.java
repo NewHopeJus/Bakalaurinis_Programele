@@ -49,7 +49,6 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
     private ShopItemViewModel shopItemViewModel;
     Bundle bundle;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,7 +59,6 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
         kingdomList = new ArrayList<>();
         bundle = new Bundle();
 
-
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
 
         kingdomViewModel = new ViewModelProvider(this, new KingdomViewModelFactory(securityManager)).get(KingdomViewModel.class);
@@ -69,7 +67,6 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
         if (kingdomViewModel.getKingdomListsResponseLiveData() == null) {
             kingdomViewModel.getKingdoms();
         }
-
 
         kingdomViewModel.getKingdomListsResponseLiveData().observe(getViewLifecycleOwner(), new Observer<KingdomListsResponse>() {
 
@@ -81,12 +78,8 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
                 customAdapter.updateData(kingdomList);
             }
         });
-
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(customAdapter);
-
-
         return rootView;
     }
 
@@ -98,11 +91,9 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
 
         bundle.putLong("kingdomId", kingdomId);
 
-
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         Fragment fragment;
-
 
         switch (selectedKingdom.getName()) {
             case "Gėlių karalystė":
@@ -129,10 +120,8 @@ public class KingdomListFragment extends Fragment implements CustomAdapter.ItemC
 
         }
         fragment.setArguments(bundle);
-
         fragmentTransaction.replace(R.id.fragment_container_kingdom_list, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
     }
 }

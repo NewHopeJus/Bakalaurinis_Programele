@@ -22,21 +22,17 @@ import com.mastercoding.bakalaurinis.viewmodel.ShopItemViewModelFactory;
 
 public class ManoPilisFragment extends Fragment {
     private FragmentManoPilisBinding binding;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentManoPilisBinding.inflate(inflater, container, false);
         MineSecurityManager securityManager = new MineSecurityManager(requireContext());
         ShopItemViewModel shopItemViewModel = new ViewModelProvider(this, new ShopItemViewModelFactory(securityManager)).get(ShopItemViewModel.class);
-
         Bundle bundle = getArguments();
         if (bundle != null) {
             Long selectedKingdomId = bundle.getLong("kingdomId");
             if (selectedKingdomId != -1) {
                 shopItemViewModel.getBoughtItemsByKingdomId(selectedKingdomId);
-
-
                 shopItemViewModel.getBoughtItemListLiveData().observe(getViewLifecycleOwner(), new Observer<ShopItemListDto>() {
                     @Override
                     public void onChanged(ShopItemListDto shopItemListDto) {
@@ -45,7 +41,6 @@ public class ManoPilisFragment extends Fragment {
                 });
             }
         }
-
         return binding.getRoot();
     }
 }

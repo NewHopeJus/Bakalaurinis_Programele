@@ -48,7 +48,6 @@ public class StatisticsActivity extends AppCompatActivity {
         securityManager = new MineSecurityManager(this);
         Toolbar toolbar = activityStatisticsBinding.toolbar;
         setSupportActionBar(toolbar);
-        //kad paslepti teksta toolbaro
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
         TextView correctAnswered = activityStatisticsBinding.textViewTotalCorrect;
@@ -59,7 +58,7 @@ public class StatisticsActivity extends AppCompatActivity {
         recyclerView.setAdapter(statisticsAdapter);
 
         statisticsViewModel = new ViewModelProvider(this, new StatisticsViewModelFactory(securityManager)).get(StatisticsViewModel.class);
-        statisticsViewModel.getStatistics(); // This should handle its own state internally
+        statisticsViewModel.getStatistics();
 
         statisticsViewModel.getStatisticsResponseMutableLiveData().observe(this, statisticsResponse -> {
             if (statisticsResponse != null) {
@@ -73,19 +72,16 @@ public class StatisticsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
         if (item.getItemId() == R.id.action_back || item.getItemId() == R.id.action_home) {
             finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

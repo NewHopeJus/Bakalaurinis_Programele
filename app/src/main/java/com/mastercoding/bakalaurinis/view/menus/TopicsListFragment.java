@@ -27,13 +27,9 @@ public class TopicsListFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         if (getArguments() != null) {
-            levelName = getArguments().getString("levelName", ""); //gaunam argumenta kuri idejom, levelio pavadinima
+            levelName = getArguments().getString("levelName", "");
         }
-
-        // gaunam temas
         LevelsData levelsData = new LevelsData();
         topics = levelsData.getTopicsForLevel(levelName);
 
@@ -48,7 +44,7 @@ public class TopicsListFragment extends ListFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ListView listView = getListView();
-        listView.setPadding(100, 0, 100, 20); // kad prideti tarpus is sonu
+        listView.setPadding(100, 0, 100, 20);
         listView.setClipToPadding(false);
     }
 
@@ -56,19 +52,13 @@ public class TopicsListFragment extends ListFragment {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent intent = new Intent(getActivity(), QuestionActivity.class);
-
         Bundle args = new Bundle();
-
         if (getArguments() != null) {
             levelName = getArguments().getString("levelName", "");
-
         }
-
         String topicName = topics.get(position);
-
-        args.putString("levelName", levelName); //perduodam i question activity tema ir lygi pasirinkta
+        args.putString("levelName", levelName); //Passing to Question Activity selected level and topic
         args.putString("topicName", topicName);
-
         intent.putExtras(args);
         startActivity(intent);
     }

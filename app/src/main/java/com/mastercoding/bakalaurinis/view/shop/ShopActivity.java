@@ -33,7 +33,6 @@ public class ShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-
         activityShopBinding = DataBindingUtil.setContentView(this, R.layout.activity_shop);
 
         usernameTextView = activityShopBinding.textViewUserNameShop;
@@ -46,16 +45,13 @@ public class ShopActivity extends AppCompatActivity {
             ShopKingdomMenuFragment shopKingdomMenuFragment = new ShopKingdomMenuFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container_shop_kingdom_list, shopKingdomMenuFragment)
-                    .addToBackStack("shop_kingdom_list") //nes reikes grizti
+                    .addToBackStack("shop_kingdom_list")
                     .commit();
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //kad paslepti teksta toolbaro
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-
 
         MineSecurityManager securityManager = new MineSecurityManager(ShopActivity.this);
         userViewModel = new ViewModelProvider(this, new UserViewModelFactory(securityManager)).get(UserViewModel.class);
@@ -69,33 +65,28 @@ public class ShopActivity extends AppCompatActivity {
                     coinsTextView.setText(String.valueOf(userInfoResponse.getUserCoins()));
                     experienceTextView.setText(String.valueOf(userInfoResponse.getUserExperience()));
                 }
-
             }
         });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //toolbaro menu pridedam
         getMenuInflater().inflate(R.menu.bottom_toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // atgal mygtukas ant toolbaro
         if (item.getItemId() == R.id.action_back) {
-            //nes jei maziau uz viena tai removina visus fragmentus
             if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
                 getSupportFragmentManager().popBackStack();
-            }
-            else {
+            } else {
                 finish();
             }
             return true;
         } else if (item.getItemId() == R.id.action_home) {
-           finish();
-           return true;
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -111,7 +102,6 @@ public class ShopActivity extends AppCompatActivity {
                     usernameTextView.setText(userInfoResponse.getUsername());
                     coinsTextView.setText(String.valueOf(userInfoResponse.getUserCoins()));
                     experienceTextView.setText(String.valueOf(userInfoResponse.getUserExperience()));
-
                 }
             });
         }

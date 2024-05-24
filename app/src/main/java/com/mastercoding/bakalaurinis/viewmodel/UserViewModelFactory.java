@@ -6,11 +6,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mastercoding.bakalaurinis.security.MineSecurityManager;
 
-//singleton class, nes turiu sharinti userio unformacijo tarp keliu activity
-public class UserViewModelFactory implements ViewModelProvider.Factory{
+public class UserViewModelFactory implements ViewModelProvider.Factory {
     private MineSecurityManager securityManager;
-    public UserViewModelFactory(MineSecurityManager securityManager) {
 
+    public UserViewModelFactory(MineSecurityManager securityManager) {
         this.securityManager = securityManager;
     }
 
@@ -19,6 +18,4 @@ public class UserViewModelFactory implements ViewModelProvider.Factory{
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         return (T) new UserViewModel(securityManager);
     }
-
-
 }

@@ -20,16 +20,13 @@ import com.mastercoding.bakalaurinis.data.LevelsData;
 public class LevelsListFragment extends ListFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 inflater.getContext(), R.layout.fragment_main_menu_list,
                 new LevelsData().getLevelNames());
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -39,19 +36,15 @@ public class LevelsListFragment extends ListFragment {
         listView.setClipToPadding(false);
     }
 
-
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         TopicsListFragment topicsListFragment = new TopicsListFragment();
-
-        //duomenu struktura kuri leidzia passinnti duomenis tarp skirtingu activities ir fragmentu
         Bundle args = new Bundle();
 
         switch (position) {
-            //ziurim koks pasirinktas lygis menu
             case 0:
-                args.putString("levelName", "1 lygis"); // idedam kad zinot poto kokio lygio temas rodyti topics list fragment
+                args.putString("levelName", "1 lygis");
                 break;
             case 1:
                 args.putString("levelName", "2 lygis");
@@ -68,15 +61,10 @@ public class LevelsListFragment extends ListFragment {
 
         }
         topicsListFragment.setArguments(args);
-
-
         FragmentManager manager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
-
         fragmentTransaction.replace(R.id.fragment_container_main_menu_list, topicsListFragment);
-        fragmentTransaction.addToBackStack(null); //nes reikes veliau atgal
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
-
 }
